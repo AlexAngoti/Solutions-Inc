@@ -1,0 +1,15 @@
+unit uUsuario;
+
+interface
+
+type
+  TUsuario = class
+    private
+      FNomeUsuario: string;
+    public
+      property NomeUsuario: string read FNomeUsuario write FNomeUsuario;
+  end;
+
+implementation
+
+end.

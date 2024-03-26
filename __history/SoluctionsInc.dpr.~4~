@@ -1,0 +1,18 @@
+program SoluctionsInc;
+
+uses
+  Vcl.Forms,
+  uMenu in 'src\view\uMenu.pas' {frmMenu},
+  uLogin in 'src\view\uLogin.pas' {frmLogin},
+  uUsuario in 'src\model\uUsuario.pas',
+  uDM in 'src\model\uDM.pas' {dm: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmMenu, frmMenu);
+  Application.CreateForm(Tdm, dm);
+  Application.Run;
+end.

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/06/10 10:53:16.000.080,=C:\Users\alexa\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2023/06/10 11:08:27.000.544,=C:\Users\alexa\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2023/11/10 11:19:40.000.914,=C:\Users\alexa\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2024/01/02 08:11:58.000.433,=C:\Users\alexa\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2024/01/03 08:54:47.000.326,=C:\Users\alexa\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2024/03/12 15:47:51.000.607,=C:\Users\alexa\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2024/03/14 16:22:11.000.416,=C:\Users\alexa\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2024/03/14 16:24:10.000.367,C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\src\view\uMenu.pas=C:\Users\alexa\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2024/03/14 16:24:10.000.367,C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\src\view\uMenu.dfm=C:\Users\alexa\Documents\Embarcadero\Studio\Projects\Unit4.dfm</Transaction>
+    <Transaction>2024/03/14 16:24:54.000.545,C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\SoluctionsInc.dproj=C:\Users\alexa\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+    <Transaction>2024/03/14 16:26:06.000.845,=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit1.pas</Transaction>
+    <Transaction>2024/03/14 16:26:22.000.183,C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\src\view\uLogin.dfm=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit1.dfm</Transaction>
+    <Transaction>2024/03/14 16:26:22.000.183,C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\src\view\uLogin.pas=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit1.pas</Transaction>
+    <Transaction>2024/03/14 16:41:37.000.927,=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit1.pas</Transaction>
+    <Transaction>2024/03/14 16:41:48.000.615,C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit1.pas=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\src\model\uUsuario.pas</Transaction>
+    <Transaction>2024/03/14 16:49:03.000.402,=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit1.pas</Transaction>
+    <Transaction>2024/03/14 17:00:28.000.909,=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit1.pas</Transaction>
+    <Transaction>2024/03/14 17:01:25.000.787,C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\src\model\uDM.dfm=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit1.dfm</Transaction>
+    <Transaction>2024/03/14 17:01:25.000.787,C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\src\model\uDM.pas=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit1.pas</Transaction>
+    <Transaction>2024/03/15 08:07:00.000.034,=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit1.pas</Transaction>
+    <Transaction>2024/03/15 08:08:05.000.856,C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\src\view\uEscurecerFundo.pas=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit1.pas</Transaction>
+    <Transaction>2024/03/15 08:08:05.000.856,C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\src\view\uEscurecerFundo.dfm=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit1.dfm</Transaction>
+    <Transaction>2024/03/15 08:09:14.000.291,=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit1.pas</Transaction>
+    <Transaction>2024/03/15 08:09:24.000.957,C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\src\model\uUtils.pas=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit1.pas</Transaction>
+    <Transaction>2024/03/15 09:12:35.000.950,=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit2.pas</Transaction>
+    <Transaction>2024/03/15 09:13:26.000.998,C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\src\view\uMsgConfirmar.pas=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit2.pas</Transaction>
+    <Transaction>2024/03/15 09:13:26.000.998,C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\src\view\uMsgConfirmar.dfm=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit2.dfm</Transaction>
+    <Transaction>2024/03/15 09:33:49.000.980,=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit2.pas</Transaction>
+    <Transaction>2024/03/15 09:34:41.000.774,C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit2.pas=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\src\view\uMsgOk.pas</Transaction>
+    <Transaction>2024/03/15 09:34:41.000.774,C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit2.dfm=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\src\view\uMsgOk.dfm</Transaction>
+    <Transaction>2024/03/15 11:35:11.000.512,=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit2.pas</Transaction>
+    <Transaction>2024/03/15 11:36:24.000.438,C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\src\view\uConfiguracao.pas=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit2.pas</Transaction>
+    <Transaction>2024/03/15 11:36:24.000.438,C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\src\view\uConfiguracao.dfm=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit2.dfm</Transaction>
+    <Transaction>2024/03/15 14:12:42.000.772,=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit2.pas</Transaction>
+    <Transaction>2024/03/15 14:13:11.000.042,C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit2.pas=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\src\view\uCadastroPadrao.pas</Transaction>
+    <Transaction>2024/03/15 14:13:11.000.042,C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit2.dfm=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\src\view\uCadastroPadrao.dfm</Transaction>
+    <Transaction>2024/03/15 14:42:09.000.604,=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit2.pas</Transaction>
+    <Transaction>2024/03/15 14:42:32.000.057,=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit1.pas</Transaction>
+    <Transaction>2024/03/15 14:42:57.000.877,C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit1.dfm=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\src\view\uCadastroCliente.dfm</Transaction>
+    <Transaction>2024/03/15 14:42:57.000.877,C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit1.pas=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\src\view\uCadastroCliente.pas</Transaction>
+    <Transaction>2024/03/23 17:33:59.000.101,=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\Unit1.pas</Transaction>
+    <Transaction>2024/03/25 16:45:04.000.420,C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\SolutionsInc.dproj=C:\Users\alexa\Documents\Projetos Pessoal\SoluctionsInc\SoluctionsInc.dproj</Transaction>
+    <Transaction>2024/03/26 09:52:09.522,=C:\Users\alexa\Documents\Projetos Pessoal\SolutionsInc\Unit1.pas</Transaction>
+    <Transaction>2024/03/26 09:53:19.684,=C:\Users\alexa\Documents\Projetos Pessoal\SolutionsInc\Unit1.pas</Transaction>
+    <Transaction>2024/03/26 09:54:09.324,C:\Users\alexa\Documents\Projetos Pessoal\SolutionsInc\src\view\uCadastroUsuario.pas=C:\Users\alexa\Documents\Projetos Pessoal\SolutionsInc\Unit1.pas</Transaction>
+    <Transaction>2024/03/26 09:54:09.324,C:\Users\alexa\Documents\Projetos Pessoal\SolutionsInc\src\view\uCadastroUsuario.dfm=C:\Users\alexa\Documents\Projetos Pessoal\SolutionsInc\Unit1.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
