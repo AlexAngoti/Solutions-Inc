@@ -13,7 +13,9 @@ uses
   uConfiguracao in 'src\view\uConfiguracao.pas' {frmConfiguracao},
   uCadastroPadrao in 'src\view\uCadastroPadrao.pas' {frmCadastroPadrao},
   uCadastroCliente in 'src\view\uCadastroCliente.pas' {frmCadastroCliente},
-  uCadastroUsuario in 'src\view\uCadastroUsuario.pas' {frmCadastroPadrao1};
+  uCadastroUsuario in 'src\view\uCadastroUsuario.pas' {frmCadastroUsuario},
+  uConsultaPadrao in 'src\view\uConsultaPadrao.pas' {frmConsultaPadrao},
+  uConsultaUsuario in 'src\view\uConsultaUsuario.pas' {frmConsultaUsuario};
 
 {$R *.res}
 
@@ -22,12 +24,5 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(Tdm, dm);
   Application.CreateForm(TfrmMenu, frmMenu);
-  Application.CreateForm(TfrmEscurecerFundo, frmEscurecerFundo);
-  Application.CreateForm(TfrmMsgConfirmar, frmMsgConfirmar);
-  Application.CreateForm(TfrmMsgOk, frmMsgOk);
-  Application.CreateForm(TfrmConfiguracao, frmConfiguracao);
-  Application.CreateForm(TfrmCadastroPadrao, frmCadastroPadrao);
-  Application.CreateForm(TfrmCadastroCliente, frmCadastroCliente);
-  Application.CreateForm(TfrmCadastroPadrao1, frmCadastroPadrao1);
   Application.Run;
 end.

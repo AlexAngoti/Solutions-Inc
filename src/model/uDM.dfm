@@ -2,7 +2,7 @@ object dm: Tdm
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   Height = 441
-  Width = 608
+  Width = 617
   object FDConnection: TFDConnection
     Params.Strings = (
       'Database=SoluctionsInc'
@@ -33,13 +33,15 @@ object dm: Tdm
     ParamData = <
       item
         Position = 1
-        Name = 'login'
-        ParamType = ptInput
+        Name = 'senha'
+        DataType = ftWideString
+        Value = '123'
       end
       item
         Position = 2
-        Name = 'senha'
-        ParamType = ptInput
+        Name = 'login'
+        DataType = ftWideString
+        Value = 'alex'
       end>
   end
   object dspLogin: TDataSetProvider

@@ -5,7 +5,10 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uUsuario, Datasnap.DBClient,
-  Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls;
+  Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  Data.DB, Datasnap.Provider, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
 
 type
   TfrmMenu = class(TForm)
@@ -35,6 +38,10 @@ type
     btnCadUsuario: TSpeedButton;
     Panel1: TPanel;
     SpeedButton6: TSpeedButton;
+    qryValidaLogin: TFDQuery;
+    dspValidaLogin: TDataSetProvider;
+    cdsValidaAcesso: TClientDataSet;
+    dsValidaAcesso: TDataSource;
     procedure FormCreate(Sender: TObject);
     procedure btnMenuLateralClick(Sender: TObject);
     procedure btnConfiguracaoClick(Sender: TObject);
@@ -45,10 +52,12 @@ type
     procedure btnCadastrosClick(Sender: TObject);
     procedure pnlSubCadastroMouseEnter(Sender: TObject);
     procedure btnCadClientesClick(Sender: TObject);
+    procedure btnCadUsuarioClick(Sender: TObject);
   private
     procedure EscondeLateral;
     procedure FazLogin;
     procedure EncerraProg;
+    procedure MudaCorAcesso;
     { Private declarations }
   public
     AUsuario: TUsuario;
@@ -62,7 +71,7 @@ var
 implementation
 
 uses
-  uLogin, uDM, uEscurecerFundo, uConfiguracao, uCadastroCliente, uUtils;
+  uLogin, uDM, uEscurecerFundo, uConfiguracao, uCadastroCliente, uUtils, uCadastroUsuario;
 
 {$R *.dfm}
 
@@ -117,7 +126,9 @@ begin
       try
         AUsuario.IdUsuario   := (dm.dsLogin.DataSet as TClientDataSet).FieldByName('id').AsInteger;
         AUsuario.NomeUsuario := frmLogin.edtUsuario.Text;
+        AUsuario.NivelAcesso := (dm.dsLogin.DataSet as TClientDataSet).FieldByName('master').AsString;
         btnUsuario.Caption   := AUsuario.NomeUsuario;
+        Self.MudaCorAcesso;
       except
         Application.MessageBox('Não foi possivel realizar login', 'ATENÇÃO', MB_ICONERROR + MB_OK);
         Application.Terminate;
@@ -131,6 +142,59 @@ end;
 procedure TfrmMenu.FormCreate(Sender: TObject);
 begin
   Self.FazLogin;
+end;
+
+procedure TfrmMenu.MudaCorAcesso;
+begin
+  if AUsuario.NivelAcesso <> 'S' then
+  begin
+    (dm.dsValidaAcesso.DataSet as TClientDataSet).Close;
+    (dm.dsValidaAcesso.DataSet as TClientDataSet).ParamByName('idlogin').AsInteger
+      := AUsuario.IdUsuario;
+    (dm.dsValidaAcesso.DataSet as TClientDataSet).Open;
+
+    btnCadClientes.Font.Color  := clRed;
+    btnCadProduto.Font.Color   := clRed;
+    btnCadEmpresa.Font.Color   := clRed;
+    btnCadFormaPag.Font.Color  := clRed;
+    btnCadUsuario.Font.Color   := clRed;
+    btnConfiguracao.Font.Color := clRed;
+    (dm.dsValidaAcesso.DataSet as TClientDataSet).First;
+    while not (dm.dsValidaAcesso.DataSet as TClientDataSet).Eof do
+    begin
+      if (dm.dsValidaAcesso.DataSet as TClientDataSet).FieldByName('botaomenu').AsString = btnCadClientes.Name then
+      begin
+        btnCadClientes.Font.Color := $00404040;
+      end;
+
+      if (dm.dsValidaAcesso.DataSet as TClientDataSet).FieldByName('botaomenu').AsString = btnCadProduto.Name then
+      begin
+        btnCadProduto.Font.Color := $00404040;
+      end;
+
+      if (dm.dsValidaAcesso.DataSet as TClientDataSet).FieldByName('botaomenu').AsString = btnCadEmpresa.Name then
+      begin
+        btnCadEmpresa.Font.Color := $00404040;
+      end;
+
+      if (dm.dsValidaAcesso.DataSet as TClientDataSet).FieldByName('botaomenu').AsString = btnCadFormaPag.Name then
+      begin
+        btnCadFormaPag.Font.Color := $00404040;
+      end;
+
+      if (dm.dsValidaAcesso.DataSet as TClientDataSet).FieldByName('botaomenu').AsString = btnCadUsuario.Name then
+      begin
+        btnCadUsuario.Font.Color := $00404040;
+      end;
+
+      if (dm.dsValidaAcesso.DataSet as TClientDataSet).FieldByName('botaomenu').AsString = btnConfiguracao.Name then
+      begin
+        btnConfiguracao.Font.Color := clWhite;
+      end;
+
+      (dm.dsValidaAcesso.DataSet as TClientDataSet).Next;
+    end;
+  end;
 end;
 
 procedure TfrmMenu.pnlSubCadastroMouseEnter(Sender: TObject);
@@ -161,6 +225,17 @@ begin
   frmCadastroCliente.Parent := pnlSubCentral;
   frmCadastroCliente.Align  := alClient;
   frmCadastroCliente.Show;
+  pnlSubCadastro.Visible := False;
+end;
+
+procedure TfrmMenu.btnCadUsuarioClick(Sender: TObject);
+begin
+  ValidaAcesso(AUsuario.IdUsuario, 'frmCadastroUsuario');
+
+  frmCadastroUsuario := TfrmCadastroUsuario.Create(Self);
+  frmCadastroUsuario.Parent := pnlSubCentral;
+  frmCadastroUsuario.Align  := alClient;
+  frmCadastroUsuario.Show;
   pnlSubCadastro.Visible := False;
 end;
 

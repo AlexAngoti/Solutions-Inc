@@ -15,25 +15,28 @@ uses
 implementation
 
 uses
-  uMsgConfirmar, uMsgOk, uDM, uEscurecerFundo;
+  uMsgConfirmar, uMsgOk, uDM, uEscurecerFundo, uMenu;
 
 function ValidaAcesso(IdUsuario: Integer; NomeTela: string): Boolean;
 begin
-  (dm.dsValidaAcesso.DataSet as TClientDataSet).Close;
-  (dm.dsValidaAcesso.DataSet as TClientDataSet).ParamByName('NomeTela').AsString
-    := NomeTela;
-  (dm.dsValidaAcesso.DataSet as TClientDataSet).ParamByName('idlogin').AsInteger
-    := IdUsuario;
-  (dm.dsValidaAcesso.DataSet as TClientDataSet).Open;
+  if frmMenu.AUsuario.NivelAcesso <> 'S' then
+  begin
+    (dm.dsValidaAcesso.DataSet as TClientDataSet).Close;
+    (dm.dsValidaAcesso.DataSet as TClientDataSet).ParamByName('NomeTela').AsString
+      := NomeTela;
+    (dm.dsValidaAcesso.DataSet as TClientDataSet).ParamByName('idlogin').AsInteger
+      := IdUsuario;
+    (dm.dsValidaAcesso.DataSet as TClientDataSet).Open;
 
-  if (dm.dsValidaAcesso.DataSet as TClientDataSet).IsEmpty then
-  begin
-    MsgOk('Seu usuário não possui permissão para acessar a tela atual!!', 'Acesso bloqueado, favor verificar com responsavel pelos acessos.');
-    Abort;
-  end
-  else
-  begin
-    Result := True;
+    if (dm.dsValidaAcesso.DataSet as TClientDataSet).IsEmpty then
+    begin
+      MsgOk('Seu usuário não possui permissão para acessar a tela atual!!', 'Acesso bloqueado, favor verificar com responsavel pelos acessos.');
+      Abort;
+    end
+    else
+    begin
+      Result := True;
+    end;
   end;
 end;
 

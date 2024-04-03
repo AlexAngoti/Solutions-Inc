@@ -1642,9 +1642,53 @@ object frmMenu: TfrmMenu
         Margin = 10
         ParentFont = False
         Spacing = 10
+        OnClick = btnCadUsuarioClick
         ExplicitLeft = -2
         ExplicitTop = 97
       end
     end
+  end
+  object qryValidaLogin: TFDQuery
+    SQL.Strings = (
+      'select a.idtelas, '
+      #9'   a.idlogin, '
+      #9'   t.nometela,'
+      #9'   t.botaomenu '
+      '  from acessos a'
+      ' inner join telas t '
+      '    ON t.id = a.idtelas'
+      '   and a.idlogin =:idlogin'
+      '   and a.liberado = 0')
+    Left = 392
+    Top = 8
+    ParamData = <
+      item
+        Position = 2
+        Name = 'idlogin'
+        ParamType = ptInput
+        Value = Null
+      end>
+  end
+  object dspValidaLogin: TDataSetProvider
+    DataSet = qryValidaLogin
+    Left = 424
+    Top = 8
+  end
+  object cdsValidaAcesso: TClientDataSet
+    Aggregates = <>
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'idlogin'
+        ParamType = ptUnknown
+      end>
+    ProviderName = 'dspValidaLogin'
+    Left = 456
+    Top = 8
+  end
+  object dsValidaAcesso: TDataSource
+    DataSet = cdsValidaAcesso
+    Left = 488
+    Top = 8
   end
 end
