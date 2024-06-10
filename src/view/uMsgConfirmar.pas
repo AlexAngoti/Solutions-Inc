@@ -23,6 +23,7 @@ type
     btnCancelar: TSpeedButton;
     procedure FormResize(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
   private
     procedure ArredondaPainel;
     { Private declarations }
@@ -46,6 +47,11 @@ procedure TfrmMsgConfirmar.ArredondaPainel;
 begin
   RoundedPanel(pnlCancelar, 12);
   RoundedPanel(pnlSalvar, 12);
+end;
+
+procedure TfrmMsgConfirmar.btnCancelarClick(Sender: TObject);
+begin
+  ModalResult := mrCancel;
 end;
 
 procedure TfrmMsgConfirmar.btnSalvarClick(Sender: TObject);

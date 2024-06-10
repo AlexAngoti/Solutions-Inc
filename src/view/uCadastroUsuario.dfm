@@ -2,34 +2,28 @@ inherited frmCadastroUsuario: TfrmCadastroUsuario
   Caption = 'frmCadastroUsuario'
   ClientWidth = 1000
   OnResize = FormResize
+  ExplicitTop = -132
   ExplicitWidth = 1000
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnlBarraPesquisa: TPanel
     Width = 1000
     ExplicitWidth = 1000
+    ExplicitHeight = 604
     inherited pnlSubButtonTop: TPanel
       Width = 1000
       ExplicitWidth = 1000
-      inherited pnlCancelar: TPanel
-        Left = 871
-        ExplicitLeft = 871
-      end
-      inherited pnlConfirmar: TPanel
-        Left = 739
-        ExplicitLeft = 739
-      end
       inherited pnlConsulta: TPanel
-        Left = 607
-        ExplicitLeft = 607
+        Left = 859
+        ExplicitLeft = 859
       end
       inherited pnlExcluir: TPanel
-        Left = 464
-        ExplicitLeft = 464
+        Left = 699
+        ExplicitLeft = 699
       end
       inherited pnlInserir: TPanel
-        Left = 536
-        ExplicitLeft = 536
+        Left = 779
+        ExplicitLeft = 779
       end
     end
     inherited pnlSubBot: TPanel
@@ -315,47 +309,69 @@ inherited frmCadastroUsuario: TfrmCadastroUsuario
           ParentFont = False
           TabOrder = 2
           Items.Strings = (
-            'Sim'
-            'N'#227'o')
+            '0 - Sim'
+            '1 - N'#227'o')
           MudarColor = 14087422
         end
       end
     end
+    inherited pnlSalvar: TPanel
+      Width = 970
+      ExplicitLeft = 16
+      ExplicitWidth = 970
+      inherited pnlCancelar: TPanel
+        Left = 833
+        ExplicitLeft = 833
+        ExplicitTop = 4
+        ExplicitHeight = 32
+        inherited btnCancelar: TSpeedButton
+          ExplicitLeft = -64
+          ExplicitTop = 26
+          ExplicitWidth = 131
+          ExplicitHeight = 32
+        end
+      end
+      inherited pnlConfirmar: TPanel
+        Left = 707
+        ExplicitLeft = 708
+        ExplicitTop = 4
+      end
+      inherited Panel1: TPanel
+        Width = 970
+        ExplicitTop = 0
+        ExplicitWidth = 970
+      end
+    end
   end
   inherited cdsCadastroPadrao: TClientDataSet
-    Params = <
-      item
-        DataType = ftWideString
-        Name = 'senha'
-        ParamType = ptUnknown
-      end
-      item
-        DataType = ftWideString
-        Name = 'login'
-        ParamType = ptUnknown
-      end>
     ProviderName = 'dspCadastroPadrao'
     object cdsCadastroPadraoid: TLargeintField
       FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
     end
     object cdsCadastroPadraoacesso: TWideStringField
       FieldName = 'acesso'
+      Origin = 'acesso'
       Size = 255
     end
     object cdsCadastroPadraosenha: TWideStringField
       FieldName = 'senha'
+      Origin = 'senha'
       Size = 255
     end
     object cdsCadastroPadraomaster: TWideStringField
       FieldName = 'master'
+      Origin = 'master'
       Size = 1
     end
     object cdsCadastroPadraoativo: TIntegerField
       FieldName = 'ativo'
+      Origin = 'ativo'
     end
   end
   inherited dspCadastroPadrao: TDataSetProvider
-    DataSet = dm.qryLogin
+    DataSet = qryLogin
   end
   object cdsControleAcesso: TClientDataSet
     Aggregates = <>
@@ -447,6 +463,33 @@ inherited frmCadastroUsuario: TfrmCadastroUsuario
         Name = 'LOGIN'
         ParamType = ptInput
         Value = Null
+      end>
+  end
+  object qryLogin: TFDQuery
+    Connection = dm.FDConnection
+    SQL.Strings = (
+      'SELECT '
+      '    l.id,'
+      '    l.acesso,'
+      '    l.senha,'
+      '    l.master,'
+      '    l.ativo'
+      'FROM '
+      '    login l;')
+    Left = 272
+    Top = 5
+  end
+  object qryDeletaAcessos: TFDQuery
+    Connection = dm.FDConnection
+    SQL.Strings = (
+      'DELETE FROM acessos '
+      'WHERE acessos.idlogin = :ID')
+    Left = 79
+    Top = 4
+    ParamData = <
+      item
+        Name = 'ID'
+        ParamType = ptInput
       end>
   end
 end

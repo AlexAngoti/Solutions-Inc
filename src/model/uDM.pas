@@ -27,6 +27,23 @@ type
     dspValidaLogin: TDataSetProvider;
     cdsValidaAcesso: TClientDataSet;
     dsValidaAcesso: TDataSource;
+    qryFormaPgto: TFDQuery;
+    qryReceber: TFDQuery;
+    cdsLoginid: TLargeintField;
+    cdsLoginacesso: TWideStringField;
+    cdsLoginsenha: TWideStringField;
+    cdsLoginmaster: TWideStringField;
+    cdsLoginativo: TIntegerField;
+    qryReceberid: TLargeintField;
+    qryReceberdataemissao: TDateField;
+    qryReceberdatavencimento: TDateField;
+    qryRecebervalor: TBCDField;
+    qryReceberformapgto: TIntegerField;
+    qryReceberidcliente: TIntegerField;
+    qryReceberdatabaixa: TDateField;
+    qryReceberdescricao: TWideStringField;
+    qryRecebernumerodoc: TWideStringField;
+    qryReceberobservaobaixa: TWideStringField;
     procedure DataModuleCreate(Sender: TObject);
     const arquvioconfig = 'config.ini';
   private

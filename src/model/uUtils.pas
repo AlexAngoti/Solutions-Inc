@@ -6,11 +6,15 @@ uses
   Vcl.ExtCtrls, Winapi.Windows, System.SysUtils, Vcl.ComCtrls,
   Datasnap.DBClient;
 
+const
+  FTokenSintegra = '3772BE1B-CABB-4E17-BBB0-4439A6E3D870';
+
   procedure RoundedPanel(Painel: TPanel; ITamanho: Integer);
   procedure PrcOcultarTabs(PageControl : TPageControl);
   function MsgConfirmar(ATitulo: String; AMenssagem: String): Integer;
   function MsgOk(ATitulo: String; AMenssagem: String): Integer;
   function ValidaAcesso(IdUsuario: Integer; NomeTela: string): Boolean;
+
 
 implementation
 

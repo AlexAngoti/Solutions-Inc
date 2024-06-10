@@ -83,6 +83,8 @@
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -149,6 +151,50 @@
             <Form>frmConsultaUsuario</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="src\view\uConsultaPessoa.pas">
+            <Form>frmConsultaPessoa</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uCadastroFormaPgto.pas">
+            <Form>frmCadastroPagamento</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uConsultaPgto.pas">
+            <Form>frmConsultaPagamento</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\UContasReceber.pas">
+            <Form>frmContasReceber</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uContasPagar.pas">
+            <Form>frmContasPagar</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uMovContasReceber.pas">
+            <Form>frmMovReceber</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uVendas.pas">
+            <Form>frmVendas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uCompras.pas">
+            <Form>frmCompras</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uCadastroProduto.pas">
+            <Form>frmCadastroPadrao1</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uPesquisaPadrao.pas">
+            <Form>frmPesquisaPadrao</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uBaixaReceber.pas">
+            <Form>frmMovBaixaReceber</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -169,6 +215,11 @@
                 <Source>
                     <Source Name="MainSource">SolutionsInc.dpr</Source>
                 </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclDataSnapNativeServer270.bpl">Embarcadero DBExpress DataSnap Native Server Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k270.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp270.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
                 <DeployFile LocalName="Win32\Debug\SolutionsInc.exe" Configuration="Debug" Class="ProjectOutput">

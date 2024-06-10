@@ -32,16 +32,18 @@ type
     cdsLiberacao: TClientDataSet;
     dspLiberacao: TDataSetProvider;
     qryLiberacao: TFDQuery;
+    cbxMaster: TDBCheckBox;
+    cbxTodos: TCheckBox;
+    qryValidaNome: TFDQuery;
+    qryLogin: TFDQuery;
     cdsCadastroPadraoid: TLargeintField;
     cdsCadastroPadraoacesso: TWideStringField;
     cdsCadastroPadraosenha: TWideStringField;
     cdsCadastroPadraomaster: TWideStringField;
     cdsCadastroPadraoativo: TIntegerField;
-    cbxMaster: TDBCheckBox;
-    cbxTodos: TCheckBox;
     pnlSalvar: TPanel;
     btnSalvar: TSpeedButton;
-    qryValidaNome: TFDQuery;
+    qryDeletaAcessos: TFDQuery;
     procedure edtSenhaExit(Sender: TObject);
     procedure dbGrdPesquisaDrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
@@ -53,6 +55,8 @@ type
     procedure btnConfirmarClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
     procedure edtNomeExit(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+    procedure btnExcluirClick(Sender: TObject);
   private
     procedure CarregaAcessos;
     procedure SalvaAcessos;
@@ -64,6 +68,7 @@ type
     procedure ClearField; override;
     procedure ValidaRegistro; override;
     procedure OpenScreen; override;
+    procedure ExcluiAcesso; override;
     { Public declarations }
   end;
 
@@ -86,7 +91,6 @@ begin
   pnlSalvar.Enabled     := False;
   edtSenha.Enabled      := False;
   edtNome.Enabled       := False;
-  lblSenha.Enabled      := False;
   lblAtivo.Enabled      := False;
   Label2.Enabled        := False;
   btnExcluir.Enabled    := False;
@@ -94,18 +98,45 @@ begin
   btnInserir.Enabled    := True;
 end;
 
-procedure TfrmCadastroUsuario.btnConfirmarClick(Sender: TObject);
+procedure TfrmCadastroUsuario.btnCancelarClick(Sender: TObject);
 begin
-  (dsCadastroPadrao.DataSet as TClientDataSet).FieldByName('master').AsString := 'N';
-  (dsCadastroPadrao.DataSet as TClientDataSet).FieldByName('ativo').AsInteger := cbxAtivo.ItemIndex;
-
   inherited;
 
-  if (dsControleAcesso.DataSet as TClientDataSet).State in [dsEdit] then
+  if ValidaMsg = False then
+  begin
+    if (dsControleAcesso.DataSet as TClientDataSet).Active then
+    begin
+      (dsControleAcesso.DataSet as TClientDataSet).EmptyDataSet;
+      (dsControleAcesso.DataSet as TClientDataSet).Close;
+    end;
+  end;
+
+  btnConsulta.Enabled := True;
+end;
+
+procedure TfrmCadastroUsuario.btnConfirmarClick(Sender: TObject);
+begin
+  Self.ValidaRegistro;
+  (dsCadastroPadrao.DataSet as TClientDataSet).FieldByName('ativo').AsInteger := cbxAtivo.ItemIndex;
+  if cdsCadastroPadrao.State in [dsInsert] then
+  begin
+    (dsCadastroPadrao.DataSet as TClientDataSet).FieldByName('master').AsString := 'N';
+  end;
+  if (dsCadastroPadrao.DataSet as TClientDataSet).State in [dsEdit] then
   begin
     (dsLiberacao.DataSet as TClientDataSet).ApplyUpdates(-1);
     (dsControleAcesso.DataSet as TClientDataSet).EmptyDataSet;
+    (dsControleAcesso.DataSet as TClientDataSet).Close;
   end;
+
+  inherited;
+  btnConsulta.Enabled := True;
+end;
+
+procedure TfrmCadastroUsuario.btnExcluirClick(Sender: TObject);
+begin
+  inherited;
+  btnConsulta.Enabled := True;
 end;
 
 procedure TfrmCadastroUsuario.btnInserirClick(Sender: TObject);
@@ -115,6 +146,7 @@ begin
   cbxMaster.Enabled     := False;
   cbxTodos.Enabled      := False;
   btnSalvar.Enabled     := False;
+  btnConsulta.Enabled   := False;
 end;
 
 procedure TfrmCadastroUsuario.btnSalvarClick(Sender: TObject);
@@ -173,11 +205,13 @@ begin
   begin
     dbGrdPesquisa.Enabled := False;
     cbxTodos.Enabled      := False;
+    btnSalvar.Enabled     := False;
   end
   else
   begin
     dbGrdPesquisa.Enabled := True;
     cbxTodos.Enabled      := True;
+    btnSalvar.Enabled     := True;
   end;
 end;
 
@@ -205,7 +239,7 @@ begin
   inherited;
   edtNome.Clear;
   edtSenha.Clear;
-  cbxAtivo.Text := EmptyStr;
+  cbxAtivo.ItemIndex := -1
 end;
 
 procedure TfrmCadastroUsuario.dbGrdPesquisaDblClick(Sender: TObject);
@@ -273,6 +307,17 @@ begin
   end;
 end;
 
+procedure TfrmCadastroUsuario.ExcluiAcesso;
+begin
+  inherited;
+  qryDeletaAcessos.Close;
+  qryDeletaAcessos.ParamByName('ID').AsInteger := cdsCadastroPadraoid.AsInteger;
+  qryDeletaAcessos.ExecSQL;
+
+  (dsControleAcesso.DataSet as TClientDataSet).EmptyDataSet;
+  (dsControleAcesso.DataSet as TClientDataSet).Close;
+end;
+
 procedure TfrmCadastroUsuario.FormResize(Sender: TObject);
 begin
   pnlTopCentral.Left := Round(pnlSubTop.Width / 2 - pnlTopCentral.Width / 2);
@@ -309,8 +354,17 @@ begin
 
     if frmConsultaUsuario.ModalResult = mrOk then
     begin
-      cbxAtivo.ItemIndex := (dsCadastroPadrao.DataSet as TClientDataSet).FieldByName('ativo').AsInteger;
       Self.CarregaAcessos;
+      Self.LiberaCampo;
+      btnConsulta.Enabled := False;
+      if cdsCadastroPadraoativo.AsInteger = 0 then
+      begin
+        cbxAtivo.ItemIndex := 0;
+      end
+      else
+      begin
+        cbxAtivo.ItemIndex := 1;
+      end;
     end;
   finally
     frmConsultaUsuario.Free;
@@ -364,6 +418,7 @@ begin
         end;
       end;
       (dsLiberacao.DataSet as TClientDataSet).Post;
+      (dsLiberacao.DataSet as TClientDataSet).ApplyUpdates(-1);
       (dsControleAcesso.DataSet as TClientDataSet).Next;
     end;
   except

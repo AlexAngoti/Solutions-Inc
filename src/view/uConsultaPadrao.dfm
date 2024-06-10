@@ -30,8 +30,6 @@ object frmConsultaPadrao: TfrmConsultaPadrao
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = -243
-    ExplicitWidth = 964
     object imgLogoTop: TImage
       Left = 0
       Top = 0
@@ -44,9 +42,9 @@ object frmConsultaPadrao: TfrmConsultaPadrao
     object lblNomeLogoTop: TLabel
       Left = 64
       Top = 19
-      Width = 230
+      Width = 162
       Height = 17
-      Caption = 'Revolution Software / Consulta Pad'#227'o'
+      Caption = 'SOLUTIONS INC / Consulta'
       Color = clWhite
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
@@ -81,64 +79,21 @@ object frmConsultaPadrao: TfrmConsultaPadrao
       ExplicitHeight = 57
     end
   end
-  object pnlSubBot: TPanel
-    AlignWithMargins = True
-    Left = 5
-    Top = 409
-    Width = 935
-    Height = 57
-    Margins.Left = 5
-    Margins.Top = 5
-    Margins.Right = 5
-    Margins.Bottom = 5
-    Align = alBottom
-    BevelOuter = bvNone
-    Color = clWhite
-    ParentBackground = False
-    TabOrder = 1
-    ExplicitLeft = -243
-    ExplicitTop = 382
-    ExplicitWidth = 964
-    object lblNomeLogo: TLabel
-      Left = 64
-      Top = 19
-      Width = 122
-      Height = 17
-      Caption = 'Revolution Software'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
-      Font.Height = -13
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object imgLogo: TImage
-      Left = 0
-      Top = 0
-      Width = 57
-      Height = 57
-      Align = alLeft
-      ExplicitTop = 1
-    end
-  end
   object pnlCentral: TPanel
     AlignWithMargins = True
     Left = 5
     Top = 67
     Width = 935
-    Height = 337
+    Height = 399
     Margins.Left = 5
     Margins.Top = 0
     Margins.Right = 5
-    Margins.Bottom = 0
+    Margins.Bottom = 5
     Align = alClient
     BevelOuter = bvNone
     Color = clWhite
     ParentBackground = False
-    TabOrder = 2
-    ExplicitLeft = -243
-    ExplicitWidth = 964
-    ExplicitHeight = 370
+    TabOrder = 1
     object pnlBarraPesquisa: TPanel
       Left = 0
       Top = 0
@@ -149,7 +104,6 @@ object frmConsultaPadrao: TfrmConsultaPadrao
       Color = clWhite
       ParentBackground = False
       TabOrder = 0
-      ExplicitTop = 1
       object lblPesquisar: TLabel
         Left = 21
         Top = 2
@@ -334,30 +288,36 @@ object frmConsultaPadrao: TfrmConsultaPadrao
         end
       end
     end
-    object dbGrdPesquisa: TDBGrid
+    object dbGrdPesquisa: TcxGrid
       Left = 0
       Top = 57
       Width = 935
-      Height = 280
+      Height = 342
       Align = alClient
-      BorderStyle = bsNone
-      Color = clWhite
-      DataSource = dsConsultaPadrao
-      FixedColor = clWhite
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = 2105376
-      Font.Height = -13
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      Options = [dgTitles, dgIndicator, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgTitleClick, dgTitleHotTrack]
-      ParentFont = False
+      BevelInner = bvNone
+      BevelOuter = bvNone
+      BorderStyle = cxcbsNone
       TabOrder = 1
-      TitleFont.Charset = ANSI_CHARSET
-      TitleFont.Color = clWindowText
-      TitleFont.Height = -13
-      TitleFont.Name = 'Segoe UI'
-      TitleFont.Style = []
-      OnDblClick = dbGrdPesquisaDblClick
+      ExplicitLeft = 256
+      ExplicitTop = 144
+      ExplicitWidth = 250
+      ExplicitHeight = 200
+      object dbGrdPesquisaDBTableView1: TcxGridDBTableView
+        Navigator.Buttons.CustomButtons = <>
+        ScrollbarAnnotations.CustomAnnotations = <>
+        DataController.DataSource = dsConsultaPadrao
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <>
+        DataController.Summary.SummaryGroups = <>
+        OptionsData.Deleting = False
+        OptionsData.DeletingConfirmation = False
+        OptionsData.Editing = False
+        OptionsData.Inserting = False
+        OptionsView.GroupByBox = False
+      end
+      object dbGrdPesquisaLevel1: TcxGridLevel
+        GridView = dbGrdPesquisaDBTableView1
+      end
     end
   end
   object dsConsultaPadrao: TDataSource
