@@ -6,34 +6,41 @@ uses
   Vcl.ExtCtrls, Winapi.Windows, System.SysUtils, Vcl.ComCtrls,
   Datasnap.DBClient;
 
+const
+  FTokenSintegra = '3772BE1B-CABB-4E17-BBB0-4439A6E3D870';
+
   procedure RoundedPanel(Painel: TPanel; ITamanho: Integer);
   procedure PrcOcultarTabs(PageControl : TPageControl);
   function MsgConfirmar(ATitulo: String; AMenssagem: String): Integer;
   function MsgOk(ATitulo: String; AMenssagem: String): Integer;
   function ValidaAcesso(IdUsuario: Integer; NomeTela: string): Boolean;
 
+
 implementation
 
 uses
-  uMsgConfirmar, uMsgOk, uDM, uEscurecerFundo;
+  uMsgConfirmar, uMsgOk, uDM, uEscurecerFundo, uMenu;
 
 function ValidaAcesso(IdUsuario: Integer; NomeTela: string): Boolean;
 begin
-  (dm.dsValidaAcesso.DataSet as TClientDataSet).Close;
-  (dm.dsValidaAcesso.DataSet as TClientDataSet).ParamByName('NomeTela').AsString
-    := NomeTela;
-  (dm.dsValidaAcesso.DataSet as TClientDataSet).ParamByName('idlogin').AsInteger
-    := IdUsuario;
-  (dm.dsValidaAcesso.DataSet as TClientDataSet).Open;
+  if frmMenu.AUsuario.NivelAcesso <> 'S' then
+  begin
+    (dm.dsValidaAcesso.DataSet as TClientDataSet).Close;
+    (dm.dsValidaAcesso.DataSet as TClientDataSet).ParamByName('NomeTela').AsString
+      := NomeTela;
+    (dm.dsValidaAcesso.DataSet as TClientDataSet).ParamByName('idlogin').AsInteger
+      := IdUsuario;
+    (dm.dsValidaAcesso.DataSet as TClientDataSet).Open;
 
-  if (dm.dsValidaAcesso.DataSet as TClientDataSet).IsEmpty then
-  begin
-    MsgOk('Seu usuário não possui permissão para acessar a tela atual!!', 'Acesso bloqueado, favor verificar com responsavel pelos acessos.');
-    Abort;
-  end
-  else
-  begin
-    Result := True;
+    if (dm.dsValidaAcesso.DataSet as TClientDataSet).IsEmpty then
+    begin
+      MsgOk('Seu usuário não possui permissão para acessar a tela atual!!', 'Acesso bloqueado, favor verificar com responsavel pelos acessos.');
+      Abort;
+    end
+    else
+    begin
+      Result := True;
+    end;
   end;
 end;
 

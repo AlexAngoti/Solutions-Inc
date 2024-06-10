@@ -4,7 +4,7 @@ object frmMsgOk: TfrmMsgOk
   BorderStyle = bsNone
   Caption = 'frmMsgOk'
   ClientHeight = 260
-  ClientWidth = 668
+  ClientWidth = 844
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,14 +19,13 @@ object frmMsgOk: TfrmMsgOk
   object pnlBackGround: TPanel
     Left = 0
     Top = 0
-    Width = 668
+    Width = 844
     Height = 260
     Align = alClient
     BevelOuter = bvNone
     Color = 15395562
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 601
     object imgFormulario: TImage
       Left = 56
       Top = 95
@@ -264,14 +263,13 @@ object frmMsgOk: TfrmMsgOk
     object pnlTop: TPanel
       Left = 0
       Top = 0
-      Width = 668
+      Width = 844
       Height = 49
       Align = alTop
       BevelOuter = bvNone
       Color = 15395562
       ParentBackground = False
       TabOrder = 0
-      ExplicitWidth = 601
       object lblNomeEmpresa: TLabel
         Left = 71
         Top = 12
@@ -290,18 +288,17 @@ object frmMsgOk: TfrmMsgOk
       object pnlLine: TPanel
         Left = 0
         Top = 48
-        Width = 668
+        Width = 844
         Height = 1
         Align = alBottom
         Color = clGray
         ParentBackground = False
         TabOrder = 0
-        ExplicitWidth = 601
       end
     end
     object pnlSalvar: TPanel
       AlignWithMargins = True
-      Left = 503
+      Left = 678
       Top = 210
       Width = 150
       Height = 36

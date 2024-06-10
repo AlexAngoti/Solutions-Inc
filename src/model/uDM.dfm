@@ -2,7 +2,7 @@ object dm: Tdm
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   Height = 441
-  Width = 608
+  Width = 617
   object FDConnection: TFDConnection
     Params.Strings = (
       'Database=SoluctionsInc'
@@ -32,13 +32,11 @@ object dm: Tdm
     Top = 80
     ParamData = <
       item
-        Position = 1
-        Name = 'login'
+        Name = 'SENHA'
         ParamType = ptInput
       end
       item
-        Position = 2
-        Name = 'senha'
+        Name = 'LOGIN'
         ParamType = ptInput
       end>
   end
@@ -63,6 +61,30 @@ object dm: Tdm
     ProviderName = 'dspLogin'
     Left = 88
     Top = 80
+    object cdsLoginid: TLargeintField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object cdsLoginacesso: TWideStringField
+      FieldName = 'acesso'
+      Origin = 'acesso'
+      Size = 255
+    end
+    object cdsLoginsenha: TWideStringField
+      FieldName = 'senha'
+      Origin = 'senha'
+      Size = 255
+    end
+    object cdsLoginmaster: TWideStringField
+      FieldName = 'master'
+      Origin = 'master'
+      Size = 1
+    end
+    object cdsLoginativo: TIntegerField
+      FieldName = 'ativo'
+      Origin = 'ativo'
+    end
   end
   object dsLogin: TDataSource
     DataSet = cdsLogin
@@ -160,5 +182,71 @@ object dm: Tdm
     DataSet = cdsValidaAcesso
     Left = 424
     Top = 80
+  end
+  object qryFormaPgto: TFDQuery
+    Connection = FDConnection
+    SQL.Strings = (
+      'select * from formapgto f')
+    Left = 56
+    Top = 136
+  end
+  object qryReceber: TFDQuery
+    Connection = FDConnection
+    SQL.Strings = (
+      'SELECT * FROM contasreceber a'
+      'where ((:id = 0) or (a.id = :id))'
+      '  and a.databaixa is null')
+    Left = 88
+    Top = 136
+    ParamData = <
+      item
+        Name = 'ID'
+        ParamType = ptInput
+        Value = Null
+      end>
+    object qryReceberid: TLargeintField
+      FieldName = 'id'
+      Origin = 'id'
+    end
+    object qryReceberdataemissao: TDateField
+      FieldName = 'dataemissao'
+      Origin = 'dataemissao'
+    end
+    object qryReceberdatavencimento: TDateField
+      FieldName = 'datavencimento'
+      Origin = 'datavencimento'
+    end
+    object qryRecebervalor: TBCDField
+      FieldName = 'valor'
+      Origin = 'valor'
+      Precision = 15
+      Size = 2
+    end
+    object qryReceberformapgto: TIntegerField
+      FieldName = 'formapgto'
+      Origin = 'formapgto'
+    end
+    object qryReceberidcliente: TIntegerField
+      FieldName = 'idcliente'
+      Origin = 'idcliente'
+    end
+    object qryReceberdatabaixa: TDateField
+      FieldName = 'databaixa'
+      Origin = 'databaixa'
+    end
+    object qryReceberdescricao: TWideStringField
+      FieldName = 'descricao'
+      Origin = 'descricao'
+      Size = 255
+    end
+    object qryRecebernumerodoc: TWideStringField
+      FieldName = 'numerodoc'
+      Origin = 'numerodoc'
+      Size = 60
+    end
+    object qryReceberobservaobaixa: TWideStringField
+      FieldName = 'observaobaixa'
+      Size = 255
+    end
   end
 end

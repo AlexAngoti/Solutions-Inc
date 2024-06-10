@@ -31,23 +31,32 @@ type
     dsCadastroPadrao: TDataSource;
     cdsCadastroPadrao: TClientDataSet;
     dspCadastroPadrao: TDataSetProvider;
+    pnlBotaoSalvar: TPanel;
+    pnlLinhaBotao: TPanel;
     procedure btnExcluirClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
     procedure btnConfirmarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnConsultaClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     procedure OpenDataSet;
     procedure ExcluirRegistro;
-    procedure OpenScreen; virtual; abstract;
     { Private declarations }
   public
+    procedure OpenScreen; virtual; abstract;
+    procedure BloqueiaCampo; virtual; abstract;
+    procedure LiberaCampo; virtual; abstract;
+    procedure ClearField; virtual; abstract;
+    procedure ValidaRegistro; virtual; abstract;
+    procedure ExcluiAcesso; virtual; abstract;
     { Public declarations }
   end;
 
 var
   frmCadastroPadrao: TfrmCadastroPadrao;
+  ValidaMsg: Boolean;
 
 implementation
 
@@ -63,16 +72,30 @@ begin
   begin
     if MsgConfirmar('Realmente deseja cancelar o processo atual ?', 'Todo o processo atual sera perdido!!') = mrOk then
     begin
+      Self.BloqueiaCampo;
       (dsCadastroPadrao.DataSet as TClientDataSet).Cancel;
-      Self.Close;
+      Self.OpenDataSet;
+      Self.ClearField;
+      ValidaMsg := False;
+    end
+    else
+    begin
+      ValidaMsg := True;
     end;
+  end
+  else
+  begin
+    Self.Close;
   end;
 end;
 
 procedure TfrmCadastroPadrao.btnConfirmarClick(Sender: TObject);
 begin
+  Self.ValidaRegistro;
   (dsCadastroPadrao.DataSet as TClientDataSet).Post;
   (dsCadastroPadrao.DataSet as TClientDataSet).ApplyUpdates(-1);
+  Self.ClearField;
+  Self.BloqueiaCampo;
 end;
 
 procedure TfrmCadastroPadrao.btnConsultaClick(Sender: TObject);
@@ -87,7 +110,10 @@ end;
 
 procedure TfrmCadastroPadrao.btnInserirClick(Sender: TObject);
 begin
+  Self.OpenDataSet;
   (dsCadastroPadrao.DataSet as TClientDataSet).Insert;
+  Self.ClearField;
+  Self.LiberaCampo;
 end;
 
 procedure TfrmCadastroPadrao.ExcluirRegistro;
@@ -95,14 +121,19 @@ begin
   if (dsCadastroPadrao.DataSet as TClientDataSet).State in [dsInsert] then
   begin
     Self.OpenDataSet;
+    Self.ClearField;
+    Self.BloqueiaCampo;
   end
   else
   begin
     if MsgConfirmar('Deseja excluir esse registro ?', 'Esse registro será excluido permanentemente do sistema!') = mrOk then
     begin
+      Self.ExcluiAcesso;
       (dsCadastroPadrao.DataSet as TClientDataSet).Delete;
       (dsCadastroPadrao.DataSet as TClientDataSet).ApplyUpdates(-1);
       Self.OpenDataSet;
+      Self.ClearField;
+      Self.BloqueiaCampo;
     end;
   end;
 end;
@@ -113,11 +144,15 @@ begin
   Action := CaFree;
 end;
 
+procedure TfrmCadastroPadrao.FormShow(Sender: TObject);
+begin
+  Self.BloqueiaCampo;
+end;
+
 procedure TfrmCadastroPadrao.OpenDataSet;
 begin
   (dsCadastroPadrao.DataSet as TClientDataSet).Close;
   (dsCadastroPadrao.DataSet as TClientDataSet).Open;
-  (dsCadastroPadrao.DataSet as TClientDataSet).Insert;
 end;
 
 end.

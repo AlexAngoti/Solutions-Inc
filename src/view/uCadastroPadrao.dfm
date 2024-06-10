@@ -3,7 +3,7 @@ object frmCadastroPadrao: TfrmCadastroPadrao
   Top = 0
   BorderStyle = bsNone
   Caption = 'frmCadastroPadrao'
-  ClientHeight = 508
+  ClientHeight = 604
   ClientWidth = 1005
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
@@ -13,13 +13,14 @@ object frmCadastroPadrao: TfrmCadastroPadrao
   Font.Style = []
   OldCreateOrder = False
   OnClose = FormClose
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object pnlBarraPesquisa: TPanel
     Left = 0
     Top = 0
     Width = 1005
-    Height = 508
+    Height = 604
     Align = alClient
     BevelOuter = bvNone
     Color = clWhite
@@ -54,84 +55,14 @@ object frmCadastroPadrao: TfrmCadastroPadrao
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object pnlCancelar: TPanel
-        AlignWithMargins = True
-        Left = 876
-        Top = 39
-        Width = 126
-        Height = 32
-        Margins.Top = 39
-        Align = alRight
-        BevelOuter = bvNone
-        Color = 13750737
-        ParentBackground = False
-        TabOrder = 0
-        object btnCancelar: TSpeedButton
-          Left = 0
-          Top = 0
-          Width = 126
-          Height = 32
-          Margins.Top = 26
-          Align = alClient
-          Caption = 'Cancelar'
-          Flat = True
-          Font.Charset = ANSI_CHARSET
-          Font.Color = -1
-          Font.Height = -11
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          ParentFont = False
-          OnClick = btnCancelarClick
-          ExplicitLeft = 32
-          ExplicitTop = 8
-          ExplicitWidth = 23
-          ExplicitHeight = 22
-        end
-      end
-      object pnlConfirmar: TPanel
-        AlignWithMargins = True
-        Left = 744
-        Top = 39
-        Width = 126
-        Height = 32
-        Margins.Top = 39
-        Align = alRight
-        BevelOuter = bvNone
-        Color = 16740690
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        ParentBackground = False
-        ParentFont = False
-        TabOrder = 1
-        object btnConfirmar: TSpeedButton
-          Left = 0
-          Top = 0
-          Width = 126
-          Height = 32
-          Align = alClient
-          Caption = 'Confirmar'
-          Flat = True
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
-          Font.Height = -11
-          Font.Name = 'Segoe UI Semibold'
-          Font.Style = [fsBold]
-          ParentFont = False
-          OnClick = btnConfirmarClick
-          ExplicitTop = -3
-          ExplicitHeight = 34
-        end
-      end
       object pnlConsulta: TPanel
         AlignWithMargins = True
-        Left = 612
+        Left = 864
         Top = 39
         Width = 126
         Height = 32
         Margins.Top = 39
+        Margins.Right = 15
         Align = alRight
         BevelOuter = bvNone
         Color = 13750737
@@ -142,7 +73,7 @@ object frmCadastroPadrao: TfrmCadastroPadrao
         Font.Style = []
         ParentBackground = False
         ParentFont = False
-        TabOrder = 2
+        TabOrder = 0
         object btnConsulta: TSpeedButton
           Left = 0
           Top = 0
@@ -201,9 +132,9 @@ object frmCadastroPadrao: TfrmCadastroPadrao
       end
       object pnlExcluir: TPanel
         AlignWithMargins = True
-        Left = 469
+        Left = 704
         Top = 39
-        Width = 66
+        Width = 74
         Height = 32
         Margins.Top = 39
         Align = alRight
@@ -216,11 +147,11 @@ object frmCadastroPadrao: TfrmCadastroPadrao
         Font.Style = []
         ParentBackground = False
         ParentFont = False
-        TabOrder = 3
+        TabOrder = 1
         object btnExcluir: TSpeedButton
           Left = 0
           Top = 0
-          Width = 66
+          Width = 74
           Height = 32
           Margins.Top = 26
           Align = alClient
@@ -275,14 +206,14 @@ object frmCadastroPadrao: TfrmCadastroPadrao
       end
       object pnlInserir: TPanel
         AlignWithMargins = True
-        Left = 541
+        Left = 784
         Top = 39
-        Width = 65
+        Width = 74
         Height = 32
         Margins.Top = 39
         Align = alRight
         BevelOuter = bvNone
-        Color = clGreen
+        Color = 16740690
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -11
@@ -290,11 +221,11 @@ object frmCadastroPadrao: TfrmCadastroPadrao
         Font.Style = []
         ParentBackground = False
         ParentFont = False
-        TabOrder = 4
+        TabOrder = 2
         object btnInserir: TSpeedButton
           Left = 0
           Top = 0
-          Width = 65
+          Width = 74
           Height = 32
           Margins.Top = 30
           Align = alClient
@@ -353,7 +284,7 @@ object frmCadastroPadrao: TfrmCadastroPadrao
       Left = 15
       Top = 329
       Width = 975
-      Height = 230
+      Height = 165
       Margins.Left = 15
       Margins.Top = 0
       Margins.Right = 15
@@ -412,6 +343,107 @@ object frmCadastroPadrao: TfrmCadastroPadrao
         Color = 13750737
         ParentBackground = False
         TabOrder = 0
+      end
+    end
+    object pnlBotaoSalvar: TPanel
+      AlignWithMargins = True
+      Left = 15
+      Top = 553
+      Width = 975
+      Height = 36
+      Margins.Left = 15
+      Margins.Top = 0
+      Margins.Right = 15
+      Margins.Bottom = 15
+      Align = alBottom
+      BevelOuter = bvNone
+      Color = clWhite
+      ParentBackground = False
+      TabOrder = 3
+      object pnlCancelar: TPanel
+        AlignWithMargins = True
+        Left = 712
+        Top = 4
+        Width = 131
+        Height = 32
+        Margins.Left = 0
+        Margins.Right = 6
+        Margins.Bottom = 0
+        Align = alRight
+        BevelOuter = bvNone
+        Color = 13750737
+        ParentBackground = False
+        TabOrder = 0
+        object btnCancelar: TSpeedButton
+          Left = 0
+          Top = 0
+          Width = 131
+          Height = 32
+          Margins.Top = 26
+          Align = alClient
+          Caption = 'Cancelar'
+          Flat = True
+          Font.Charset = ANSI_CHARSET
+          Font.Color = -1
+          Font.Height = -11
+          Font.Name = 'Segoe UI Semibold'
+          Font.Style = [fsBold]
+          ParentFont = False
+          OnClick = btnCancelarClick
+          ExplicitLeft = 32
+          ExplicitTop = 8
+          ExplicitWidth = 23
+          ExplicitHeight = 22
+        end
+      end
+      object pnlConfirmar: TPanel
+        AlignWithMargins = True
+        Left = 849
+        Top = 4
+        Width = 126
+        Height = 32
+        Margins.Left = 0
+        Margins.Right = 0
+        Margins.Bottom = 0
+        Align = alRight
+        BevelOuter = bvNone
+        Color = 16740690
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentBackground = False
+        ParentFont = False
+        TabOrder = 1
+        object btnConfirmar: TSpeedButton
+          Left = 0
+          Top = 0
+          Width = 126
+          Height = 32
+          Align = alClient
+          Caption = 'Confirmar'
+          Flat = True
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWhite
+          Font.Height = -11
+          Font.Name = 'Segoe UI Semibold'
+          Font.Style = [fsBold]
+          ParentFont = False
+          OnClick = btnConfirmarClick
+          ExplicitTop = 3
+        end
+      end
+      object pnlLinhaBotao: TPanel
+        Left = 0
+        Top = 0
+        Width = 975
+        Height = 1
+        Align = alTop
+        BevelOuter = bvNone
+        Color = 13750737
+        ParentBackground = False
+        TabOrder = 2
       end
     end
   end

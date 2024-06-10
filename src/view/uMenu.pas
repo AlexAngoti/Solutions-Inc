@@ -5,7 +5,11 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uUsuario, Datasnap.DBClient,
-  Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls;
+  Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  Data.DB, Datasnap.Provider, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
+  Vcl.Grids, Vcl.DBGrids;
 
 type
   TfrmMenu = class(TForm)
@@ -30,11 +34,28 @@ type
     pnlSubCadastro: TPanel;
     btnCadProduto: TSpeedButton;
     btnCadClientes: TSpeedButton;
-    btnCadEmpresa: TSpeedButton;
     btnCadFormaPag: TSpeedButton;
     btnCadUsuario: TSpeedButton;
-    Panel1: TPanel;
-    SpeedButton6: TSpeedButton;
+    qryValidaLogin: TFDQuery;
+    dspValidaLogin: TDataSetProvider;
+    cdsValidaAcesso: TClientDataSet;
+    dsValidaAcesso: TDataSource;
+    qryPesquisaTela: TFDQuery;
+    dspPesquisaTela: TDataSetProvider;
+    cdsPesquisa: TClientDataSet;
+    ds: TDataSource;
+    pnlTela: TPanel;
+    dbGrdPesquisa: TDBGrid;
+    cdsPesquisadescricao: TWideStringField;
+    cdsPesquisanometela: TWideStringField;
+    btnContasReceber: TSpeedButton;
+    btnContasPagar: TSpeedButton;
+    pnlMovimentacao: TPanel;
+    SpeedButton3: TSpeedButton;
+    SpeedButton1: TSpeedButton;
+    btnEstoque: TSpeedButton;
+    pnlEstoque: TPanel;
+    SpeedButton7: TSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure btnMenuLateralClick(Sender: TObject);
     procedure btnConfiguracaoClick(Sender: TObject);
@@ -45,10 +66,25 @@ type
     procedure btnCadastrosClick(Sender: TObject);
     procedure pnlSubCadastroMouseEnter(Sender: TObject);
     procedure btnCadClientesClick(Sender: TObject);
+    procedure btnCadUsuarioClick(Sender: TObject);
+    procedure dbGrdPesquisaDrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure dbGrdPesquisaDblClick(Sender: TObject);
+    procedure btnPesquisaClick(Sender: TObject);
+    procedure pnlTelaMouseEnter(Sender: TObject);
+    procedure btnCadFormaPagClick(Sender: TObject);
+    procedure btnContasReceberClick(Sender: TObject);
+    procedure btnContasPagarClick(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure btnPedidoClick(Sender: TObject);
+    procedure pnlMovimentacaoMouseEnter(Sender: TObject);
+    procedure btnEstoqueClick(Sender: TObject);
+    procedure pnlEstoqueMouseEnter(Sender: TObject);
   private
     procedure EscondeLateral;
     procedure FazLogin;
     procedure EncerraProg;
+    procedure MudaCorAcesso;
     { Private declarations }
   public
     AUsuario: TUsuario;
@@ -62,7 +98,8 @@ var
 implementation
 
 uses
-  uLogin, uDM, uEscurecerFundo, uConfiguracao, uCadastroCliente, uUtils;
+  uLogin, uDM, uEscurecerFundo, uConfiguracao, uCadastroCliente, uUtils, uCadastroUsuario, uCadastroFormaPgto,
+  UContasReceber, uContasPagar, uVendas, uCompras;
 
 {$R *.dfm}
 
@@ -70,6 +107,11 @@ procedure TfrmMenu.btnDashBoardClick(Sender: TObject);
 begin
   AUsuario.Free;
   Self.FazLogin;
+end;
+
+procedure TfrmMenu.btnEstoqueClick(Sender: TObject);
+begin
+  pnlEstoque.Visible := not pnlEstoque.Visible;
 end;
 
 procedure TfrmMenu.btnFecharClick(Sender: TObject);
@@ -80,6 +122,71 @@ end;
 procedure TfrmMenu.btnMenuLateralClick(Sender: TObject);
 begin
   Self.EscondeLateral;
+end;
+
+procedure TfrmMenu.btnPedidoClick(Sender: TObject);
+begin
+  pnlMovimentacao.Visible := not pnlMovimentacao.Visible;
+end;
+
+procedure TfrmMenu.btnPesquisaClick(Sender: TObject);
+begin
+  cdsPesquisa.Close;
+  cdsPesquisa.Open;
+
+  if edtDigitarTela.Text <> EmptyStr then
+  begin
+    ds.DataSet.Filtered := False;
+    if edtDigitarTela.Text <> EmptyStr then
+    begin
+      ds.DataSet.Filter := 'UPPER(descricao) LIKE ' +
+        QuotedStr('%' + UpperCase(edtDigitarTela.Text) + '%');
+      ds.DataSet.Filtered := True;
+    end;
+  end;
+  pnlTela.BringToFront;
+  pnlTela.Visible := True;
+end;
+
+procedure TfrmMenu.dbGrdPesquisaDblClick(Sender: TObject);
+begin
+  if 'frmCadastroCliente' = cdsPesquisanometela.AsString then
+  begin
+    btnCadClientesClick(Self);
+  end;
+
+  if 'frmConfiguracao' = cdsPesquisanometela.AsString then
+  begin
+    btnConfiguracaoClick(Self);
+  end;
+
+  if 'frmCadastroUsuario' = cdsPesquisanometela.AsString then
+  begin
+    btnCadUsuarioClick(Self);
+  end;
+end;
+
+procedure TfrmMenu.dbGrdPesquisaDrawColumnCell(Sender: TObject;
+  const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
+begin
+  if Odd( dbGrdPesquisa.DataSource.DataSet.RecNo) then
+  begin
+    dbGrdPesquisa.Canvas.Brush.Color :=  $00FBFBFB;
+  end
+  else
+  begin
+    dbGrdPesquisa.Canvas.Brush.Color := clwhite;
+  end;
+
+  if ( gdSelected in State ) then
+  begin
+    dbGrdPesquisa.Canvas.Brush.Color := $00FFE8CC;
+    dbGrdPesquisa.Canvas.Font.Color  := clBlack;
+    dbGrdPesquisa.Canvas.Font.Style  := [fsBold];
+  end;
+
+  dbGrdPesquisa.Canvas.FillRect(Rect);
+  dbGrdPesquisa.DefaultDrawColumnCell( Rect, DataCol, Column, State);
 end;
 
 procedure TfrmMenu.EncerraProg;
@@ -117,7 +224,9 @@ begin
       try
         AUsuario.IdUsuario   := (dm.dsLogin.DataSet as TClientDataSet).FieldByName('id').AsInteger;
         AUsuario.NomeUsuario := frmLogin.edtUsuario.Text;
+        AUsuario.NivelAcesso := (dm.dsLogin.DataSet as TClientDataSet).FieldByName('master').AsString;
         btnUsuario.Caption   := AUsuario.NomeUsuario;
+        //Self.MudaCorAcesso;
       except
         Application.MessageBox('Não foi possivel realizar login', 'ATENÇÃO', MB_ICONERROR + MB_OK);
         Application.Terminate;
@@ -133,8 +242,79 @@ begin
   Self.FazLogin;
 end;
 
+procedure TfrmMenu.MudaCorAcesso;
+begin
+  if AUsuario.NivelAcesso <> 'S' then
+  begin
+    (dm.dsValidaAcesso.DataSet as TClientDataSet).Close;
+    (dm.dsValidaAcesso.DataSet as TClientDataSet).ParamByName('idlogin').AsInteger
+      := AUsuario.IdUsuario;
+    (dm.dsValidaAcesso.DataSet as TClientDataSet).Open;
+
+    btnCadClientes.Font.Color  := clRed;
+    btnCadProduto.Font.Color   := clRed;
+    btnCadFormaPag.Font.Color  := clRed;
+    btnCadUsuario.Font.Color   := clRed;
+    btnConfiguracao.Font.Color := clRed;
+    (dm.dsValidaAcesso.DataSet as TClientDataSet).First;
+    while not (dm.dsValidaAcesso.DataSet as TClientDataSet).Eof do
+    begin
+      if (dm.dsValidaAcesso.DataSet as TClientDataSet).FieldByName('botaomenu').AsString = btnCadClientes.Name then
+      begin
+        btnCadClientes.Font.Color := $00404040;
+      end;
+
+      if (dm.dsValidaAcesso.DataSet as TClientDataSet).FieldByName('botaomenu').AsString = btnCadProduto.Name then
+      begin
+        btnCadProduto.Font.Color := $00404040;
+      end;
+
+      if (dm.dsValidaAcesso.DataSet as TClientDataSet).FieldByName('botaomenu').AsString = btnCadFormaPag.Name then
+      begin
+        btnCadFormaPag.Font.Color := $00404040;
+      end;
+
+      if (dm.dsValidaAcesso.DataSet as TClientDataSet).FieldByName('botaomenu').AsString = btnCadUsuario.Name then
+      begin
+        btnCadUsuario.Font.Color := $00404040;
+      end;
+
+      if (dm.dsValidaAcesso.DataSet as TClientDataSet).FieldByName('botaomenu').AsString = btnConfiguracao.Name then
+      begin
+        btnConfiguracao.Font.Color := clWhite;
+      end;
+
+      (dm.dsValidaAcesso.DataSet as TClientDataSet).Next;
+    end;
+  end;
+end;
+
+procedure TfrmMenu.pnlEstoqueMouseEnter(Sender: TObject);
+begin
+  pnlEstoque.Visible := False;
+end;
+
+procedure TfrmMenu.pnlMovimentacaoMouseEnter(Sender: TObject);
+begin
+  pnlMovimentacao.Visible := False;
+end;
+
 procedure TfrmMenu.pnlSubCadastroMouseEnter(Sender: TObject);
 begin
+  pnlSubCadastro.Visible := False;
+end;
+
+procedure TfrmMenu.pnlTelaMouseEnter(Sender: TObject);
+begin
+  pnlTela.Visible := False;
+end;
+
+procedure TfrmMenu.SpeedButton3Click(Sender: TObject);
+begin
+  frmCompras := TfrmCompras.Create(Self);
+  frmCompras.Parent := pnlSubCentral;
+  frmCompras.Align  := alClient;
+  frmCompras.Show;
   pnlSubCadastro.Visible := False;
 end;
 
@@ -164,6 +344,26 @@ begin
   pnlSubCadastro.Visible := False;
 end;
 
+procedure TfrmMenu.btnCadFormaPagClick(Sender: TObject);
+begin
+  frmCadastroPagamento := TfrmCadastroPagamento.Create(Self);
+  frmCadastroPagamento.Parent := pnlSubCentral;
+  frmCadastroPagamento.Align  := alClient;
+  frmCadastroPagamento.Show;
+  pnlSubCadastro.Visible := False;
+end;
+
+procedure TfrmMenu.btnCadUsuarioClick(Sender: TObject);
+begin
+  ValidaAcesso(AUsuario.IdUsuario, 'frmCadastroUsuario');
+
+  frmCadastroUsuario := TfrmCadastroUsuario.Create(Self);
+  frmCadastroUsuario.Parent := pnlSubCentral;
+  frmCadastroUsuario.Align  := alClient;
+  frmCadastroUsuario.Show;
+  pnlSubCadastro.Visible := False;
+end;
+
 procedure TfrmMenu.btnConfiguracaoClick(Sender: TObject);
 begin
   ValidaAcesso(AUsuario.IdUsuario, 'frmConfiguracao');
@@ -178,6 +378,23 @@ begin
     frmConfiguracao.Free;
     frmEscurecerFundo.Free;
   end;
+end;
+
+procedure TfrmMenu.btnContasPagarClick(Sender: TObject);
+begin
+  frmContasPagar := TfrmContasPagar.Create(Self);
+  frmContasPagar.Parent := pnlSubCentral;
+  frmContasPagar.Align  := alClient;
+  frmContasPagar.Show;
+  pnlSubCadastro.Visible := False;
+end;
+
+procedure TfrmMenu.btnContasReceberClick(Sender: TObject);
+begin
+  frmContasReceber := TfrmContasReceber.Create(Self);
+  frmContasReceber.Parent := pnlSubCentral;
+  frmContasReceber.Align  := alClient;
+  frmContasReceber.Show;
 end;
 
 end.
