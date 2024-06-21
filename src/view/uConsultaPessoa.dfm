@@ -5,7 +5,10 @@ inherited frmConsultaPessoa: TfrmConsultaPessoa
   inherited pnlSubTop: TPanel
     inherited lblNomeLogoTop: TLabel
       Left = 63
+      Width = 227
+      Caption = 'SOLUTIONS INC / Consulta de Pessoa'
       ExplicitLeft = 63
+      ExplicitWidth = 227
     end
   end
   inherited pnlCentral: TPanel
@@ -27,14 +30,11 @@ inherited frmConsultaPessoa: TfrmConsultaPessoa
           'Fornecedor'
           'Funcionario')
         TabOrder = 1
+        Visible = False
         OnClick = rgpTipoPessoaClick
       end
     end
     inherited dbGrdPesquisa: TcxGrid
-      ExplicitLeft = 0
-      ExplicitTop = 57
-      ExplicitWidth = 935
-      ExplicitHeight = 342
       inherited dbGrdPesquisaDBTableView1: TcxGridDBTableView
         OnDblClick = dbGrdPesquisaDblClick
         OptionsView.ColumnAutoWidth = True

@@ -7,360 +7,12 @@ inherited frmCadastroCliente: TfrmCadastroCliente
   ExplicitHeight = 594
   PixelsPerInch = 96
   TextHeight = 13
-  object Panel1: TPanel [0]
-    Left = 384
-    Top = 258
-    Width = 230
-    Height = 84
-    BevelOuter = bvNone
-    Caption = 'Realizando busca. Carregando...'
-    Color = 13750737
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Segoe UI'
-    Font.Style = [fsBold]
-    ParentBackground = False
-    ParentFont = False
-    TabOrder = 1
-  end
   inherited pnlBarraPesquisa: TPanel
     Width = 1009
     Height = 594
     ExplicitWidth = 1009
     ExplicitHeight = 594
-    inherited pnlSubButtonTop: TPanel
-      Width = 1009
-      ExplicitWidth = 1009
-      object Label3: TLabel [1]
-        Left = 15
-        Top = 10
-        Width = 147
-        Height = 17
-        Caption = 'CADASTRO DE PESSOA'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
-        Font.Height = -13
-        Font.Name = 'Segoe UI Black'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      inherited pnlConsulta: TPanel
-        Left = 868
-        ExplicitLeft = 868
-      end
-      inherited pnlExcluir: TPanel
-        Left = 708
-        ExplicitLeft = 708
-      end
-      inherited pnlInserir: TPanel
-        Left = 788
-        ExplicitLeft = 788
-      end
-    end
-    inherited pnlSubBot: TPanel
-      Top = 353
-      Width = 979
-      Height = 241
-      ExplicitTop = 353
-      ExplicitWidth = 979
-      ExplicitHeight = 241
-      inherited pnllinha1: TPanel
-        Width = 979
-        ExplicitWidth = 979
-      end
-      object pnlEndereco: TPanel
-        Left = 0
-        Top = 3
-        Width = 969
-        Height = 200
-        BevelOuter = bvNone
-        Color = clWhite
-        ParentBackground = False
-        TabOrder = 1
-        object lblNumero: TLabel
-          Left = 780
-          Top = 56
-          Width = 46
-          Height = 13
-          Caption = 'N'#250'mero*'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-        end
-        object lblComplemento: TLabel
-          Left = 493
-          Top = 56
-          Width = 72
-          Height = 13
-          Caption = 'Complemento'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-        end
-        object lblEndereco: TLabel
-          Left = 8
-          Top = 56
-          Width = 53
-          Height = 13
-          Caption = 'Endere'#231'o*'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-        end
-        object lblCep: TLabel
-          Left = 8
-          Top = 4
-          Width = 24
-          Height = 13
-          Caption = 'CEP*'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-        end
-        object lblEstado: TLabel
-          Left = 780
-          Top = 109
-          Width = 63
-          Height = 13
-          Caption = 'Estado (UF)*'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-        end
-        object lblBairro: TLabel
-          Left = 6
-          Top = 109
-          Width = 35
-          Height = 13
-          Caption = 'Bairro*'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-        end
-        object lblCidade: TLabel
-          Left = 493
-          Top = 109
-          Width = 41
-          Height = 13
-          Caption = 'Cidade*'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-        end
-        object edtEstado: TSWHDBEdit
-          Left = 780
-          Top = 125
-          Width = 113
-          Height = 25
-          BevelInner = bvNone
-          BevelKind = bkFlat
-          BorderStyle = bsNone
-          DataField = 'uf'
-          DataSource = dsCadastroPadrao
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 0
-          MudarColor = 14087422
-        end
-        object edtNumero: TSWHDBEdit
-          Left = 780
-          Top = 72
-          Width = 113
-          Height = 25
-          BevelInner = bvNone
-          BevelKind = bkFlat
-          BorderStyle = bsNone
-          DataField = 'numero'
-          DataSource = dsCadastroPadrao
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 1
-          MudarColor = 14087422
-        end
-        object edtComplemento: TSWHDBEdit
-          Left = 493
-          Top = 72
-          Width = 252
-          Height = 25
-          BevelInner = bvNone
-          BevelKind = bkFlat
-          BorderStyle = bsNone
-          DataField = 'complemento'
-          DataSource = dsCadastroPadrao
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 2
-          MudarColor = 14087422
-        end
-        object edtEndereco: TSWHDBEdit
-          Left = 8
-          Top = 72
-          Width = 455
-          Height = 25
-          BevelInner = bvNone
-          BevelKind = bkFlat
-          BorderStyle = bsNone
-          DataField = 'endereco'
-          DataSource = dsCadastroPadrao
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 3
-          MudarColor = 14087422
-        end
-        object pnl_cep: TPanel
-          Left = 8
-          Top = 20
-          Width = 139
-          Height = 25
-          BevelKind = bkFlat
-          BevelOuter = bvNone
-          TabOrder = 4
-          object spb_pesquisa: TSpeedButton
-            Left = 108
-            Top = 0
-            Width = 27
-            Height = 21
-            Cursor = crHandPoint
-            Align = alRight
-            Flat = True
-            Glyph.Data = {
-              26040000424D2604000000000000360000002800000012000000120000000100
-              180000000000F0030000120B0000120B00000000000000000000E6E1DEE6E1DE
-              E6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1
-              DEE6E1DEE6E1DEE6E1DEB3B0AECBC7C50000E6E1DEE6E1DEE6E1DEE6E1DEE6E1
-              DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE9B
-              99986C6C6CAFACAA0000E6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6
-              E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE9F9D9B6C6C6C9D9B9ADED9D6
-              0000E6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE
-              E6E1DEE6E1DEE6E1DE9E9C9B6C6C6CA19F9EE6E1DEE6E1DE0000E6E1DEE6E1DE
-              E6E1DEE6E1DEE5E0DDC1BEBCA3A09FA09E9CBBB8B6DDD8D6E6E1DEE6E1DE9C9A
-              996C6C6CA2A09FE6E1DEE6E1DEE6E1DE0000E6E1DEE6E1DEE6E1DEBAB6B46D6D
-              6D6C6C6C6C6C6C6C6C6C6C6C6C6C6C6CB1AEACA6A4A36C6C6CA3A19FE6E1DEE6
-              E1DEE6E1DEE6E1DE0000E6E1DEE6E1DEAAA7A66C6C6C7B7B7ABCB9B7D9D5D2DD
-              D8D6C5C1BF8D8C8B6C6C6C6C6C6CAEABA9E6E1DEE6E1DEE6E1DEE6E1DEE6E1DE
-              0000E6E1DEC7C3C16C6C6C92908FE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE
-              B0AEAC6C6C6CB5B2B0E6E1DEE6E1DEE6E1DEE6E1DEE6E1DE0000E1DCD9767675
-              6F6F6FE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE8B89896C6C
-              6CDFDBD8E6E1DEE6E1DEE6E1DEE6E1DE0000BAB7B56C6C6CA8A5A4E6E1DEE6E1
-              DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DECDC9C76C6C6CB8B5B3E6E1DEE6
-              E1DEE6E1DEE6E1DE0000A2A09F6C6C6CC6C3C0E6E1DEE6E1DEE6E1DEE6E1DEE6
-              E1DEE6E1DEE6E1DEE6E1DEE2DDDA6C6C6C9D9B9AE6E1DEE6E1DEE6E1DEE6E1DE
-              0000A5A3A26C6C6CC4C0BEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE
-              E6E1DEDFDBD86C6C6CA19F9EE6E1DEE6E1DEE6E1DEE6E1DE0000C4C0BE6C6C6C
-              9A9897E6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEC1BDBB6C6C
-              6CC2BFBCE6E1DEE6E1DEE6E1DEE6E1DE0000E5E0DD8483826C6C6CDDD9D6E6E1
-              DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE7979796C6C6CE5E0DDE6E1DEE6
-              E1DEE6E1DEE6E1DE0000E6E1DED7D2D06C6C6C787777D9D4D1E6E1DEE6E1DEE6
-              E1DEE6E1DEE6E1DE9492916C6C6CBCB9B7E6E1DEE6E1DEE6E1DEE6E1DEE6E1DE
-              0000E6E1DEE6E1DEC1BDBB6C6C6C6C6C6C999796BEBAB8C3C0BDA6A4A36D6D6D
-              6C6C6CABA8A7E6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE0000E6E1DEE6E1DE
-              E6E1DED1CDCA8A89886C6C6C6C6C6C6C6C6C6C6C6C7E7D7DC2BEBCE6E1DEE6E1
-              DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE0000E6E1DEE6E1DEE6E1DEE6E1DEE6E1
-              DEC4C0BEAAA8A6A6A4A2BDBAB8E1DCD9E6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6
-              E1DEE6E1DEE6E1DE0000}
-            OnClick = spb_pesquisaClick
-            ExplicitLeft = 88
-          end
-          object edtCep: TSWHMaskEdit
-            Left = -2
-            Top = 0
-            Width = 106
-            Height = 21
-            BorderStyle = bsNone
-            EditMask = '99.999-999;0;_'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Segoe UI'
-            Font.Style = []
-            MaxLength = 10
-            ParentFont = False
-            TabOrder = 0
-            Text = ''
-            TipoMascara = tmCEP
-            MudarColor = 14087422
-            CasasDecimais = Uma
-          end
-        end
-        object edtBairro: TSWHDBEdit
-          Left = 8
-          Top = 125
-          Width = 455
-          Height = 25
-          BevelInner = bvNone
-          BevelKind = bkFlat
-          BorderStyle = bsNone
-          DataField = 'bairro'
-          DataSource = dsCadastroPadrao
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 5
-          MudarColor = 14087422
-        end
-        object edtCidade: TSWHDBEdit
-          Left = 493
-          Top = 125
-          Width = 252
-          Height = 25
-          BevelInner = bvNone
-          BevelKind = bkFlat
-          BorderStyle = bsNone
-          DataField = 'cidade'
-          DataSource = dsCadastroPadrao
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Segoe UI'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 6
-          MudarColor = 14087422
-        end
-      end
-    end
-    inherited pnlSubTop: TPanel
+    inherited pnlSubTop: TPanel [0]
       Width = 979
       Height = 276
       ExplicitWidth = 979
@@ -372,11 +24,7 @@ inherited frmCadastroCliente: TfrmCadastroCliente
         ExplicitTop = 253
         ExplicitWidth = 69
       end
-      inherited pnlLinha2: TPanel
-        Width = 979
-        ExplicitWidth = 979
-      end
-      object pnlCentralDados: TPanel
+      object pnlCentralDados: TPanel [1]
         Left = 0
         Top = 7
         Width = 969
@@ -695,13 +343,12 @@ inherited frmCadastroCliente: TfrmCadastroCliente
           Font.Height = -13
           Font.Name = 'Segoe UI'
           Font.Style = []
-          ItemIndex = 0
           ParentFont = False
           TabOrder = 6
           Text = 'SIM'
           Items.Strings = (
-            'SIM'
-            'N'#195'O')
+            'ATIVO'
+            'INATIVO')
           MudarColor = 14087422
         end
         object edtTelefone: TSWHMaskEdit
@@ -770,12 +417,12 @@ inherited frmCadastroCliente: TfrmCadastroCliente
         object edtDtNasc: TSWHMaskEdit
           Left = 8
           Top = 87
-          Width = 95
+          Width = 86
           Height = 25
           BevelInner = bvNone
           BevelKind = bkFlat
           BorderStyle = bsNone
-          EditMask = '99/99/9999;1;_'
+          EditMask = '99/99/9999;0;_'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -13
@@ -784,8 +431,7 @@ inherited frmCadastroCliente: TfrmCadastroCliente
           MaxLength = 10
           ParentFont = False
           TabOrder = 10
-          Text = '  /  /    '
-          OnExit = edtCpfCnpjExit
+          Text = ''
           TipoMascara = tmData
           MudarColor = 14087422
           CasasDecimais = Uma
@@ -878,11 +524,342 @@ inherited frmCadastroCliente: TfrmCadastroCliente
             TipoMascara = tmCNPJ
             MudarColor = 14087422
             CasasDecimais = Uma
-            ExplicitLeft = 1
-            ExplicitTop = 1
-            ExplicitWidth = 123
-            ExplicitHeight = 19
           end
+        end
+      end
+      inherited pnlLinha2: TPanel
+        Width = 979
+        ExplicitWidth = 979
+      end
+    end
+    inherited pnlSubButtonTop: TPanel [1]
+      Width = 1009
+      ExplicitWidth = 1009
+      object Label3: TLabel [1]
+        Left = 15
+        Top = 10
+        Width = 147
+        Height = 17
+        Caption = 'CADASTRO DE PESSOA'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clNavy
+        Font.Height = -13
+        Font.Name = 'Segoe UI Black'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      inherited pnlConsulta: TPanel
+        Left = 868
+        ExplicitLeft = 868
+      end
+      inherited pnlExcluir: TPanel
+        Left = 708
+        ExplicitLeft = 708
+      end
+      inherited pnlInserir: TPanel
+        Left = 788
+        ExplicitLeft = 788
+      end
+    end
+    inherited pnlSubBot: TPanel [2]
+      Top = 353
+      Width = 979
+      Height = 241
+      ExplicitTop = 353
+      ExplicitWidth = 979
+      ExplicitHeight = 241
+      inherited pnllinha1: TPanel
+        Width = 979
+        ExplicitWidth = 979
+      end
+      object pnlEndereco: TPanel
+        Left = 0
+        Top = 3
+        Width = 969
+        Height = 200
+        BevelOuter = bvNone
+        Color = clWhite
+        ParentBackground = False
+        TabOrder = 1
+        object lblNumero: TLabel
+          Left = 780
+          Top = 56
+          Width = 46
+          Height = 13
+          Caption = 'N'#250'mero*'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblComplemento: TLabel
+          Left = 493
+          Top = 56
+          Width = 72
+          Height = 13
+          Caption = 'Complemento'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblEndereco: TLabel
+          Left = 8
+          Top = 56
+          Width = 53
+          Height = 13
+          Caption = 'Endere'#231'o*'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblCep: TLabel
+          Left = 8
+          Top = 4
+          Width = 24
+          Height = 13
+          Caption = 'CEP*'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblEstado: TLabel
+          Left = 780
+          Top = 109
+          Width = 63
+          Height = 13
+          Caption = 'Estado (UF)*'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblBairro: TLabel
+          Left = 6
+          Top = 109
+          Width = 35
+          Height = 13
+          Caption = 'Bairro*'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lblCidade: TLabel
+          Left = 493
+          Top = 109
+          Width = 41
+          Height = 13
+          Caption = 'Cidade*'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+        end
+        object edtEstado: TSWHDBEdit
+          Left = 780
+          Top = 125
+          Width = 113
+          Height = 25
+          BevelInner = bvNone
+          BevelKind = bkFlat
+          BorderStyle = bsNone
+          DataField = 'uf'
+          DataSource = dsCadastroPadrao
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+          MudarColor = 14087422
+        end
+        object edtNumero: TSWHDBEdit
+          Left = 780
+          Top = 72
+          Width = 113
+          Height = 25
+          BevelInner = bvNone
+          BevelKind = bkFlat
+          BorderStyle = bsNone
+          DataField = 'numero'
+          DataSource = dsCadastroPadrao
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 1
+          MudarColor = 14087422
+        end
+        object edtComplemento: TSWHDBEdit
+          Left = 493
+          Top = 72
+          Width = 252
+          Height = 25
+          BevelInner = bvNone
+          BevelKind = bkFlat
+          BorderStyle = bsNone
+          DataField = 'complemento'
+          DataSource = dsCadastroPadrao
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 2
+          MudarColor = 14087422
+        end
+        object edtEndereco: TSWHDBEdit
+          Left = 8
+          Top = 72
+          Width = 455
+          Height = 25
+          BevelInner = bvNone
+          BevelKind = bkFlat
+          BorderStyle = bsNone
+          DataField = 'endereco'
+          DataSource = dsCadastroPadrao
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 3
+          MudarColor = 14087422
+        end
+        object pnl_cep: TPanel
+          Left = 8
+          Top = 20
+          Width = 139
+          Height = 25
+          BevelKind = bkFlat
+          BevelOuter = bvNone
+          TabOrder = 4
+          object spb_pesquisa: TSpeedButton
+            Left = 108
+            Top = 0
+            Width = 27
+            Height = 21
+            Cursor = crHandPoint
+            Align = alRight
+            Flat = True
+            Glyph.Data = {
+              26040000424D2604000000000000360000002800000012000000120000000100
+              180000000000F0030000120B0000120B00000000000000000000E6E1DEE6E1DE
+              E6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1
+              DEE6E1DEE6E1DEE6E1DEB3B0AECBC7C50000E6E1DEE6E1DEE6E1DEE6E1DEE6E1
+              DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE9B
+              99986C6C6CAFACAA0000E6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6
+              E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE9F9D9B6C6C6C9D9B9ADED9D6
+              0000E6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE
+              E6E1DEE6E1DEE6E1DE9E9C9B6C6C6CA19F9EE6E1DEE6E1DE0000E6E1DEE6E1DE
+              E6E1DEE6E1DEE5E0DDC1BEBCA3A09FA09E9CBBB8B6DDD8D6E6E1DEE6E1DE9C9A
+              996C6C6CA2A09FE6E1DEE6E1DEE6E1DE0000E6E1DEE6E1DEE6E1DEBAB6B46D6D
+              6D6C6C6C6C6C6C6C6C6C6C6C6C6C6C6CB1AEACA6A4A36C6C6CA3A19FE6E1DEE6
+              E1DEE6E1DEE6E1DE0000E6E1DEE6E1DEAAA7A66C6C6C7B7B7ABCB9B7D9D5D2DD
+              D8D6C5C1BF8D8C8B6C6C6C6C6C6CAEABA9E6E1DEE6E1DEE6E1DEE6E1DEE6E1DE
+              0000E6E1DEC7C3C16C6C6C92908FE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE
+              B0AEAC6C6C6CB5B2B0E6E1DEE6E1DEE6E1DEE6E1DEE6E1DE0000E1DCD9767675
+              6F6F6FE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE8B89896C6C
+              6CDFDBD8E6E1DEE6E1DEE6E1DEE6E1DE0000BAB7B56C6C6CA8A5A4E6E1DEE6E1
+              DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DECDC9C76C6C6CB8B5B3E6E1DEE6
+              E1DEE6E1DEE6E1DE0000A2A09F6C6C6CC6C3C0E6E1DEE6E1DEE6E1DEE6E1DEE6
+              E1DEE6E1DEE6E1DEE6E1DEE2DDDA6C6C6C9D9B9AE6E1DEE6E1DEE6E1DEE6E1DE
+              0000A5A3A26C6C6CC4C0BEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE
+              E6E1DEDFDBD86C6C6CA19F9EE6E1DEE6E1DEE6E1DEE6E1DE0000C4C0BE6C6C6C
+              9A9897E6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEC1BDBB6C6C
+              6CC2BFBCE6E1DEE6E1DEE6E1DEE6E1DE0000E5E0DD8483826C6C6CDDD9D6E6E1
+              DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE7979796C6C6CE5E0DDE6E1DEE6
+              E1DEE6E1DEE6E1DE0000E6E1DED7D2D06C6C6C787777D9D4D1E6E1DEE6E1DEE6
+              E1DEE6E1DEE6E1DE9492916C6C6CBCB9B7E6E1DEE6E1DEE6E1DEE6E1DEE6E1DE
+              0000E6E1DEE6E1DEC1BDBB6C6C6C6C6C6C999796BEBAB8C3C0BDA6A4A36D6D6D
+              6C6C6CABA8A7E6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE0000E6E1DEE6E1DE
+              E6E1DED1CDCA8A89886C6C6C6C6C6C6C6C6C6C6C6C7E7D7DC2BEBCE6E1DEE6E1
+              DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE0000E6E1DEE6E1DEE6E1DEE6E1DEE6E1
+              DEC4C0BEAAA8A6A6A4A2BDBAB8E1DCD9E6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6
+              E1DEE6E1DEE6E1DE0000}
+            OnClick = spb_pesquisaClick
+            ExplicitLeft = 88
+          end
+          object edtCep: TSWHMaskEdit
+            Left = -2
+            Top = 0
+            Width = 106
+            Height = 21
+            BorderStyle = bsNone
+            EditMask = '99.999-999;0;_'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Segoe UI'
+            Font.Style = []
+            MaxLength = 10
+            ParentFont = False
+            TabOrder = 0
+            Text = ''
+            TipoMascara = tmCEP
+            MudarColor = 14087422
+            CasasDecimais = Uma
+          end
+        end
+        object edtBairro: TSWHDBEdit
+          Left = 8
+          Top = 125
+          Width = 455
+          Height = 25
+          BevelInner = bvNone
+          BevelKind = bkFlat
+          BorderStyle = bsNone
+          DataField = 'bairro'
+          DataSource = dsCadastroPadrao
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 5
+          MudarColor = 14087422
+        end
+        object edtCidade: TSWHDBEdit
+          Left = 493
+          Top = 125
+          Width = 252
+          Height = 25
+          BevelInner = bvNone
+          BevelKind = bkFlat
+          BorderStyle = bsNone
+          DataField = 'cidade'
+          DataSource = dsCadastroPadrao
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 6
+          MudarColor = 14087422
         end
       end
     end

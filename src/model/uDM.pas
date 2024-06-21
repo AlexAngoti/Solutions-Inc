@@ -44,6 +44,19 @@ type
     qryReceberdescricao: TWideStringField;
     qryRecebernumerodoc: TWideStringField;
     qryReceberobservaobaixa: TWideStringField;
+    qryPagar: TFDQuery;
+    qryPagarid: TLargeintField;
+    qryPagardataemissao: TDateField;
+    qryPagardatavencimento: TDateField;
+    qryPagarvalor: TBCDField;
+    qryPagarformapgto: TIntegerField;
+    qryPagaridfornecedor: TIntegerField;
+    qryPagardatabaixa: TDateField;
+    qryPagardescricao: TWideStringField;
+    qryPagarnumerodoc: TWideStringField;
+    qryPagarobservaobaixa: TWideStringField;
+    qryPagarnumeroorigem: TIntegerField;
+    qryProduto: TFDQuery;
     procedure DataModuleCreate(Sender: TObject);
     const arquvioconfig = 'config.ini';
   private

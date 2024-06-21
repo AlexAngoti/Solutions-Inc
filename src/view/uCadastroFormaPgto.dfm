@@ -1,9 +1,25 @@
 ﻿inherited frmCadastroPagamento: TfrmCadastroPagamento
   Caption = 'frmCadastroPagamento'
   OnResize = FormResize
+  ExplicitTop = -99
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnlBarraPesquisa: TPanel
+    inherited pnlSubButtonTop: TPanel
+      object Label6: TLabel [1]
+        Left = 15
+        Top = 10
+        Width = 258
+        Height = 17
+        Caption = 'CADASTRO DE FORMA DE PAGAMENTO'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clNavy
+        Font.Height = -13
+        Font.Name = 'Segoe UI Black'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+    end
     inherited pnlSubBot: TPanel
       Visible = False
     end
@@ -28,11 +44,11 @@
         ParentBackground = False
         TabOrder = 1
         object Label2: TLabel
-          Left = 264
+          Left = 224
           Top = 23
-          Width = 135
+          Width = 131
           Height = 17
-          Caption = 'Forma de Pagamento *'
+          Caption = 'Forma de Pagamento*'
           Color = clBlack
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -43,11 +59,11 @@
           ParentFont = False
         end
         object lblAtivo: TLabel
-          Left = 264
+          Left = 224
           Top = 84
-          Width = 105
+          Width = 54
           Height = 17
-          Caption = 'Cadastro Ativo ? *'
+          Caption = 'Situa'#231#227'o*'
           Color = clBlack
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -58,11 +74,11 @@
           ParentFont = False
         end
         object Label1: TLabel
-          Left = 264
+          Left = 224
           Top = 145
-          Width = 74
+          Width = 70
           Height = 17
-          Caption = 'Abrevia'#231#227'o *'
+          Caption = 'Abrevia'#231#227'o*'
           Color = clBlack
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -73,11 +89,41 @@
           ParentFont = False
         end
         object Label3: TLabel
-          Left = 437
+          Left = 420
           Top = 145
-          Width = 105
+          Width = 101
           Height = 17
-          Caption = 'Tipo Pagamento *'
+          Caption = 'Tipo Pagamento*'
+          Color = clBlack
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object Label4: TLabel
+          Left = 420
+          Top = 84
+          Width = 108
+          Height = 17
+          Caption = 'Atualiza Receber?*'
+          Color = clBlack
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+        end
+        object Label5: TLabel
+          Left = 593
+          Top = 84
+          Width = 94
+          Height = 17
+          Caption = 'Atualiza Pagar?*'
           Color = clBlack
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -88,9 +134,9 @@
           ParentFont = False
         end
         object edtNome: TSWHDBEdit
-          Left = 264
+          Left = 224
           Top = 46
-          Width = 377
+          Width = 481
           Height = 25
           BevelInner = bvNone
           BevelKind = bkFlat
@@ -107,9 +153,9 @@
           MudarColor = 14087422
         end
         object cbxAtivo: TSWHComboBox
-          Left = 264
+          Left = 224
           Top = 107
-          Width = 204
+          Width = 145
           Height = 25
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -119,14 +165,14 @@
           ParentFont = False
           TabOrder = 1
           Items.Strings = (
-            'SIM'
-            'N'#195'O')
+            'ATIVO'
+            'INATIVO')
           MudarColor = 14087422
         end
         object SWHDBEdit1: TSWHDBEdit
-          Left = 264
+          Left = 224
           Top = 168
-          Width = 135
+          Width = 145
           Height = 25
           BevelInner = bvNone
           BevelKind = bkFlat
@@ -143,9 +189,9 @@
           MudarColor = 14087422
         end
         object SWHComboBox1: TSWHComboBox
-          Left = 437
+          Left = 420
           Top = 168
-          Width = 204
+          Width = 285
           Height = 25
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -161,11 +207,44 @@
             'A Prazo')
           MudarColor = 14087422
         end
+        object cbxAtualizaRec: TSWHComboBox
+          Left = 420
+          Top = 107
+          Width = 112
+          Height = 25
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 4
+          Items.Strings = (
+            'SIM'
+            'N'#195'O')
+          MudarColor = 14087422
+        end
+        object cbxAtualizaPag: TSWHComboBox
+          Left = 593
+          Top = 107
+          Width = 112
+          Height = 25
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 5
+          Items.Strings = (
+            'SIM'
+            'N'#195'O')
+          MudarColor = 14087422
+        end
       end
     end
   end
   inherited cdsCadastroPadrao: TClientDataSet
-    Active = True
     ProviderName = 'dspCadastroPadrao'
     object cdsCadastroPadraoid: TLargeintField
       FieldName = 'id'
@@ -189,6 +268,14 @@
     object cdsCadastroPadraoativo: TIntegerField
       FieldName = 'ativo'
       Origin = 'ativo'
+    end
+    object cdsCadastroPadraoatualizapagar: TIntegerField
+      FieldName = 'atualizapagar'
+      Origin = 'atualizapagar'
+    end
+    object cdsCadastroPadraoatualizareceber: TIntegerField
+      FieldName = 'atualizareceber'
+      Origin = 'atualizareceber'
     end
   end
   inherited dspCadastroPadrao: TDataSetProvider

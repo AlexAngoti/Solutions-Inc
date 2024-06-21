@@ -26,7 +26,7 @@ uses
   dxSkinXmas2008Blue, cxStyles, cxCustomData, cxFilter, cxData, cxDataStorage,
   cxEdit, cxNavigator, dxDateRanges, dxScrollbarAnnotations, cxDBData,
   cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView,
-  cxGridTableView, cxGridDBTableView, cxGrid;
+  cxGridTableView, cxGridDBTableView, cxGrid, dxGDIPlusClasses;
 
 type
   TfrmConsultaPessoa = class(TfrmConsultaPadrao)

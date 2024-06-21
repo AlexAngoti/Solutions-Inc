@@ -72,9 +72,15 @@ type
     Panel9: TPanel;
     Label7: TLabel;
     Image4: TImage;
+    Panel10: TPanel;
+    btnVendas: TSpeedButton;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
     procedure btnFecharClick(Sender: TObject);
     procedure Panel9Click(Sender: TObject);
     procedure FormResize(Sender: TObject);
+    procedure btnVendasClick(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -87,13 +93,23 @@ var
 implementation
 
 uses
-  uDM;
+  uDM, uFrenteVendas, uCancelmaentoVendas, uEscurecerFundo;
 
 {$R *.dfm}
 
 procedure TfrmVendas.btnFecharClick(Sender: TObject);
 begin
   Self.Close;
+end;
+
+procedure TfrmVendas.btnVendasClick(Sender: TObject);
+begin
+  frmFrenteVendas := TfrmFrenteVendas.Create(Self);
+  try
+    frmFrenteVendas.ShowModal;
+  finally
+    frmFrenteVendas.Free;
+  end;
 end;
 
 procedure TfrmVendas.FormResize(Sender: TObject);
@@ -104,6 +120,20 @@ end;
 procedure TfrmVendas.Panel9Click(Sender: TObject);
 begin
   Self.Close;
+end;
+
+procedure TfrmVendas.SpeedButton1Click(Sender: TObject);
+begin
+  frmEscurecerFundo := TfrmEscurecerFundo.Create(Self);
+  frmEscurecerFundo.Show;
+
+  frmCancelamentoVenda := TfrmCancelamentoVenda.Create(Self);
+  try
+    frmCancelamentoVenda.ShowModal;
+  finally
+    frmEscurecerFundo.Free;
+    frmCancelamentoVenda.Free;
+  end;
 end;
 
 end.

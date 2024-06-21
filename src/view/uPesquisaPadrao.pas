@@ -29,7 +29,8 @@ uses
   dxSkinWhiteprint, dxSkinWXI, dxSkinXmas2008Blue, cxStyles, cxCustomData,
   cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, dxDateRanges,
   dxScrollbarAnnotations, cxDBData, cxGridLevel, cxClasses, cxGridCustomView,
-  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid;
+  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid,
+  dxGDIPlusClasses;
 
 type
   TfrmPesquisaPadrao = class(TForm)
@@ -56,6 +57,8 @@ type
     procedure btnFecharClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure dbgdConsultaDblClick(Sender: TObject);
+    procedure cxGrid1DBTableView1DblClick(Sender: TObject);
+    procedure btnPesquisaClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -75,6 +78,22 @@ uses
 procedure TfrmPesquisaPadrao.btnFecharClick(Sender: TObject);
 begin
   Self.Close;
+end;
+
+procedure TfrmPesquisaPadrao.btnPesquisaClick(Sender: TObject);
+begin
+  dsPadrao.DataSet.Filtered := False;
+  if edtPesquisa.Text <> EmptyStr then
+  begin
+    dsPadrao.DataSet.Filter := 'UPPER(Nome) LIKE ' +
+      QuotedStr('%' + UpperCase(edtPesquisa.Text) + '%');
+    dsPadrao.DataSet.Filtered := True;
+  end;
+end;
+
+procedure TfrmPesquisaPadrao.cxGrid1DBTableView1DblClick(Sender: TObject);
+begin
+  frmPesquisaPadrao.ModalResult := mrOk;
 end;
 
 procedure TfrmPesquisaPadrao.dbgdConsultaDblClick(Sender: TObject);

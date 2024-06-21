@@ -2,17 +2,28 @@ inherited frmCadastroUsuario: TfrmCadastroUsuario
   Caption = 'frmCadastroUsuario'
   ClientWidth = 1000
   OnResize = FormResize
-  ExplicitTop = -132
   ExplicitWidth = 1000
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnlBarraPesquisa: TPanel
     Width = 1000
     ExplicitWidth = 1000
-    ExplicitHeight = 604
     inherited pnlSubButtonTop: TPanel
       Width = 1000
       ExplicitWidth = 1000
+      object Label3: TLabel [1]
+        Left = 15
+        Top = 10
+        Width = 158
+        Height = 17
+        Caption = 'CADASTRO DE USU'#193'RIO'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clNavy
+        Font.Height = -13
+        Font.Name = 'Segoe UI Black'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
       inherited pnlConsulta: TPanel
         Left = 859
         ExplicitLeft = 859
@@ -179,8 +190,8 @@ inherited frmCadastroUsuario: TfrmCadastroUsuario
             Font.Style = [fsBold]
             ParentFont = False
             OnClick = btnSalvarClick
-            ExplicitLeft = 2
-            ExplicitWidth = 203
+            ExplicitLeft = -4
+            ExplicitWidth = 970
           end
         end
       end
@@ -213,9 +224,9 @@ inherited frmCadastroUsuario: TfrmCadastroUsuario
         object Label2: TLabel
           Left = 112
           Top = 25
-          Width = 103
+          Width = 108
           Height = 17
-          Caption = 'Nome do usu'#225'rio'
+          Caption = 'Nome do usu'#225'rio*'
           Color = clBlack
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -228,9 +239,9 @@ inherited frmCadastroUsuario: TfrmCadastroUsuario
         object lblSenha: TLabel
           Left = 399
           Top = 25
-          Width = 102
+          Width = 107
           Height = 17
-          Caption = 'Senha do usu'#225'rio'
+          Caption = 'Senha do usu'#225'rio*'
           Color = clBlack
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -243,9 +254,9 @@ inherited frmCadastroUsuario: TfrmCadastroUsuario
         object lblAtivo: TLabel
           Left = 685
           Top = 25
-          Width = 149
+          Width = 54
           Height = 17
-          Caption = 'Usu'#225'rio Ativo ou Inativo ?'
+          Caption = 'Situa'#231#227'o*'
           Color = clBlack
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -309,36 +320,31 @@ inherited frmCadastroUsuario: TfrmCadastroUsuario
           ParentFont = False
           TabOrder = 2
           Items.Strings = (
-            '0 - Sim'
-            '1 - N'#227'o')
+            'ATIVO'
+            'INATIVO')
           MudarColor = 14087422
         end
       end
     end
-    inherited pnlSalvar: TPanel
+    inherited pnlBotaoSalvar: TPanel
       Width = 970
-      ExplicitLeft = 16
       ExplicitWidth = 970
       inherited pnlCancelar: TPanel
-        Left = 833
-        ExplicitLeft = 833
-        ExplicitTop = 4
-        ExplicitHeight = 32
+        Left = 707
+        ExplicitLeft = 707
         inherited btnCancelar: TSpeedButton
-          ExplicitLeft = -64
-          ExplicitTop = 26
+          ExplicitLeft = 3
+          ExplicitTop = 0
           ExplicitWidth = 131
           ExplicitHeight = 32
         end
       end
       inherited pnlConfirmar: TPanel
-        Left = 707
-        ExplicitLeft = 708
-        ExplicitTop = 4
+        Left = 844
+        ExplicitLeft = 844
       end
-      inherited Panel1: TPanel
+      inherited pnlLinhaBotao: TPanel
         Width = 970
-        ExplicitTop = 0
         ExplicitWidth = 970
       end
     end

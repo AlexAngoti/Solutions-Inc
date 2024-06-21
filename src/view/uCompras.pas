@@ -70,11 +70,13 @@ type
     Label8: TLabel;
     Image5: TImage;
     Panel9: TPanel;
+    Panel10: TPanel;
+    SpeedButton2: TSpeedButton;
     Label7: TLabel;
     Image4: TImage;
     procedure btnFecharClick(Sender: TObject);
-    procedure Panel9Click(Sender: TObject);
     procedure FormResize(Sender: TObject);
+    procedure Panel9Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -87,7 +89,7 @@ var
 implementation
 
 uses
-  uDM;
+  uDM, uPedidoCompra;
 
 {$R *.dfm}
 
@@ -101,9 +103,16 @@ begin
   pnlCentral.Left := Round(pnlCentralFixo.Width / 2 - pnlCentral.Width / 2);
 end;
 
+
+
 procedure TfrmCompras.Panel9Click(Sender: TObject);
 begin
-  Self.Close;
+  frmPedidoCompra := TfrmPedidoCompra.Create(Self);
+  try
+    frmPedidoCompra.ShowModal;
+  finally
+    frmPedidoCompra.Free;
+  end;
 end;
 
 end.

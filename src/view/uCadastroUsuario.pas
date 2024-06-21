@@ -44,6 +44,7 @@ type
     pnlSalvar: TPanel;
     btnSalvar: TSpeedButton;
     qryDeletaAcessos: TFDQuery;
+    Label3: TLabel;
     procedure edtSenhaExit(Sender: TObject);
     procedure dbGrdPesquisaDrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
@@ -96,6 +97,7 @@ begin
   btnExcluir.Enabled    := False;
   btnConfirmar.Enabled  := False;
   btnInserir.Enabled    := True;
+  lblSenha.Enabled      := False;
 end;
 
 procedure TfrmCadastroUsuario.btnCancelarClick(Sender: TObject);
@@ -340,6 +342,7 @@ begin
   btnExcluir.Enabled    := True;
   btnConfirmar.Enabled  := True;
   btnInserir.Enabled    := False;
+  lblSenha.Enabled      := True;
 end;
 
 procedure TfrmCadastroUsuario.OpenScreen;
@@ -354,6 +357,7 @@ begin
 
     if frmConsultaUsuario.ModalResult = mrOk then
     begin
+      cdsCadastroPadrao.Edit;
       Self.CarregaAcessos;
       Self.LiberaCampo;
       btnConsulta.Enabled := False;

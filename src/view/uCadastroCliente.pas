@@ -97,7 +97,6 @@ type
     RESTResponse2: TRESTResponse;
     RESTResponseDataSetAdapter3: TRESTResponseDataSetAdapter;
     ClientDataSet1: TClientDataSet;
-    Panel1: TPanel;
     procedure btnCancelarClick(Sender: TObject);
     procedure btnConfirmarClick(Sender: TObject);
     procedure edtCpfCnpjExit(Sender: TObject);
@@ -133,7 +132,7 @@ var
 implementation
 
 uses
-  uDM, uConsultaPessoa, uUtils, uEscurecerFundo;
+  uDM, uConsultaPessoa, uUtils, uEscurecerFundo, uRealizandoBusca;
 
 {$R *.dfm}
 
@@ -298,7 +297,8 @@ begin
   edtCep.Clear;          
   edtBairro.Clear;       
   edtCidade.Clear;      
-  rbFisica.Checked;        
+  rbFisica.Checked;
+  edtDtNasc.Clear;
 end;
 
 procedure TfrmCadastroCliente.edtCpfCnpjExit(Sender: TObject);
@@ -557,7 +557,7 @@ begin
   cdsCadastroPadraotelefone.AsString   := edtTelefone.Text;
   cdsCadastroPadraotelefone2.AsString  := edtTelefone2.Text;
   cdsCadastroPadraocep.AsString        := edtCep.Text;
-  cdsCadastroPadraodatanasc.AsDateTime := StrToDate(edtDtNasc.Text);
+  cdsCadastroPadraodatanasc.AsDateTime := StrToDate(edtDtNasc.EditText);
 end;
 
 procedure TfrmCadastroCliente.spb_pesquisaClick(Sender: TObject);
@@ -588,10 +588,7 @@ end;
 procedure TfrmCadastroCliente.SpeedButton1Click(Sender: TObject);
 begin
   inherited;
-  Panel1.BringToFront;
-  Panel1.Left := Round(pnlSubTop.Width / 2 - Panel1.Width / 2);
   Self.BuscaCPFCNPJ;
-  Panel1.SendToBack;
 end;
 
 procedure TfrmCadastroCliente.ValidaExiste;

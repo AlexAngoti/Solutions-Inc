@@ -85,6 +85,7 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
+        <Icon_MainIcon>SolutionsInc_Icon5.ico</Icon_MainIcon>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -95,6 +96,9 @@
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Icon_MainIcon>SolutionsInc_Icon3.ico</Icon_MainIcon>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
@@ -184,7 +188,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\view\uCadastroProduto.pas">
-            <Form>frmCadastroPadrao1</Form>
+            <Form>frmCadastroProduto</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="src\view\uPesquisaPadrao.pas">
@@ -193,6 +197,78 @@
         </DCCReference>
         <DCCReference Include="src\view\uBaixaReceber.pas">
             <Form>frmMovBaixaReceber</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uBaixaPagar.pas">
+            <Form>frmBaixaPagar</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uMovContasPagar.pas">
+            <Form>frmMovPagar</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uPesquisaPadraoForn.pas">
+            <Form>frmPesquisaPadraoForn</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uEntradaEstoque.pas">
+            <Form>frmEntradaEstoque</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uConsultaProduto.pas">
+            <Form>frmConsultaProduto</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uRelatorioPadrao.pas">
+            <Form>frmRelatorioPadrao</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uRelatorioContasReceber.pas">
+            <Form>frmRelatorioContasReceber</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uRelatorioContasPagar.pas">
+            <Form>frmRelatorioContasPagar</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uRelatorioVendas.pas">
+            <Form>frmRelatorioVendas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\..\..\Downloads\uRelatorioEstoque.pas">
+            <Form>frmRelatorioEstoque</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uFrenteVendas.pas">
+            <Form>frmFrenteVendas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uParcelas.pas">
+            <Form>frmParcelas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uCancelmaentoVendas.pas">
+            <Form>frmCancelamentoVenda</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uConsultaVenda.pas">
+            <Form>frmConsultaVenda</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uPedidoCompra.pas">
+            <Form>frmPedidoCompra</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uConsultaVendedor.pas">
+            <Form>frmConsultaVendedor</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uRealizandoBusca.pas">
+            <Form>frmRealizandoBusca</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\view\uPesquisaProduto.pas">
+            <Form>frmConsultaProdutos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

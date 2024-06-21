@@ -9,7 +9,7 @@ uses
   Datasnap.Provider, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
-  Vcl.ComCtrls;
+  Vcl.ComCtrls, dxGDIPlusClasses;
 
 type
   TfrmContasReceber = class(TForm)
@@ -68,8 +68,6 @@ type
     cbFaturados: TCheckBox;
     Label1: TLabel;
     Label2: TLabel;
-    pnlNomeDaTela: TPanel;
-    Label3: TLabel;
     cdsContasReceberobservaobaixa: TWideStringField;
     qryGridReceberid: TLargeintField;
     qryGridReceberdataemissao: TDateField;
@@ -81,6 +79,10 @@ type
     qryGridReceberdescricao: TWideStringField;
     qryGridRecebernumerodoc: TWideStringField;
     qryGridReceberobservaobaixa: TWideStringField;
+    pnlSubTop: TPanel;
+    btnFechar: TSpeedButton;
+    imgLogoTop: TImage;
+    lblNomeLogoTop: TLabel;
     procedure FormResize(Sender: TObject);
     procedure btnFecharClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -89,6 +91,8 @@ type
     procedure dbgRegistrosDblClick(Sender: TObject);
     procedure btnBaixarLancamentoClick(Sender: TObject);
     procedure spbPesquisaClick(Sender: TObject);
+    procedure dbgRegistrosKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     procedure ArredondaPainel;
     procedure CentralizandoPanel;
@@ -122,13 +126,16 @@ end;
 
 procedure TfrmContasReceber.btnBaixarLancamentoClick(Sender: TObject);
 begin
-  cdsContasReceber.Close;
-  cdsContasReceber.ParamByName('id').AsInteger := qryGridReceberid.AsInteger;
-  cdsContasReceber.Open;
-  cdsContasReceber.Edit;
-  Self.ChamaTelaFechar;
-  Self.OpenDataSet;
-  Self.CalculaPainel;
+  if cbFaturados.Checked = False then
+  begin
+    cdsContasReceber.Close;
+    cdsContasReceber.ParamByName('id').AsInteger := qryGridReceberid.AsInteger;
+    cdsContasReceber.Open;
+    cdsContasReceber.Edit;
+    Self.ChamaTelaFechar;
+    Self.OpenDataSet;
+    Self.CalculaPainel;
+  end;
 end;
 
 procedure TfrmContasReceber.btnFecharClick(Sender: TObject);
@@ -169,6 +176,9 @@ procedure TfrmContasReceber.FormShow(Sender: TObject);
 begin
   Self.CalculaPainel;
   Self.OpenDataSet;
+  dtpDataInicial.Date := Date - 30;
+  dtpDataFinal.Date   := Date;
+  spbPesquisaClick(Sender);
 end;
 
 procedure TfrmContasReceber.OpenDataSet;
@@ -294,12 +304,33 @@ end;
 
 procedure TfrmContasReceber.dbgRegistrosDblClick(Sender: TObject);
 begin
-  cdsContasReceber.Close;
-  cdsContasReceber.ParamByName('id').AsInteger := qryGridReceberid.AsInteger;
-  cdsContasReceber.Open;
-  cdsContasReceber.Edit;
-  Self.ChamaTelaAbertura;
-  Self.OpenDataSet;
+  if cbFaturados.Checked = False then
+  begin
+    cdsContasReceber.Close;
+    cdsContasReceber.ParamByName('id').AsInteger := qryGridReceberid.AsInteger;
+    cdsContasReceber.Open;
+    cdsContasReceber.Edit;
+    Self.ChamaTelaAbertura;
+    Self.OpenDataSet;
+    Self.CalculaPainel;
+  end;
+end;
+
+procedure TfrmContasReceber.dbgRegistrosKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if key = VK_DELETE then
+  begin
+    if cbFaturados.Checked = False then
+    begin
+      if MsgConfirmar('Deseja realmente excluir este registro?', 'Esta ação é irreversível e o registro será permanentemente excluído.') = mrOk then
+      begin
+        qryGridReceber.Delete;
+        Self.OpenDataSet;
+        Self.CalculaPainel;
+      end;
+    end;
+  end;
 end;
 
 end.

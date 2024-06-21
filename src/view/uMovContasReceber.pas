@@ -28,7 +28,8 @@ uses
   dxSkinVisualStudio2013Blue, dxSkinVisualStudio2013Dark,
   dxSkinVisualStudio2013Light, dxSkinVS2010, dxSkinWhiteprint, dxSkinWXI,
   dxSkinXmas2008Blue, cxTextEdit, cxMaskEdit, cxDropDownEdit, cxLookupEdit,
-  cxDBLookupEdit, cxDBLookupComboBox, SWHDBComboBox, SWHDBLookupComboBox;
+  cxDBLookupEdit, cxDBLookupComboBox, SWHDBComboBox, SWHDBLookupComboBox,
+  dxGDIPlusClasses;
 
 type
   TfrmMovReceber = class(TForm)
@@ -153,8 +154,11 @@ begin
     frmPesquisaPadrao.ShowModal;
     if frmPesquisaPadrao.ModalResult = 1 then
     begin
-      (dsMovContasReceber.DataSet as TClientDataSet).FieldByName('idcliente').AsInteger
-        := frmPesquisaPadrao.qryPadrao.FieldByName('Id').AsInteger;
+      if frmPesquisaPadrao.ModalResult = mrOk then
+      begin
+        (dsMovContasReceber.DataSet as TClientDataSet).FieldByName('idcliente').AsInteger
+          := frmPesquisaPadrao.qryPadrao.FieldByName('Id').AsInteger;
+      end;
     end;
   finally
     frmPesquisaPadrao.Free;
@@ -185,6 +189,11 @@ begin
 
   qryFormaPgto.Close;
   qryFormaPgto.Open;
+
+  if edtNumDoc.Text <> EmptyStr then
+  begin
+    edtValor.Text := (dsMovContasReceber.DataSet as TClientDataSet).FieldByName('valor').AsString;
+  end;
 end;
 
 procedure TfrmMovReceber.spbPesquisaClick(Sender: TObject);

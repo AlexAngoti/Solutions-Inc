@@ -9,7 +9,7 @@ uses
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
-  SWHDBLookupComboBox;
+  SWHDBLookupComboBox, Vcl.Imaging.jpeg;
 
 type
   TfrmMovBaixaReceber = class(TForm)
@@ -99,18 +99,11 @@ procedure TfrmMovBaixaReceber.FormShow(Sender: TObject);
 begin
   qryFormaPgto.Close;
   qryFormaPgto.Open;
+  dtpDataPgto.Date := Date;
 end;
 
 procedure TfrmMovBaixaReceber.ValidaCampo;
 begin
-  if DBMemo1.Text = EmptyStr then
-  begin
-    uUtils.MsgOk('Favor informar a descrição!!',
-    'Informar uma descrição para o lançamento');
-    DBMemo1.SetFocus;
-    Abort;
-  end;
-
   if cxFormaPgto.Text = EmptyStr then
   begin
     uUtils.MsgOk('Favor escolher uma forma de pagamento!!',

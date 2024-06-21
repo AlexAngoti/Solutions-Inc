@@ -25,13 +25,17 @@ uses
   dxSkinWhiteprint, dxSkinWXI, dxSkinXmas2008Blue, cxStyles, cxCustomData,
   cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, dxDateRanges,
   dxScrollbarAnnotations, cxDBData, cxGridLevel, cxClasses, cxGridCustomView,
-  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid;
+  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid,
+  dxGDIPlusClasses;
 
 type
   TfrmConsultaUsuario = class(TfrmConsultaPadrao)
     dbGrdPesquisaDBTableView1id: TcxGridDBColumn;
     dbGrdPesquisaDBTableView1acesso: TcxGridDBColumn;
+    dbGrdPesquisaDBTableView1master: TcxGridDBColumn;
+    dbGrdPesquisaDBTableView1ativo: TcxGridDBColumn;
     procedure btnPesquisaClick(Sender: TObject);
+    procedure dbGrdPesquisaDBTableView1DblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -51,6 +55,13 @@ uses
 procedure TfrmConsultaUsuario.btnPesquisaClick(Sender: TObject);
 begin
   Self.FiltraCampo('acesso');
+end;
+
+procedure TfrmConsultaUsuario.dbGrdPesquisaDBTableView1DblClick(
+  Sender: TObject);
+begin
+  inherited;
+  ModalResult := mrOk;
 end;
 
 end.
