@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uCadastroPadrao, Datasnap.Provider,
   Data.DB, Datasnap.DBClient, Vcl.Buttons, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Mask,
-  Vcl.DBCtrls, SWHDBEdit, SWHComboBox;
+  Vcl.DBCtrls, SWHDBEdit, SWHComboBox, SWHDBComboBox;
 
 type
   TfrmCadastroPagamento = class(TfrmCadastroPadrao)
@@ -24,9 +24,15 @@ type
     cdsCadastroPadraotipopgto: TIntegerField;
     cdsCadastroPadraoativo: TIntegerField;
     SWHComboBox1: TSWHComboBox;
+    Label4: TLabel;
+    Label5: TLabel;
+    cbxAtualizaRec: TSWHComboBox;
+    cbxAtualizaPag: TSWHComboBox;
+    cdsCadastroPadraoatualizapagar: TIntegerField;
+    cdsCadastroPadraoatualizareceber: TIntegerField;
+    Label6: TLabel;
     procedure btnConfirmarClick(Sender: TObject);
     procedure FormResize(Sender: TObject);
-    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -51,6 +57,8 @@ uses
 
 procedure TfrmCadastroPagamento.BloqueiaCampo;
 begin
+  cdsCadastroPadrao.Close;
+  cdsCadastroPadrao.Open;
   cdsCadastroPadrao.Insert;
   edtNome.Enabled    := False;
   cbxAtivo.Enabled   := False;
@@ -60,16 +68,24 @@ begin
   Label1.Enabled     := False;
   Label3.Enabled     := False;
   lblAtivo.Enabled   := False;
+  cbxAtualizaRec.Enabled := False;
+  cbxAtualizaPag.Enabled := False;
+  Label4.Enabled := False;
+  Label5.Enabled := False;
 end;
 
 procedure TfrmCadastroPagamento.btnConfirmarClick(Sender: TObject);
 begin
   cdsCadastroPadraotipopgto.AsInteger := SWHComboBox1.ItemIndex;
   cdsCadastroPadraoativo.AsInteger    := cbxAtivo.ItemIndex;
+  cdsCadastroPadraoatualizapagar.AsInteger   := cbxAtualizaPag.ItemIndex;
+  cdsCadastroPadraoatualizareceber.AsInteger := cbxAtualizaRec.ItemIndex;
   inherited;
   cdsCadastroPadrao.Insert;
   cbxAtivo.ItemIndex     := 0;
   SWHComboBox1.ItemIndex := 0;
+  cbxAtualizaRec.ItemIndex := -1;
+  cbxAtualizaPag.ItemIndex := -1;
 end;
 
 procedure TfrmCadastroPagamento.ClearField;
@@ -91,12 +107,6 @@ begin
   Panel1.Left := Round(pnlSubTop.Width / 2 - Panel1.Width / 2);
 end;
 
-procedure TfrmCadastroPagamento.FormShow(Sender: TObject);
-begin
-  inherited;
-  cdsCadastroPadrao.Insert;
-end;
-
 procedure TfrmCadastroPagamento.LiberaCampo;
 begin
   inherited;
@@ -108,6 +118,10 @@ begin
   Label1.Enabled     := True;
   Label3.Enabled     := True;
   lblAtivo.Enabled   := True;
+  cbxAtualizaRec.Enabled := True;
+  cbxAtualizaPag.Enabled := True;
+  Label4.Enabled := True;
+  Label5.Enabled := True;
 end;
 
 procedure TfrmCadastroPagamento.OpenScreen;
@@ -124,6 +138,8 @@ begin
       cdsCadastroPadrao.Edit;
       cbxAtivo.ItemIndex     := cdsCadastroPadraoativo.AsInteger;
       SWHComboBox1.ItemIndex := cdsCadastroPadraotipopgto.AsInteger;
+      cbxAtualizaRec.ItemIndex := cdsCadastroPadraoatualizareceber.AsInteger;
+      cbxAtualizaPag.ItemIndex := cdsCadastroPadraoatualizapagar.AsInteger;
       Self.LiberaCampo;
     end
     else

@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.StdCtrls,
-  Vcl.Imaging.pngimage, Vcl.ExtCtrls;
+  Vcl.Imaging.pngimage, Vcl.ExtCtrls, dxGDIPlusClasses;
 
 type
   TfrmMsgConfirmar = class(TForm)
@@ -15,12 +15,12 @@ type
     lblMenssagem: TLabel;
     pnlTop: TPanel;
     lblNomeEmpresa: TLabel;
-    Image1: TImage;
     pnlLine: TPanel;
     pnlSalvar: TPanel;
     btnSalvar: TSpeedButton;
     pnlCancelar: TPanel;
     btnCancelar: TSpeedButton;
+    imgLogoTop: TImage;
     procedure FormResize(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);

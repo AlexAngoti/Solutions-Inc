@@ -94,7 +94,13 @@ object dm: Tdm
   object qryPessoa: TFDQuery
     Connection = FDConnection
     SQL.Strings = (
-      'select * from pessoa p ')
+      'SELECT p.*,'
+      '       CASE '
+      '           WHEN p.tipopessoa = 0 THEN '#39'CLIENTE'#39
+      '           WHEN p.tipopessoa = 1 THEN '#39'FORNECEDOR'#39
+      '           WHEN p.tipopessoa = 2 THEN '#39'FUNCION'#193'RIO'#39
+      '       END AS tipo_pessoa'
+      '  FROM pessoa p;')
     Left = 24
     Top = 136
   end
@@ -248,5 +254,78 @@ object dm: Tdm
       FieldName = 'observaobaixa'
       Size = 255
     end
+  end
+  object qryPagar: TFDQuery
+    Connection = FDConnection
+    SQL.Strings = (
+      'SELECT * FROM contaspagar a'
+      'where ((:id = 0) or (a.id = :id))'
+      '  and a.databaixa is null')
+    Left = 120
+    Top = 136
+    ParamData = <
+      item
+        Position = 1
+        Name = 'id'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = 0
+      end>
+    object qryPagarid: TLargeintField
+      FieldName = 'id'
+      Origin = 'id'
+    end
+    object qryPagardataemissao: TDateField
+      FieldName = 'dataemissao'
+      Origin = 'dataemissao'
+    end
+    object qryPagardatavencimento: TDateField
+      FieldName = 'datavencimento'
+      Origin = 'datavencimento'
+    end
+    object qryPagarvalor: TBCDField
+      FieldName = 'valor'
+      Origin = 'valor'
+      Precision = 15
+      Size = 2
+    end
+    object qryPagarformapgto: TIntegerField
+      FieldName = 'formapgto'
+      Origin = 'formapgto'
+    end
+    object qryPagaridfornecedor: TIntegerField
+      FieldName = 'idfornecedor'
+      Origin = 'idfornecedor'
+    end
+    object qryPagardatabaixa: TDateField
+      FieldName = 'databaixa'
+      Origin = 'databaixa'
+    end
+    object qryPagardescricao: TWideStringField
+      FieldName = 'descricao'
+      Origin = 'descricao'
+      Size = 255
+    end
+    object qryPagarnumerodoc: TWideStringField
+      FieldName = 'numerodoc'
+      Origin = 'numerodoc'
+      Size = 60
+    end
+    object qryPagarobservaobaixa: TWideStringField
+      FieldName = 'observaobaixa'
+      Origin = 'observaobaixa'
+      Size = 255
+    end
+    object qryPagarnumeroorigem: TIntegerField
+      FieldName = 'numeroorigem'
+      Origin = 'numeroorigem'
+    end
+  end
+  object qryProduto: TFDQuery
+    Connection = FDConnection
+    SQL.Strings = (
+      'SELECT * FROM produto')
+    Left = 152
+    Top = 136
   end
 end

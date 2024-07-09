@@ -8,7 +8,8 @@ uses
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Datasnap.Provider,
   Data.DB, Datasnap.DBClient, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
-  Vcl.StdCtrls, VCLTee.TeCanvas, Vcl.Buttons, Vcl.ExtCtrls, SWHEdit;
+  Vcl.StdCtrls, VCLTee.TeCanvas, Vcl.Buttons, Vcl.ExtCtrls, SWHEdit,
+  Vcl.Imaging.jpeg;
 
 type
   TfrmLogin = class(TForm)
@@ -30,6 +31,7 @@ type
     btnEntrar: TSpeedButton;
     edtUsuario: TEdit;
     edtSenha: TEdit;
+    Image1: TImage;
     procedure btnEntrarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure btnFecharClick(Sender: TObject);

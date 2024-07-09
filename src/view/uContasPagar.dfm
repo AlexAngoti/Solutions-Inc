@@ -22,9 +22,9 @@ object frmContasPagar: TfrmContasPagar
   object pnlCentral: TPanel
     AlignWithMargins = True
     Left = 5
-    Top = 81
+    Top = 70
     Width = 1173
-    Height = 480
+    Height = 491
     Margins.Left = 5
     Margins.Top = 0
     Margins.Right = 5
@@ -43,100 +43,6 @@ object frmContasPagar: TfrmContasPagar
       Color = clWhite
       ParentBackground = False
       TabOrder = 0
-      object btnInformacoes: TSpeedButton
-        AlignWithMargins = True
-        Left = 5
-        Top = 5
-        Width = 40
-        Height = 30
-        Margins.Left = 5
-        Margins.Top = 5
-        Margins.Right = 5
-        Margins.Bottom = 5
-        Align = alLeft
-        Flat = True
-        Glyph.Data = {
-          42090000424D4209000000000000420000002800000018000000180000000100
-          20000300000000090000C30E0000C30E000000000000000000000000FF0000FF
-          0000FF0000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000999999059E9E9E549F9F9FA49F9F9FD7A0A0A0F3A0A0A0F39E9E9ED6A0A0
-          A0A39E9E9E549999990500000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000009F9F
-          9F50A0A0A0DB9F9F9FFF9F9F9FFF9F9F9FFF9F9F9FFF9F9F9FFF9F9F9FFF9F9F
-          9FFF9F9F9FFF9F9F9FDA9E9E9E4F000000000000000000000000000000000000
-          000000000000000000000000000000000000000000007F7F7F029E9E9E899F9F
-          9FFF9F9F9FFF9F9F9FD49E9E9E719C9C9C2C9595950C9595950C9C9C9C2C9F9F
-          9F729F9F9FD59F9F9FFF9F9F9FFE9F9F9F887F7F7F0200000000000000000000
-          000000000000000000000000000000000000000000009E9E9E899F9F9FFF9F9F
-          9FF99F9F9F6DAAAAAA0300000000000000000000000000000000000000000000
-          00007F7F7F049F9F9F6F9F9F9FFA9F9F9FFF9F9F9F8700000000000000000000
-          000000000000000000000000000000000000A1A1A1519F9F9FFF9F9F9FF9A0A0
-          A043000000000000000000000000000000000000000000000000000000000000
-          000000000000000000009D9D9D449F9F9FFA9F9F9FFEA0A0A04E000000000000
-          0000000000000000000000000000AAAAAA069F9F9FDC9F9F9FFF9E9E9E6C0000
-          000000000000000000000000000000000000A0A0A0BBA0A0A0BB000000000000
-          00000000000000000000000000009F9F9F6F9F9F9FFF9F9F9FDA999999050000
-          0000000000000000000000000000A0A0A0569F9F9FFF9F9F9FD4AAAAAA030000
-          0000000000000000000000000000000000009E9E9EB69E9E9EB6000000000000
-          0000000000000000000000000000AAAAAA039F9F9FD59F9F9FFF9E9E9E540000
-          00000000000000000000000000009F9F9FA59F9F9FFF9F9F9F70000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          000000000000000000000000000000000000A0A0A0739F9F9FFF9F9F9FA20000
-          00000000000000000000000000009F9F9FD99F9F9FFF9E9E9E2A000000000000
-          000000000000000000000000000000000000A0A0A0C39F9F9FC2000000000000
-          0000000000000000000000000000000000009C9C9C2C9F9F9FFF9F9F9FD80000
-          0000000000000000000000000000A0A0A0F39F9F9FFF9D9D9D0D000000000000
-          0000000000000000000000000000000000009F9F9FFF9F9F9FFF000000000000
-          000000000000000000000000000000000000A4A4A40E9F9F9FFF9F9F9FF10000
-          0000000000000000000000000000A0A0A0F39F9F9FFF9595950C000000000000
-          0000000000000000000000000000000000009F9F9FFF9F9F9FFF000000000000
-          0000000000000000000000000000000000009D9D9D0D9F9F9FFFA0A0A0F30000
-          00000000000000000000000000009F9F9FD99F9F9FFF9E9E9E2A000000000000
-          0000000000000000000000000000000000009F9F9FFF9F9F9FFF000000000000
-          0000000000000000000000000000000000009C9C9C2C9F9F9FFF9F9F9FD80000
-          00000000000000000000000000009F9F9FA79F9F9FFFA0A0A06E000000000000
-          0000000000000000000000000000000000009F9F9FFF9F9F9FFF000000000000
-          0000000000000000000000000000000000009E9E9E719F9F9FFF9F9F9FA40000
-          0000000000000000000000000000A0A0A0569F9F9FFFA0A0A0D3AAAAAA030000
-          0000000000000000000000000000000000009F9F9FFF9F9F9FFF000000000000
-          0000000000000000000000000000AAAAAA039F9F9FD49F9F9FFF9E9E9E540000
-          0000000000000000000000000000AAAAAA069F9F9FDD9F9F9FFF9F9F9F6A0000
-          0000000000000000000000000000000000009F9F9FC5A0A0A0C3000000000000
-          00000000000000000000000000009F9F9F6D9F9F9FFFA0A0A0DB999999050000
-          0000000000000000000000000000000000009F9F9F529F9F9FFF9F9F9FF99E9E
-          9E42000000000000000000000000000000000000000000000000000000000000
-          00000000000000000000A0A0A0439F9F9FF99F9F9FFF9F9F9F50000000000000
-          000000000000000000000000000000000000000000009F9F9F8A9F9F9FFF9F9F
-          9FF99F9F9F6A7F7F7F0200000000000000000000000000000000000000000000
-          0000AAAAAA039E9E9E6C9F9F9FF99F9F9FFF9E9E9E8900000000000000000000
-          000000000000000000000000000000000000000000007F7F7F029F9F9F8A9F9F
-          9FFF9F9F9FFFA0A0A0D39F9F9F6FA0A0A02BA2A2A20BA2A2A20BA0A0A02B9F9F
-          9F6FA0A0A0D39F9F9FFF9F9F9FFF9E9E9E897F7F7F0200000000000000000000
-          0000000000000000000000000000000000000000000000000000000000009F9F
-          9F529F9F9FDD9F9F9FFF9F9F9FFF9F9F9FFF9F9F9FFF9F9F9FFF9F9F9FFF9F9F
-          9FFF9F9F9FFF9F9F9FDCA1A1A151000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000AAAAAA06A0A0A056A0A0A0A69F9F9FD89F9F9FF49F9F9FF49F9F9FD8A0A0
-          A0A6A0A0A056AAAAAA0600000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          000000000000}
-        OnMouseEnter = btnInformacoesMouseEnter
-        OnMouseLeave = btnInformacoesMouseLeave
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitHeight = 40
-      end
       object pnlNovoLanc: TPanel
         AlignWithMargins = True
         Left = 1041
@@ -218,51 +124,277 @@ object frmContasPagar: TfrmContasPagar
     end
     object pnlCentBot: TPanel
       AlignWithMargins = True
-      Left = 1
-      Top = 240
-      Width = 1181
-      Height = 238
+      Left = 6
+      Top = 208
+      Width = 1161
+      Height = 260
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
+      Align = alClient
       BevelOuter = bvNone
       Color = clWhite
       ParentBackground = False
       TabOrder = 1
       object pnlLinha3: TPanel
         Left = 0
-        Top = 41
-        Width = 1181
+        Top = 73
+        Width = 1161
         Height = 1
         Align = alTop
         Color = 13750737
         ParentBackground = False
         TabOrder = 0
       end
+      object pnlSubPesquisa: TPanel
+        Left = 0
+        Top = 0
+        Width = 1161
+        Height = 73
+        Align = alTop
+        BevelOuter = bvNone
+        Color = clWhite
+        ParentBackground = False
+        TabOrder = 1
+        object Label1: TLabel
+          Left = 10
+          Top = 0
+          Width = 57
+          Height = 13
+          Caption = 'Data Inicial'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = -1
+          Font.Height = -11
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label2: TLabel
+          Left = 147
+          Top = 0
+          Width = 52
+          Height = 13
+          Caption = 'Data Final'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = -1
+          Font.Height = -11
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object pnlPesquisa: TPanel
+          Left = 8
+          Top = 43
+          Width = 633
+          Height = 28
+          BevelOuter = bvNone
+          TabOrder = 0
+          object shpPesquisa: TShape
+            Left = 27
+            Top = 0
+            Width = 606
+            Height = 28
+            Align = alClient
+            Pen.Color = clSilver
+            ExplicitLeft = 4
+            ExplicitTop = 5
+            ExplicitWidth = 633
+          end
+          object spbPesquisa: TSpeedButton
+            Left = 0
+            Top = 0
+            Width = 27
+            Height = 28
+            Cursor = crHandPoint
+            Align = alLeft
+            Flat = True
+            Glyph.Data = {
+              36090000424D3609000000000000360000002800000018000000180000000100
+              2000000000000009000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000020202091B1B1B8E0D0D0D45000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000202
+              0209232323BC303030FF1B1B1B8D000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000020202092222
+              22BB303030FF242424C10202020C000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000002020209222222BB3030
+              30FF242424C10202020C00000000000000000000000000000000000000000000
+              00000000000000000000000000000000000000000000090909321B1B1B8D2222
+              22BB242424C61F1F1FA61111115C0101010702020209232323BC303030FF2323
+              23BC020202090000000000000000000000000000000000000000000000000000
+              00000000000000000000000000000202020B1E1E1EA2303030FE303030FF3030
+              30FF303030FF303030FF303030FF282828DB252525C3303030FF232323BC0202
+              0209000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000001010106232323C0303030FF282828D4101010570404
+              0413020202080A0A0A351D1D1DA0303030FE303030FF252525C3020202090000
+              0000000000000000000000000000000000000000000000000000000000000000
+              000000000000000000001818187E303030FF232323B802020209000000000000
+              000000000000000000000000000012121260303030FE282828D3010101030000
+              0000000000000000000000000000000000000000000000000000000000000000
+              000000000000020202082D2D2DEE2D2D2DEF0404041300000000000000000000
+              0000000000000000000000000000000000001E1E1E9F303030FF101010570000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000C0C0C41303030FF1D1D1D990000000000000000000000000000
+              0000000000000000000000000000000000000A0A0A36303030FF1D1D1D9B0000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000012121260303030FF1515156E0000000000000000000000000000
+              00000000000000000000000000000000000002020209303030FF242424BF0000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000011111158303030FF171717780000000000000000000000000000
+              00000000000000000000000000000000000004040414303030FF212121B50000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000008080828303030FF222222BB0000000000000000000000000000
+              00000000000000000000000000000000000010101057303030FF191919840000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000000000000272727CD303030FE0C0C0C4200000000000000000000
+              000000000000000000000000000002020209282828D4303030FE0909092E0000
+              0000000000000000000000000000000000000000000000000000000000000000
+              000000000000000000000C0C0C41303030FD2D2D2DED0C0C0C42000000000000
+              0000000000000000000004040413232323B9303030FF1C1C1C96000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              000000000000000000000000000014141469303030FD303030FE222222BB1717
+              17781515156E1D1D1D992D2D2DEF303030FF222222B70202020B000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000C0C0C40272727CE303030FF3030
+              30FF303030FF303030FF2B2B2BE7171717780101010300000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000080808291010
+              10571111115B0A0A0A3701010107000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000}
+            OnClick = spbPesquisaClick
+            ExplicitLeft = 2
+            ExplicitHeight = 26
+          end
+          object edtPesquisa: TEdit
+            Left = 35
+            Top = 3
+            Width = 572
+            Height = 20
+            TabStop = False
+            BorderStyle = bsNone
+            CharCase = ecUpperCase
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = -1
+            Font.Height = -13
+            Font.Name = 'Segoe UI'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+            TextHint = 'DIGITE PARA PESQUISAR'
+          end
+          object pnlLinha4: TPanel
+            Left = 624
+            Top = 24
+            Width = 185
+            Height = 41
+            Caption = 'pnlLinha4'
+            TabOrder = 1
+          end
+        end
+        object RadioGroup1: TRadioGroup
+          Left = 290
+          Top = 3
+          Width = 194
+          Height = 35
+          Caption = 'Tipo da Pesquisa'
+          Columns = 2
+          Font.Charset = ANSI_CHARSET
+          Font.Color = -1
+          Font.Height = -11
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ItemIndex = 0
+          Items.Strings = (
+            'Descri'#231#227'o'
+            'Numero Doc.')
+          ParentFont = False
+          TabOrder = 1
+        end
+        object dtpDataInicial: TDateTimePicker
+          Left = 10
+          Top = 17
+          Width = 119
+          Height = 21
+          Date = 45452.000000000000000000
+          Time = 0.462828981479106000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 2
+        end
+        object dtpDataFinal: TDateTimePicker
+          Left = 147
+          Top = 17
+          Width = 126
+          Height = 21
+          Date = 45452.000000000000000000
+          Time = 0.462828981479106000
+          TabOrder = 3
+        end
+        object cbFaturados: TCheckBox
+          Left = 507
+          Top = 17
+          Width = 114
+          Height = 17
+          Caption = 'Apenas Faturados'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = -1
+          Font.Height = -11
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 4
+        end
+      end
       object dbgRegistros: TDBGrid
         AlignWithMargins = True
         Left = 0
-        Top = 52
-        Width = 1181
-        Height = 186
+        Top = 84
+        Width = 1161
+        Height = 176
         Margins.Left = 0
         Margins.Top = 10
         Margins.Right = 0
         Margins.Bottom = 0
         Align = alClient
         BorderStyle = bsNone
-        DataSource = dsContasPagar
+        DataSource = dsGridPagar
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = 5855577
+        Font.Color = -1
         Font.Height = -13
         Font.Name = 'Segoe UI'
         Font.Style = []
         Options = [dgTitles, dgIndicator, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgTitleClick, dgTitleHotTrack]
         ParentFont = False
-        TabOrder = 1
+        TabOrder = 2
         TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = 5855577
+        TitleFont.Color = -1
         TitleFont.Height = -13
         TitleFont.Name = 'Segoe UI'
         TitleFont.Style = []
@@ -270,14 +402,35 @@ object frmContasPagar: TfrmContasPagar
         Columns = <
           item
             Expanded = False
-            FieldName = 'datavencimento'
-            Title.Caption = 'Data'
+            FieldName = 'dataemissao'
+            Title.Caption = 'Data Inclus'#227'o'
             Width = 93
             Visible = True
           end
           item
             Expanded = False
-            FieldName = 'lancamento'
+            FieldName = 'datavencimento'
+            Title.Caption = 'Data Vencimento'
+            Width = 114
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'databaixa'
+            Title.Caption = 'Data Fechamento'
+            Width = 116
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'numerodoc'
+            Title.Caption = 'Num. Documento'
+            Width = 120
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'id'
             Title.Caption = 'Lan'#231'amento'
             Width = 100
             Visible = True
@@ -285,7 +438,7 @@ object frmContasPagar: TfrmContasPagar
           item
             Expanded = False
             FieldName = 'valor'
-            Title.Caption = 'Valor'
+            Title.Caption = 'Valor do Titulo'
             Width = 134
             Visible = True
           end
@@ -298,123 +451,26 @@ object frmContasPagar: TfrmContasPagar
           end
           item
             Expanded = False
-            FieldName = 'nomedesc'
-            Title.Caption = 'Cliente e Descri'#231#227'o'
-            Width = 400
+            FieldName = 'descricao'
+            Title.Caption = 'Descri'#231#227'o'
+            Width = 431
             Visible = True
           end>
       end
-      object pnlSubPesquisa: TPanel
-        Left = 0
-        Top = 0
-        Width = 1181
-        Height = 41
-        Align = alTop
-        BevelOuter = bvNone
-        Color = clWhite
-        ParentBackground = False
-        TabOrder = 2
-        object pnlPesquisa: TPanel
-          Left = 8
-          Top = 6
-          Width = 633
-          Height = 28
-          BevelOuter = bvNone
-          TabOrder = 0
-          object shpPesquisa: TShape
-            Left = 0
-            Top = 0
-            Width = 633
-            Height = 28
-            Align = alClient
-            Pen.Color = clSilver
-            ExplicitLeft = 4
-            ExplicitTop = 5
-          end
-          object spbPesquisa: TSpeedButton
-            Left = 2
-            Top = 1
-            Width = 27
-            Height = 26
-            Cursor = crHandPoint
-            Flat = True
-            Glyph.Data = {
-              26040000424D2604000000000000360000002800000012000000120000000100
-              180000000000F0030000120B0000120B00000000000000000000E6E1DEE6E1DE
-              E6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1
-              DEE6E1DEE6E1DEE6E1DEB3B0AECBC7C50000E6E1DEE6E1DEE6E1DEE6E1DEE6E1
-              DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE9B
-              99986C6C6CAFACAA0000E6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6
-              E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE9F9D9B6C6C6C9D9B9ADED9D6
-              0000E6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE
-              E6E1DEE6E1DEE6E1DE9E9C9B6C6C6CA19F9EE6E1DEE6E1DE0000E6E1DEE6E1DE
-              E6E1DEE6E1DEE5E0DDC1BEBCA3A09FA09E9CBBB8B6DDD8D6E6E1DEE6E1DE9C9A
-              996C6C6CA2A09FE6E1DEE6E1DEE6E1DE0000E6E1DEE6E1DEE6E1DEBAB6B46D6D
-              6D6C6C6C6C6C6C6C6C6C6C6C6C6C6C6CB1AEACA6A4A36C6C6CA3A19FE6E1DEE6
-              E1DEE6E1DEE6E1DE0000E6E1DEE6E1DEAAA7A66C6C6C7B7B7ABCB9B7D9D5D2DD
-              D8D6C5C1BF8D8C8B6C6C6C6C6C6CAEABA9E6E1DEE6E1DEE6E1DEE6E1DEE6E1DE
-              0000E6E1DEC7C3C16C6C6C92908FE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE
-              B0AEAC6C6C6CB5B2B0E6E1DEE6E1DEE6E1DEE6E1DEE6E1DE0000E1DCD9767675
-              6F6F6FE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE8B89896C6C
-              6CDFDBD8E6E1DEE6E1DEE6E1DEE6E1DE0000BAB7B56C6C6CA8A5A4E6E1DEE6E1
-              DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DECDC9C76C6C6CB8B5B3E6E1DEE6
-              E1DEE6E1DEE6E1DE0000A2A09F6C6C6CC6C3C0E6E1DEE6E1DEE6E1DEE6E1DEE6
-              E1DEE6E1DEE6E1DEE6E1DEE2DDDA6C6C6C9D9B9AE6E1DEE6E1DEE6E1DEE6E1DE
-              0000A5A3A26C6C6CC4C0BEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE
-              E6E1DEDFDBD86C6C6CA19F9EE6E1DEE6E1DEE6E1DEE6E1DE0000C4C0BE6C6C6C
-              9A9897E6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEC1BDBB6C6C
-              6CC2BFBCE6E1DEE6E1DEE6E1DEE6E1DE0000E5E0DD8483826C6C6CDDD9D6E6E1
-              DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE7979796C6C6CE5E0DDE6E1DEE6
-              E1DEE6E1DEE6E1DE0000E6E1DED7D2D06C6C6C787777D9D4D1E6E1DEE6E1DEE6
-              E1DEE6E1DEE6E1DE9492916C6C6CBCB9B7E6E1DEE6E1DEE6E1DEE6E1DEE6E1DE
-              0000E6E1DEE6E1DEC1BDBB6C6C6C6C6C6C999796BEBAB8C3C0BDA6A4A36D6D6D
-              6C6C6CABA8A7E6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE0000E6E1DEE6E1DE
-              E6E1DED1CDCA8A89886C6C6C6C6C6C6C6C6C6C6C6C7E7D7DC2BEBCE6E1DEE6E1
-              DEE6E1DEE6E1DEE6E1DEE6E1DEE6E1DE0000E6E1DEE6E1DEE6E1DEE6E1DEE6E1
-              DEC4C0BEAAA8A6A6A4A2BDBAB8E1DCD9E6E1DEE6E1DEE6E1DEE6E1DEE6E1DEE6
-              E1DEE6E1DEE6E1DE0000}
-            OnClick = spbPesquisaClick
-          end
-          object edtPesquisa: TEdit
-            Left = 35
-            Top = 3
-            Width = 572
-            Height = 20
-            TabStop = False
-            BorderStyle = bsNone
-            CharCase = ecUpperCase
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clGray
-            Font.Height = -13
-            Font.Name = 'Segoe UI'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 0
-            TextHint = 'DIGITE O NOME DO CLIENTE  PARA PESQUISAR'
-          end
-          object pnlLinha4: TPanel
-            Left = 624
-            Top = 24
-            Width = 185
-            Height = 41
-            Caption = 'pnlLinha4'
-            TabOrder = 1
-          end
-        end
-      end
     end
     object pnlCentralInfo: TPanel
-      Left = 5
+      Left = 1
       Top = 42
-      Width = 1188
-      Height = 144
+      Width = 1171
+      Height = 161
+      Align = alTop
       BevelOuter = bvNone
       TabOrder = 2
       object pnlQuantidade: TPanel
         Left = 0
         Top = 0
         Width = 235
-        Height = 144
+        Height = 161
         Margins.Left = 5
         Margins.Top = 5
         Margins.Right = 5
@@ -431,7 +487,7 @@ object frmContasPagar: TfrmContasPagar
           Height = 36
           Caption = '0'
           Font.Charset = ANSI_CHARSET
-          Font.Color = 4210752
+          Font.Color = clGreen
           Font.Height = -26
           Font.Name = 'Segoe UI Semibold'
           Font.Style = [fsBold]
@@ -440,159 +496,159 @@ object frmContasPagar: TfrmContasPagar
         object lblQuantidade: TLabel
           Left = 77
           Top = 44
-          Width = 81
+          Width = 90
           Height = 21
           Caption = 'Quantidade'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = 5855577
+          Font.Color = -1
           Font.Height = -16
           Font.Name = 'Segoe UI'
-          Font.Style = []
+          Font.Style = [fsBold]
           ParentFont = False
         end
       end
-      object pnlPagAtrasado: TPanel
+      object pnlRecebimentoAtrasado: TPanel
         Left = 235
         Top = 0
         Width = 235
-        Height = 144
+        Height = 161
         Align = alLeft
         BevelOuter = bvNone
         Color = clWhite
         ParentBackground = False
         TabOrder = 1
-        object lblPagAtrasado: TLabel
+        object lblRecebimentoAtrasado: TLabel
           Left = 39
           Top = 44
-          Width = 157
+          Width = 172
           Height = 21
-          Caption = 'Recebimento Atrasado'
+          Caption = 'Pagamentos atrasados'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = 5855577
+          Font.Color = -1
           Font.Height = -16
           Font.Name = 'Segoe UI'
-          Font.Style = []
+          Font.Style = [fsBold]
           ParentFont = False
         end
-        object lblVlrPagAtrasado: TLabel
+        object lblVlrRecebimentoAtrasado: TLabel
           Left = 110
           Top = 70
           Width = 14
           Height = 36
           Caption = '0'
           Font.Charset = ANSI_CHARSET
-          Font.Color = 4210752
+          Font.Color = clGreen
           Font.Height = -26
           Font.Name = 'Segoe UI Semibold'
           Font.Style = [fsBold]
           ParentFont = False
         end
       end
-      object pnlPagHoje: TPanel
+      object pnlRecebimentoHoje: TPanel
         Left = 470
         Top = 0
         Width = 235
-        Height = 144
+        Height = 161
         Align = alLeft
         BevelOuter = bvNone
         Color = clWhite
         ParentBackground = False
         TabOrder = 2
-        object lblPagHoje: TLabel
+        object lblRecebimentoHoje: TLabel
           Left = 44
-          Top = 44
-          Width = 148
+          Top = 43
+          Width = 158
           Height = 21
-          Caption = 'Recebimento de Hoje'
+          Caption = 'Pagamentos de Hoje'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = 5855577
+          Font.Color = -1
           Font.Height = -16
           Font.Name = 'Segoe UI'
-          Font.Style = []
+          Font.Style = [fsBold]
           ParentFont = False
         end
-        object lblVlrPagHoje: TLabel
+        object lblVlrRecebimentoHoje: TLabel
           Left = 110
           Top = 70
           Width = 14
           Height = 36
           Caption = '0'
           Font.Charset = ANSI_CHARSET
-          Font.Color = 4210752
+          Font.Color = clGreen
           Font.Height = -26
           Font.Name = 'Segoe UI Semibold'
           Font.Style = [fsBold]
           ParentFont = False
         end
       end
-      object pnlTotalPag: TPanel
+      object pnlTotalReceber: TPanel
         Left = 940
         Top = 0
         Width = 235
-        Height = 144
+        Height = 161
         Align = alLeft
         BevelOuter = bvNone
         Color = clWhite
         ParentBackground = False
         TabOrder = 3
-        object lblTotalaPag: TLabel
+        object lblTotalaReceber: TLabel
           Left = 66
           Top = 44
-          Width = 104
+          Width = 99
           Height = 21
-          Caption = 'Total a Receber'
+          Caption = 'Total a Pagar'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = 5855577
+          Font.Color = -1
           Font.Height = -16
           Font.Name = 'Segoe UI'
-          Font.Style = []
+          Font.Style = [fsBold]
           ParentFont = False
         end
-        object lblTotalPag: TLabel
+        object lblTotalReceber: TLabel
           Left = 110
           Top = 70
           Width = 14
           Height = 36
           Caption = '0'
           Font.Charset = ANSI_CHARSET
-          Font.Color = 4210752
+          Font.Color = clGreen
           Font.Height = -26
           Font.Name = 'Segoe UI Semibold'
           Font.Style = [fsBold]
           ParentFont = False
         end
       end
-      object pnlPagFuturos: TPanel
+      object pnlRecebimentosFuturos: TPanel
         Left = 705
         Top = 0
         Width = 235
-        Height = 144
+        Height = 161
         Align = alLeft
         BevelOuter = bvNone
         Color = clWhite
         ParentBackground = False
         TabOrder = 4
-        object lblPagFuturos: TLabel
+        object lblRecebimentosFuturos: TLabel
           Left = 42
           Top = 44
-          Width = 152
+          Width = 154
           Height = 21
-          Caption = 'Recebimentos futuros'
+          Caption = 'Pagamentos futuros'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = 5855577
+          Font.Color = -1
           Font.Height = -16
           Font.Name = 'Segoe UI'
-          Font.Style = []
+          Font.Style = [fsBold]
           ParentFont = False
         end
-        object lblVlrPagFuturos: TLabel
+        object lblVlrRecebimentosFuturos: TLabel
           Left = 110
           Top = 70
           Width = 14
           Height = 36
           Caption = '0'
           Font.Charset = ANSI_CHARSET
-          Font.Color = 4210752
+          Font.Color = clGreen
           Font.Height = -26
           Font.Name = 'Segoe UI Semibold'
           Font.Style = [fsBold]
@@ -602,7 +658,7 @@ object frmContasPagar: TfrmContasPagar
     end
     object pnlRodape: TPanel
       Left = 1
-      Top = 462
+      Top = 473
       Width = 1171
       Height = 17
       Align = alBottom
@@ -654,100 +710,13 @@ object frmContasPagar: TfrmContasPagar
         ExplicitHeight = 15
       end
     end
-    object pnlInformacoes: TPanel
-      Tag = 1
-      AlignWithMargins = True
-      Left = 52
-      Top = 1
-      Width = 185
-      Height = 106
-      Margins.Top = 165
-      Margins.Right = 0
-      Margins.Bottom = 50
-      BevelOuter = bvNone
-      Color = 14737632
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentBackground = False
-      ParentFont = False
-      TabOrder = 4
-      Visible = False
-      object Label10: TLabel
-        Left = 65
-        Top = 7
-        Width = 56
-        Height = 13
-        Caption = 'Comandos'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = 5855577
-        Font.Height = -11
-        Font.Name = 'Segoe UI'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object Label11: TLabel
-        Left = 11
-        Top = 23
-        Width = 126
-        Height = 13
-        Caption = '1 - DEL: Deletar registros'
-        Font.Charset = ARABIC_CHARSET
-        Font.Color = 5855577
-        Font.Height = -11
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label12: TLabel
-        Left = 11
-        Top = 41
-        Width = 151
-        Height = 13
-        Caption = '2 - Doub Click: Editar registro'
-        Font.Charset = ARABIC_CHARSET
-        Font.Color = 5855577
-        Font.Height = -11
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label13: TLabel
-        Left = 11
-        Top = 59
-        Width = 126
-        Height = 13
-        Caption = '3 - F1: Novo Lan'#231'amento'
-        Font.Charset = ARABIC_CHARSET
-        Font.Color = 5855577
-        Font.Height = -11
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label14: TLabel
-        Left = 11
-        Top = 77
-        Width = 133
-        Height = 13
-        Caption = '4 - F2: Fechar Lan'#231'amento'
-        Font.Charset = ARABIC_CHARSET
-        Font.Color = 5855577
-        Font.Height = -11
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-    end
   end
   object pnlSubTop: TPanel
     AlignWithMargins = True
     Left = 5
     Top = 5
     Width = 1173
-    Height = 71
+    Height = 60
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
@@ -762,7 +731,7 @@ object frmContasPagar: TfrmContasPagar
       Left = 1117
       Top = 10
       Width = 46
-      Height = 51
+      Height = 40
       Margins.Left = 15
       Margins.Top = 10
       Margins.Right = 10
@@ -850,54 +819,74 @@ object frmContasPagar: TfrmContasPagar
       ExplicitTop = 0
       ExplicitHeight = 52
     end
-    object lblEmpresa: TLabel
-      Left = 90
-      Top = 23
-      Width = 249
-      Height = 21
+    object imgLogoTop: TImage
+      Left = 0
+      Top = 0
+      Width = 57
+      Height = 60
+      Align = alLeft
+      Center = True
+      Picture.Data = {
+        0D546478536D617274496D616765FFD8FFE000104A4649460001010000000000
+        0000FFDB004300100B0C0E0C0A100E0D0E1211101318281A181616183123251D
+        283A333D3C3933383740485C4E404457453738506D51575F626768673E4D7179
+        7064785C656763FFC0000B080040004001011100FFC4001B0000020301010100
+        0000000000000000000001030506040207FFC4002D1000010401020404050500
+        00000000000001000203041105213141517112222361133242B1D106528191A1
+        FFDA0008010100003F00FA0210921342108505AB70D488C93BC3472EA7B0599D
+        475C9EDE638730C3EC7CCEEE52D3F5D9A900C9CFC580753BB7B15A5A37AB6A10
+        096ACA1EDE7D4771C974A1092C86BD019B5399ED91CD7B70064E4631C30A1D2F
+        4CB37DEE0E68898C3873C9C8FE028356D12DD3799263F1A007CAE60D8771C97A
+        FD3AE7375AAE1A480E24100F1182B749A1259DD629CCCB3258F0E6271CE472DB
+        9AE0865920903E2796B8730AF296B11CC047680638EDE2FA4FE136E895E3D462
+        BB5BD3F0925CC1F29C83C3A2B44D09280DA6099D149B63607915C377468E5CC9
+        58863F8F87E93F8543641A8F2C9DA58EFDA789ECBBF43B37059646F21B03B611
+        BB723DFD96913424AAAE022D3F238A20B4F876F99BD0AAED42F4B2CE05A89AC6
+        03E9B86E3FBEAA6D34175E8881900E4E3B2D026842F1244C95BE178C8FB2AE9E
+        9BE2CB99E76FFA1286899DBEA8C46788238AEFAB561A9108E060637EEA642108
+        4909A10BFFD9}
+      ExplicitLeft = 8
+      ExplicitHeight = 44
+    end
+    object lblNomeLogoTop: TLabel
+      Left = 63
+      Top = 20
+      Width = 201
+      Height = 17
       Caption = 'SOLUTIONS INC / Contas a Pagar'
       Color = clWhite
-      Font.Charset = EASTEUROPE_CHARSET
-      Font.Color = 8011008
-      Font.Height = -16
-      Font.Name = 'Segoe UI'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
       ParentColor = False
       ParentFont = False
     end
-    object Image1: TImage
-      Left = 0
-      Top = 0
-      Width = 83
-      Height = 71
-      Align = alLeft
-      ExplicitLeft = -7
-    end
   end
   object dspContasPagar: TDataSetProvider
-    Left = 536
-    Top = 12
+    DataSet = dm.qryPagar
+    Left = 531
+    Top = 7
   end
   object cdsContasPagar: TClientDataSet
     Aggregates = <>
     Params = <
       item
-        DataType = ftDate
-        Name = 'DATA'
-        ParamType = ptInput
-      end
-      item
         DataType = ftInteger
-        Name = 'COLAB'
-        ParamType = ptInput
+        Name = 'id'
+        ParamType = ptUnknown
       end>
     ProviderName = 'dspContasPagar'
-    Left = 568
-    Top = 8
-    object cdsContasPagarlancamento: TLargeintField
-      FieldName = 'lancamento'
-      Origin = 'lancamento'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    Left = 563
+    Top = 3
+    object cdsContasPagarid: TLargeintField
+      FieldName = 'id'
+      Origin = 'id'
+    end
+    object cdsContasPagardataemissao: TDateField
+      FieldName = 'dataemissao'
+      Origin = 'dataemissao'
     end
     object cdsContasPagardatavencimento: TDateField
       FieldName = 'datavencimento'
@@ -906,47 +895,125 @@ object frmContasPagar: TfrmContasPagar
     object cdsContasPagarvalor: TBCDField
       FieldName = 'valor'
       Origin = 'valor'
+      DisplayFormat = '#,##0.00'
       Precision = 15
       Size = 2
     end
-    object cdsContasPagarformapgto: TWideStringField
+    object cdsContasPagarformapgto: TIntegerField
       FieldName = 'formapgto'
       Origin = 'formapgto'
-      Size = 8190
     end
-    object cdsContasPagaridfornecedor: TIntegerField
-      FieldName = 'idfornecedor'
-      Origin = 'idfornecedor'
-    end
-    object cdsContasPagarnomefornecedor: TWideStringField
-      FieldName = 'nomefornecedor'
-      Origin = 'nomefornecedor'
-      Size = 8190
-    end
-    object cdsContasPagardatapgto: TDateField
-      FieldName = 'datapgto'
-      Origin = 'datapgto'
-    end
-    object cdsContasPagarsituacao: TWideStringField
-      FieldName = 'situacao'
-      Origin = 'situacao'
-      Size = 1
+    object cdsContasPagardatabaixa: TDateField
+      FieldName = 'databaixa'
+      Origin = 'databaixa'
     end
     object cdsContasPagardescricao: TWideStringField
       FieldName = 'descricao'
       Origin = 'descricao'
       Size = 255
     end
-    object cdsContasPagarnomedesc: TWideStringField
-      FieldName = 'nomedesc'
-      Origin = 'nomedesc'
-      ReadOnly = True
+    object cdsContasPagarnumerodoc: TWideStringField
+      FieldName = 'numerodoc'
+      Origin = 'numerodoc'
+      Size = 60
+    end
+    object cdsContasPagarobservaobaixa: TWideStringField
+      FieldName = 'observaobaixa'
       Size = 255
+    end
+    object cdsContasPagaridfornecedor: TIntegerField
+      FieldName = 'idfornecedor'
+    end
+    object cdsContasPagarnumeroorigem: TIntegerField
+      FieldName = 'numeroorigem'
     end
   end
   object dsContasPagar: TDataSource
     DataSet = cdsContasPagar
-    Left = 595
-    Top = 12
+    Left = 590
+    Top = 7
+  end
+  object dsGridPagar: TDataSource
+    DataSet = qryGridPagar
+    Left = 590
+    Top = 55
+  end
+  object qryGridPagar: TFDQuery
+    Connection = dm.FDConnection
+    SQL.Strings = (
+      'SELECT * FROM contaspagar a'
+      'where a.dataemissao between :dataini and :datafin'
+      '  and case when :tipo = 0 then a.databaixa is null '
+      '           when :tipo = 1 then a.databaixa is not null'
+      '           end ')
+    Left = 563
+    Top = 54
+    ParamData = <
+      item
+        Name = 'DATAINI'
+        DataType = ftDate
+        ParamType = ptInput
+        Value = Null
+      end
+      item
+        Name = 'DATAFIN'
+        DataType = ftDate
+        ParamType = ptInput
+      end
+      item
+        Name = 'TIPO'
+        DataType = ftInteger
+        ParamType = ptInput
+      end>
+    object qryGridPagarid: TLargeintField
+      FieldName = 'id'
+      Origin = 'id'
+    end
+    object qryGridPagardataemissao: TDateField
+      FieldName = 'dataemissao'
+      Origin = 'dataemissao'
+    end
+    object qryGridPagardatavencimento: TDateField
+      FieldName = 'datavencimento'
+      Origin = 'datavencimento'
+    end
+    object qryGridPagarvalor: TBCDField
+      FieldName = 'valor'
+      Origin = 'valor'
+      DisplayFormat = '#,##0.00'
+      Precision = 15
+      Size = 2
+    end
+    object qryGridPagarformapgto: TIntegerField
+      FieldName = 'formapgto'
+      Origin = 'formapgto'
+    end
+    object qryGridPagardatabaixa: TDateField
+      FieldName = 'databaixa'
+      Origin = 'databaixa'
+    end
+    object qryGridPagardescricao: TWideStringField
+      FieldName = 'descricao'
+      Origin = 'descricao'
+      Size = 255
+    end
+    object qryGridPagarnumerodoc: TWideStringField
+      FieldName = 'numerodoc'
+      Origin = 'numerodoc'
+      Size = 60
+    end
+    object qryGridPagarobservaobaixa: TWideStringField
+      FieldName = 'observaobaixa'
+      Origin = 'observaobaixa'
+      Size = 255
+    end
+    object qryGridPagaridfornecedor: TIntegerField
+      FieldName = 'idfornecedor'
+      Origin = 'idfornecedor'
+    end
+    object qryGridPagarnumeroorigem: TIntegerField
+      FieldName = 'numeroorigem'
+      Origin = 'numeroorigem'
+    end
   end
 end

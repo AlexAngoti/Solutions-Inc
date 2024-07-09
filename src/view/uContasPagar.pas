@@ -6,13 +6,15 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Datasnap.DBClient,
   Datasnap.Provider, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids,
-  Vcl.Buttons, Vcl.Imaging.pngimage;
+  Vcl.Buttons, Vcl.Imaging.pngimage, dxGDIPlusClasses, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.ComCtrls;
 
 type
   TfrmContasPagar = class(TForm)
     pnlCentral: TPanel;
     pnlCentTop: TPanel;
-    btnInformacoes: TSpeedButton;
     pnlNovoLanc: TPanel;
     btnNovoLancamento: TSpeedButton;
     pnlLinha: TPanel;
@@ -20,55 +22,69 @@ type
     btnBaixarLancamento: TSpeedButton;
     pnlCentBot: TPanel;
     pnlLinha3: TPanel;
-    dbgRegistros: TDBGrid;
     pnlSubPesquisa: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
     pnlPesquisa: TPanel;
     shpPesquisa: TShape;
     spbPesquisa: TSpeedButton;
     edtPesquisa: TEdit;
     pnlLinha4: TPanel;
+    RadioGroup1: TRadioGroup;
+    dtpDataInicial: TDateTimePicker;
+    dtpDataFinal: TDateTimePicker;
+    cbFaturados: TCheckBox;
     pnlCentralInfo: TPanel;
     pnlQuantidade: TPanel;
     lblVlrQuantidade: TLabel;
     lblQuantidade: TLabel;
-    pnlPagAtrasado: TPanel;
-    lblPagAtrasado: TLabel;
-    lblVlrPagAtrasado: TLabel;
-    pnlPagHoje: TPanel;
-    lblPagHoje: TLabel;
-    lblVlrPagHoje: TLabel;
-    pnlTotalPag: TPanel;
-    lblTotalaPag: TLabel;
-    lblTotalPag: TLabel;
-    pnlPagFuturos: TPanel;
-    lblPagFuturos: TLabel;
-    lblVlrPagFuturos: TLabel;
+    pnlRecebimentoAtrasado: TPanel;
+    lblRecebimentoAtrasado: TLabel;
+    lblVlrRecebimentoAtrasado: TLabel;
+    pnlRecebimentoHoje: TPanel;
+    lblRecebimentoHoje: TLabel;
+    lblVlrRecebimentoHoje: TLabel;
+    pnlTotalReceber: TPanel;
+    lblTotalaReceber: TLabel;
+    lblTotalReceber: TLabel;
+    pnlRecebimentosFuturos: TPanel;
+    lblRecebimentosFuturos: TLabel;
+    lblVlrRecebimentosFuturos: TLabel;
     pnlRodape: TPanel;
     lblExcluir: TLabel;
     lblAlterar: TLabel;
-    pnlInformacoes: TPanel;
-    Label10: TLabel;
-    Label11: TLabel;
-    Label12: TLabel;
-    Label13: TLabel;
-    Label14: TLabel;
     pnlSubTop: TPanel;
     btnFechar: TSpeedButton;
-    lblEmpresa: TLabel;
+    imgLogoTop: TImage;
+    lblNomeLogoTop: TLabel;
     dspContasPagar: TDataSetProvider;
     cdsContasPagar: TClientDataSet;
-    dsContasPagar: TDataSource;
-    cdsContasPagarlancamento: TLargeintField;
+    cdsContasPagarid: TLargeintField;
+    cdsContasPagardataemissao: TDateField;
     cdsContasPagardatavencimento: TDateField;
     cdsContasPagarvalor: TBCDField;
-    cdsContasPagarformapgto: TWideStringField;
-    cdsContasPagaridfornecedor: TIntegerField;
-    cdsContasPagarnomefornecedor: TWideStringField;
-    cdsContasPagardatapgto: TDateField;
-    cdsContasPagarsituacao: TWideStringField;
+    cdsContasPagarformapgto: TIntegerField;
+    cdsContasPagardatabaixa: TDateField;
     cdsContasPagardescricao: TWideStringField;
-    cdsContasPagarnomedesc: TWideStringField;
-    Image1: TImage;
+    cdsContasPagarnumerodoc: TWideStringField;
+    cdsContasPagarobservaobaixa: TWideStringField;
+    dsContasPagar: TDataSource;
+    dsGridPagar: TDataSource;
+    qryGridPagar: TFDQuery;
+    qryGridPagarid: TLargeintField;
+    qryGridPagardataemissao: TDateField;
+    qryGridPagardatavencimento: TDateField;
+    qryGridPagarvalor: TBCDField;
+    qryGridPagarformapgto: TIntegerField;
+    qryGridPagardatabaixa: TDateField;
+    qryGridPagardescricao: TWideStringField;
+    qryGridPagarnumerodoc: TWideStringField;
+    qryGridPagarobservaobaixa: TWideStringField;
+    cdsContasPagaridfornecedor: TIntegerField;
+    cdsContasPagarnumeroorigem: TIntegerField;
+    qryGridPagaridfornecedor: TIntegerField;
+    qryGridPagarnumeroorigem: TIntegerField;
+    dbgRegistros: TDBGrid;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -77,8 +93,6 @@ type
     procedure btnBaixarLancamentoClick(Sender: TObject);
     procedure btnFecharClick(Sender: TObject);
     procedure dbgRegistrosDblClick(Sender: TObject);
-    procedure btnInformacoesMouseEnter(Sender: TObject);
-    procedure btnInformacoesMouseLeave(Sender: TObject);
     procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     procedure OpenDataSet;
@@ -99,7 +113,7 @@ var
 implementation
 
 uses
-  UDm, uUtils;
+  UDm, uUtils, uBaixaPagar, uMovContasPagar, uEscurecerFundo;
 
 {$R *.dfm}
 
@@ -107,7 +121,6 @@ uses
 
 procedure TfrmContasPagar.ArredondaPanel;
 begin
-  RoundedPanel(pnlInformacoes, 12);
   RoundedPanel(pnlSubTop, 12);
   RoundedPanel(pnlCentral, 12);
   RoundedPanel(pnlNovoLanc, 12);
@@ -116,25 +129,21 @@ end;
 
 procedure TfrmContasPagar.btnBaixarLancamentoClick(Sender: TObject);
 begin
-  cdsContasPagar.Edit;
-  Self.ChamaTelaFechar;
-  Self.OpenDataSet;
-  Self.CalculaPainel;
+  if cbFaturados.Checked = False then
+  begin
+    cdsContasPagar.Close;
+    cdsContasPagar.ParamByName('id').AsInteger := qryGridPagarid.AsInteger;
+    cdsContasPagar.Open;
+    cdsContasPagar.Edit;
+    Self.ChamaTelaFechar;
+    Self.OpenDataSet;
+    Self.CalculaPainel;
+  end;
 end;
 
 procedure TfrmContasPagar.btnFecharClick(Sender: TObject);
 begin
   Self.Close;
-end;
-
-procedure TfrmContasPagar.btnInformacoesMouseEnter(Sender: TObject);
-begin
-  pnlInformacoes.Visible := True;
-end;
-
-procedure TfrmContasPagar.btnInformacoesMouseLeave(Sender: TObject);
-begin
-  pnlInformacoes.Visible := False;
 end;
 
 procedure TfrmContasPagar.btnNovoLancamentoClick(Sender: TObject);
@@ -182,22 +191,22 @@ begin
   end;
 
   lblVlrQuantidade.Caption  := CurrToStr(cQuantidade);
-  lblVlrPagAtrasado.Caption := 'R$ ' + FormatFloat('#,##0.00', cPagAtrasado);
-  lblVlrPagHoje.Caption     := 'R$ ' + FormatFloat('#,##0.00', cPagHoje);
-  lblVlrPagFuturos.Caption  := 'R$ ' + FormatFloat('#,##0.00', cPagFuturo);
-  lblTotalPag.Caption       := 'R$ ' + FormatFloat('#,##0.00', cTotalPag);
+  lblVlrRecebimentoAtrasado.Caption := 'R$ ' + FormatFloat('#,##0.00', cPagAtrasado);
+  lblVlrRecebimentoHoje.Caption     := 'R$ ' + FormatFloat('#,##0.00', cPagHoje);
+  lblVlrRecebimentosFuturos.Caption := 'R$ ' + FormatFloat('#,##0.00', cPagFuturo);
+  lblTotalReceber.Caption           := 'R$ ' + FormatFloat('#,##0.00', cTotalPag);
 end;
 
 procedure TfrmContasPagar.CentralizaResultado;
 begin
-  lblTotalPag.Left       := Round(pnlTotalPag.Width/2 - pnlTotalPag.Width/2);
-  lblTotalaPag.Left      := Round(pnlTotalPag.Width/2 - pnlTotalPag.Width/2);
-  lblPagAtrasado.Left    := Round(pnlPagAtrasado.Width/2 - pnlPagAtrasado.Width/2);
-  lblVlrPagAtrasado.Left := Round(pnlPagAtrasado.Width/2 - pnlPagAtrasado.Width/2);
-  lblPagHoje.Left        := Round(pnlPagHoje.Width/2 - pnlPagHoje.Width/2);
-  lblVlrPagHoje.Left     := Round(pnlPagHoje.Width/2 - pnlPagHoje.Width/2);
-  lblPagFuturos.Left     := Round(pnlPagFuturos.Width/2 - pnlPagFuturos.Width/2);
-  lblVlrPagFuturos.Left  := Round(pnlPagFuturos.Width/2 - pnlPagFuturos.Width/2);
+  lblTotalReceber.Left           := Round(pnlTotalReceber.Width/2 - pnlTotalReceber.Width/2);
+  lblTotalaReceber.Left          := Round(pnlTotalReceber.Width/2 - pnlTotalReceber.Width/2);
+  lblRecebimentoAtrasado.Left    := Round(pnlRecebimentoAtrasado.Width/2 - pnlRecebimentoAtrasado.Width/2);
+  lblVlrRecebimentoAtrasado.Left := Round(pnlRecebimentoAtrasado.Width/2 - pnlRecebimentoAtrasado.Width/2);
+  lblRecebimentoHoje.Left        := Round(pnlRecebimentoHoje.Width/2 - pnlRecebimentoHoje.Width/2);
+  lblVlrRecebimentoHoje.Left     := Round(pnlRecebimentoHoje.Width/2 - pnlRecebimentoHoje.Width/2);
+  lblRecebimentosFuturos.Left    := Round(pnlRecebimentosFuturos.Width/2 - pnlRecebimentosFuturos.Width/2);
+  lblVlrRecebimentosFuturos.Left := Round(pnlRecebimentosFuturos.Width/2 - pnlRecebimentosFuturos.Width/2);
 end;
 
 procedure TfrmContasPagar.CentralizaTela;
@@ -206,34 +215,46 @@ begin
   pnlCentBot.Top                := (Round(pnlCentral.Height/2 - pnlCentBot.Height/2));
   pnlCentBot.Height             := Screen.Height;
   pnlCentBot.Width              := Screen.Width;
-  dbgRegistros.Columns[4].Width := Screen.Width;
 end;
 
 procedure TfrmContasPagar.ChamaTelaAbertura;
+var
+  frmEscurecer: TfrmEscurecerFundo;
 begin
-  {frmManutencaoPagar := TfrmManutencaoPagar.Create(Self);
+  frmEscurecer := TfrmEscurecerFundo.Create(Self);
+  frmMovPagar := TfrmMovPagar.Create(Self);
   try
-    frmManutencaoPagar.ShowModal;
+    frmEscurecer.Show;
+    frmMovPagar.ShowModal;
   finally
-    frmManutencaoPagar.Free;
-  end;  }
+    frmMovPagar.Free;
+    frmEscurecer.Free;
+  end;
 end;
 
 procedure TfrmContasPagar.ChamaTelaFechar;
+var
+  frmBaixa: TfrmEscurecerFundo;
 begin
-  {frmBaixaPagar := TfrmBaixaPagar.Create(Self);
+  frmBaixa := TfrmEscurecerFundo.Create(Self);
+  frmBaixaPagar := TfrmBaixaPagar.Create(Self);
   try
+    frmBaixa.Show;
     frmBaixaPagar.ShowModal;
   finally
     frmBaixaPagar.Free;
-  end;}
+    frmBaixa.Free;
+  end;
 end;
 
 procedure TfrmContasPagar.dbgRegistrosDblClick(Sender: TObject);
 begin
-  cdsContasPagar.Edit;
-  Self.ChamaTelaAbertura;
-  Self.OpenDataSet;
+  if cbFaturados.Checked = False then
+  begin
+    cdsContasPagar.Edit;
+    Self.ChamaTelaAbertura;
+    Self.OpenDataSet;
+  end;
 end;
 
 procedure TfrmContasPagar.FormCreate(Sender: TObject);
@@ -246,23 +267,15 @@ procedure TfrmContasPagar.FormKeyUp(Sender: TObject; var Key: Word;
 begin
   if key = VK_DELETE then
   begin
-    if MsgConfirmar('A data de vencimento e menor que data atual. Deseja Continuar ?',
-    'Se continuar esse lançamento entrará como atrasado ') = mrOk then
+    if cbFaturados.Checked = False then
     begin
-      (dsContasPagar.DataSet as TClientDataSet).Delete;
-      (dsContasPagar.DataSet as TClientDataSet).ApplyUpdates(-1);
-      Self.CalculaPainel;
+      if MsgConfirmar('Deseja realmente excluir este registro?', 'Esta ação é irreversível e o registro será permanentemente excluído.') = mrOk then
+      begin
+        qryGridPagar.Delete;
+        Self.OpenDataSet;
+        Self.CalculaPainel;
+      end;
     end;
-  end;
-
-  if Key = VK_F2 then
-  begin
-    btnBaixarLancamentoClick(Self);
-  end;
-
-  if Key = VK_F1 then
-  begin
-    btnNovoLancamentoClick(Self);
   end;
 end;
 
@@ -276,23 +289,43 @@ end;
 procedure TfrmContasPagar.FormShow(Sender: TObject);
 begin
   Self.CalculaPainel;
+  dtpDataInicial.Date := Date - 30;
+  dtpDataFinal.Date   := Date;
+  spbPesquisaClick(Sender);
 end;
 
 procedure TfrmContasPagar.OpenDataSet;
 begin
   (dsContasPagar.DataSet as TClientDataSet).Close;
+  (dsContasPagar.DataSet as TClientDataSet).ParamByName('id').AsInteger := 0;
   (dsContasPagar.DataSet as TClientDataSet).Open;
+
+  qryGridPagar.Close;
+  qryGridPagar.ParamByName('dataini').AsDate := dtpDataInicial.Date;
+  qryGridPagar.ParamByName('datafin').AsDate := dtpDataFinal.Date;
+  if cbFaturados.Checked = false then
+    qryGridPagar.ParamByName('tipo').AsInteger := 0
+  else
+    qryGridPagar.ParamByName('tipo').AsInteger := 1;
+  qryGridPagar.Open;
 end;
 
 procedure TfrmContasPagar.spbPesquisaClick(Sender: TObject);
+var
+  filtro: string;
 begin
-  dsContasPagar.DataSet.Filtered := False;
+  Self.OpenDataSet;
+  filtro := '';
+  // Filtro por descrição ou número de documento
   if edtPesquisa.Text <> EmptyStr then
   begin
-    dsContasPagar.DataSet.Filter := 'UPPER(nomedesc) LIKE ' +
-      QuotedStr('%' + UpperCase(edtPesquisa.Text) + '%');
-    dsContasPagar.DataSet.Filtered := True;
+    if RadioGroup1.ItemIndex = 0 then
+      filtro := filtro + 'UPPER(descricao) LIKE ' + QuotedStr('%' + UpperCase(edtPesquisa.Text) + '%')
+    else
+      filtro := filtro + 'UPPER(numerodoc) LIKE ' + QuotedStr('%' + UpperCase(edtPesquisa.Text) + '%');
   end;
+  dsGridPagar.DataSet.Filter := filtro;
+  dsGridPagar.DataSet.Filtered := True;
 end;
 
 end.

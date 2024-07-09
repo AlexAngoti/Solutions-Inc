@@ -64,17 +64,20 @@ type
     cxGrid1: TcxGrid;
     cxGrid1DBChartView1: TcxGridDBChartView;
     cxGrid1DBChartView1Series1: TcxGridDBChartSeries;
-    cxGrid1DBChartView1Series2: TcxGridDBChartSeries;
+    ValorTotal: TcxGridDBChartSeries;
     cxGrid1Level1: TcxGridLevel;
     Panel8: TPanel;
     Label8: TLabel;
     Image5: TImage;
     Panel9: TPanel;
+    Panel10: TPanel;
+    SpeedButton2: TSpeedButton;
     Label7: TLabel;
     Image4: TImage;
     procedure btnFecharClick(Sender: TObject);
-    procedure Panel9Click(Sender: TObject);
     procedure FormResize(Sender: TObject);
+    procedure Panel8DblClick(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -87,7 +90,7 @@ var
 implementation
 
 uses
-  uDM;
+  uDM, uPedidoCompra, uEscurecerFundo;
 
 {$R *.dfm}
 
@@ -101,7 +104,21 @@ begin
   pnlCentral.Left := Round(pnlCentralFixo.Width / 2 - pnlCentral.Width / 2);
 end;
 
-procedure TfrmCompras.Panel9Click(Sender: TObject);
+procedure TfrmCompras.Panel8DblClick(Sender: TObject);
+begin
+  frmEscurecerFundo := TfrmEscurecerFundo.Create(Self);
+  frmEscurecerFundo.Show;
+
+  frmPedidoCompra := TfrmPedidoCompra.Create(Self);
+  try
+    frmPedidoCompra.ShowModal;
+  finally
+    frmEscurecerFundo.Show;
+    frmPedidoCompra.Free;
+  end;
+end;
+
+procedure TfrmCompras.SpeedButton2Click(Sender: TObject);
 begin
   Self.Close;
 end;

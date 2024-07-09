@@ -16,19 +16,20 @@ inherited frmConsultaUsuario: TfrmConsultaUsuario
       end
     end
     inherited dbGrdPesquisa: TcxGrid
-      ExplicitLeft = 0
-      ExplicitTop = 57
-      ExplicitWidth = 935
-      ExplicitHeight = 342
       inherited dbGrdPesquisaDBTableView1: TcxGridDBTableView
+        OnDblClick = dbGrdPesquisaDBTableView1DblClick
         OptionsView.ColumnAutoWidth = True
         object dbGrdPesquisaDBTableView1id: TcxGridDBColumn
           Caption = 'ID'
           DataBinding.FieldName = 'id'
+          DataBinding.IsNullValueType = True
+          Width = 88
         end
         object dbGrdPesquisaDBTableView1acesso: TcxGridDBColumn
           Caption = 'Usuario'
           DataBinding.FieldName = 'acesso'
+          DataBinding.IsNullValueType = True
+          Width = 847
         end
       end
     end
