@@ -12,6 +12,8 @@ object frmFrenteVendas: TfrmFrenteVendas
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnlSubTop: TPanel
@@ -48,6 +50,7 @@ object frmFrenteVendas: TfrmFrenteVendas
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
+      OnClick = btnFecharClick
       ExplicitLeft = 904
       ExplicitTop = 0
       ExplicitHeight = 57
@@ -399,8 +402,8 @@ object frmFrenteVendas: TfrmFrenteVendas
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000}
         ParentFont = False
-        ExplicitLeft = -6
-        ExplicitTop = -3
+        OnClick = SpeedButton1Click
+        ExplicitTop = 2
       end
       object SpeedButton2: TSpeedButton
         Left = 169
@@ -707,9 +710,9 @@ object frmFrenteVendas: TfrmFrenteVendas
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000}
         ParentFont = False
-        ExplicitLeft = 175
-        ExplicitTop = 2
-        ExplicitWidth = 247
+        OnClick = SpeedButton2Click
+        ExplicitLeft = 163
+        ExplicitTop = -3
       end
       object SpeedButton6: TSpeedButton
         Left = 336
@@ -1180,6 +1183,7 @@ object frmFrenteVendas: TfrmFrenteVendas
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000}
+      OnClick = SpeedButton4Click
     end
     object Label3: TLabel
       Left = 27
@@ -1258,6 +1262,13 @@ object frmFrenteVendas: TfrmFrenteVendas
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
+    end
+    object dbImage: TImage
+      Left = 217
+      Top = 232
+      Width = 171
+      Height = 143
+      Center = True
     end
     object Panel2: TPanel
       AlignWithMargins = True
@@ -1437,6 +1448,7 @@ object frmFrenteVendas: TfrmFrenteVendas
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000}
+        OnClick = btnPesquisaClick
       end
       object SpeedButton3: TSpeedButton
         Left = 845
@@ -1591,47 +1603,50 @@ object frmFrenteVendas: TfrmFrenteVendas
         BevelOuter = bvNone
         Color = 13750737
         ParentBackground = False
-        TabOrder = 0
-      end
-      object DBComboBox1: TDBComboBox
-        Left = 110
-        Top = 6
-        Width = 729
-        Height = 25
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 1
-      end
-      object DBComboBox2: TDBComboBox
-        Left = 110
-        Top = 43
-        Width = 729
-        Height = 25
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
         TabOrder = 2
       end
-    end
-    object DBComboBox3: TDBComboBox
-      Left = 27
-      Top = 131
-      Width = 314
-      Height = 25
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 1
+      object SWHDBLookupComboBox1: TSWHDBLookupComboBox
+        Left = 110
+        Top = 4
+        Width = 729
+        Height = 28
+        BevelInner = bvNone
+        BevelKind = bkSoft
+        DataField = 'cliente'
+        DataSource = dsVendas
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        KeyField = 'id'
+        ListField = 'nomerazao'
+        ListSource = dsCliente
+        ParentFont = False
+        TabOrder = 0
+        MudarColor = 14087422
+      end
+      object SWHDBLookupComboBox2: TSWHDBLookupComboBox
+        Left = 110
+        Top = 41
+        Width = 729
+        Height = 28
+        BevelInner = bvNone
+        BevelKind = bkSoft
+        DataField = 'usuario'
+        DataSource = dsVendas
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        KeyField = 'id'
+        ListField = 'nomerazao'
+        ListSource = dsVendedor
+        ParentFont = False
+        TabOrder = 1
+        MudarColor = 14087422
+      end
     end
     object spnQuantidade: TSpinEdit
       Left = 27
@@ -1646,8 +1661,9 @@ object frmFrenteVendas: TfrmFrenteVendas
       MaxValue = 0
       MinValue = 0
       ParentFont = False
-      TabOrder = 2
+      TabOrder = 3
       Value = 0
+      OnExit = spnQuantidadeExit
     end
     object SWHMaskEdit1: TSWHMaskEdit
       Left = 217
@@ -1662,8 +1678,9 @@ object frmFrenteVendas: TfrmFrenteVendas
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
-      TabOrder = 3
-      Text = 'SWHMaskEdit1'
+      TabOrder = 4
+      Text = ''
+      OnExit = SWHMaskEdit1Exit
       TipoMascara = tmValor
       MudarColor = 14087422
       CasasDecimais = Quatro
@@ -1675,14 +1692,15 @@ object frmFrenteVendas: TfrmFrenteVendas
       Height = 27
       BevelKind = bkFlat
       BorderStyle = bsNone
+      Enabled = False
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
-      TabOrder = 4
-      Text = 'SWHMaskEdit1'
+      TabOrder = 5
+      Text = ''
       TipoMascara = tmValor
       MudarColor = 14087422
       CasasDecimais = Quatro
@@ -1701,7 +1719,7 @@ object frmFrenteVendas: TfrmFrenteVendas
       Font.Style = []
       ParentBackground = False
       ParentFont = False
-      TabOrder = 5
+      TabOrder = 6
       object SpeedButton5: TSpeedButton
         Left = 0
         Top = 0
@@ -1847,18 +1865,12 @@ object frmFrenteVendas: TfrmFrenteVendas
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000}
         ParentFont = False
+        OnClick = SpeedButton5Click
         ExplicitLeft = 112
         ExplicitTop = 8
         ExplicitWidth = 23
         ExplicitHeight = 22
       end
-    end
-    object DBImage1: TDBImage
-      Left = 217
-      Top = 224
-      Width = 168
-      Height = 151
-      TabOrder = 6
     end
     object pnlQuadroProd: TPanel
       Left = 432
@@ -1868,7 +1880,7 @@ object frmFrenteVendas: TfrmFrenteVendas
       BevelOuter = bvNone
       Color = clWhite
       ParentBackground = False
-      TabOrder = 7
+      TabOrder = 1
       object Label7: TLabel
         Left = 191
         Top = 7
@@ -1895,12 +1907,14 @@ object frmFrenteVendas: TfrmFrenteVendas
         Align = alBottom
         BorderStyle = bsNone
         Color = clWhite
+        DataSource = dsVendaProduto
         FixedColor = clWhite
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Segoe UI'
         Font.Style = []
+        Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
         ParentFont = False
         TabOrder = 0
         TitleFont.Charset = DEFAULT_CHARSET
@@ -1911,17 +1925,19 @@ object frmFrenteVendas: TfrmFrenteVendas
         Columns = <
           item
             Expanded = False
+            FieldName = 'nome'
             Title.Caption = 'Produto'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
             Title.Font.Height = -11
             Title.Font.Name = 'Segoe UI'
             Title.Font.Style = [fsBold]
-            Width = 250
+            Width = 232
             Visible = True
           end
           item
             Expanded = False
+            FieldName = 'qtde'
             Title.Caption = 'Qtde.'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
@@ -1932,6 +1948,7 @@ object frmFrenteVendas: TfrmFrenteVendas
           end
           item
             Expanded = False
+            FieldName = 'uni'
             Title.Caption = 'Valor Uni.'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
@@ -1942,6 +1959,7 @@ object frmFrenteVendas: TfrmFrenteVendas
           end
           item
             Expanded = False
+            FieldName = 'totalitem'
             Title.Caption = 'Valor Total'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
@@ -1967,7 +1985,7 @@ object frmFrenteVendas: TfrmFrenteVendas
       Font.Style = []
       ParentBackground = False
       ParentFont = False
-      TabOrder = 8
+      TabOrder = 7
       object lbTotalPedido: TLabel
         Left = 400
         Top = 0
@@ -1982,6 +2000,435 @@ object frmFrenteVendas: TfrmFrenteVendas
         Font.Style = []
         ParentFont = False
       end
+    end
+    object SWHDBLookupComboBox3: TSWHDBLookupComboBox
+      Left = 27
+      Top = 129
+      Width = 314
+      Height = 28
+      BevelInner = bvNone
+      BevelKind = bkSoft
+      DataField = 'produto'
+      DataSource = dsItensVenda
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      KeyField = 'id'
+      ListField = 'nome'
+      ListSource = dsProduto
+      ParentFont = False
+      TabOrder = 2
+      OnExit = SWHDBLookupComboBox3Exit
+      MudarColor = 14087422
+    end
+  end
+  object qryVendas: TFDQuery
+    Connection = dm.FDConnection
+    SQL.Strings = (
+      'select * '
+      '  from vendas'
+      ' limit 1')
+    Left = 757
+    Top = 21
+    object qryVendasid: TLargeintField
+      FieldName = 'id'
+      Origin = 'id'
+    end
+    object qryVendasdatavenda: TDateField
+      FieldName = 'datavenda'
+      Origin = 'datavenda'
+    end
+    object qryVendascliente: TIntegerField
+      FieldName = 'cliente'
+      Origin = 'cliente'
+    end
+    object qryVendasformapgto: TIntegerField
+      FieldName = 'formapgto'
+      Origin = 'formapgto'
+    end
+    object qryVendasvalortotal: TBCDField
+      FieldName = 'valortotal'
+      Origin = 'valortotal'
+      Precision = 15
+      Size = 2
+    end
+    object qryVendasusuario: TIntegerField
+      FieldName = 'usuario'
+      Origin = 'usuario'
+    end
+    object qryVendasobervacao: TWideStringField
+      FieldName = 'obervacao'
+      Origin = 'obervacao'
+      Size = 255
+    end
+  end
+  object dsVendas: TDataSource
+    DataSet = qryVendas
+    Left = 792
+    Top = 21
+  end
+  object cdsVendaProd: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 664
+    Top = 312
+    object cdsVendaProdproduto: TIntegerField
+      FieldName = 'produto'
+    end
+    object cdsVendaProdnome: TStringField
+      FieldName = 'nome'
+      Size = 255
+    end
+    object cdsVendaProdqtde: TIntegerField
+      FieldName = 'qtde'
+    end
+    object cdsVendaProduni: TFloatField
+      FieldName = 'uni'
+      DisplayFormat = '#,##0.00'
+    end
+    object cdsVendaProdtotalitem: TCurrencyField
+      FieldName = 'totalitem'
+    end
+  end
+  object dsVendaProduto: TDataSource
+    DataSet = cdsVendaProd
+    Left = 696
+    Top = 312
+  end
+  object qryCliente: TFDQuery
+    Connection = dm.FDConnection
+    SQL.Strings = (
+      'select * '
+      '  from pessoa p'
+      ' where p.tipopessoa = 0'
+      '   and p.situacao = 0')
+    Left = 573
+    Top = 71
+    object qryClienteid: TLargeintField
+      FieldName = 'id'
+      Origin = 'id'
+    end
+    object qryClientesituacao: TIntegerField
+      FieldName = 'situacao'
+      Origin = 'situacao'
+    end
+    object qryClientetipopessoa: TIntegerField
+      FieldName = 'tipopessoa'
+      Origin = 'tipopessoa'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qryClientefisicojuridico: TIntegerField
+      FieldName = 'fisicojuridico'
+      Origin = 'fisicojuridico'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qryClientecnpjcpf: TWideStringField
+      FieldName = 'cnpjcpf'
+      Origin = 'cnpjcpf'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Size = 8190
+    end
+    object qryClientenomerazao: TWideStringField
+      FieldName = 'nomerazao'
+      Origin = 'nomerazao'
+      Size = 255
+    end
+    object qryClienteierg: TWideStringField
+      FieldName = 'ierg'
+      Origin = 'ierg'
+      Size = 255
+    end
+    object qryClientenomefantasia: TWideStringField
+      FieldName = 'nomefantasia'
+      Origin = 'nomefantasia'
+      Size = 255
+    end
+    object qryClienteemail: TWideStringField
+      FieldName = 'email'
+      Origin = 'email'
+      Size = 255
+    end
+    object qryClientecontato: TWideStringField
+      FieldName = 'contato'
+      Origin = 'contato'
+      Size = 255
+    end
+    object qryClientetelefone: TWideStringField
+      FieldName = 'telefone'
+      Origin = 'telefone'
+      Size = 15
+    end
+    object qryClientecep: TWideStringField
+      FieldName = 'cep'
+      Origin = 'cep'
+      Size = 11
+    end
+    object qryClienteendereco: TWideStringField
+      FieldName = 'endereco'
+      Origin = 'endereco'
+      Size = 255
+    end
+    object qryClientebairro: TWideStringField
+      FieldName = 'bairro'
+      Origin = 'bairro'
+      Size = 255
+    end
+    object qryClientecomplemento: TWideStringField
+      FieldName = 'complemento'
+      Origin = 'complemento'
+      Size = 255
+    end
+    object qryClientecidade: TWideStringField
+      FieldName = 'cidade'
+      Origin = 'cidade'
+      Size = 255
+    end
+    object qryClientetelefone2: TWideStringField
+      FieldName = 'telefone2'
+      Origin = 'telefone2'
+      Size = 15
+    end
+    object qryClienteuf: TWideStringField
+      FieldName = 'uf'
+      Origin = 'uf'
+      Size = 2
+    end
+    object qryClientenumero: TWideStringField
+      FieldName = 'numero'
+      Origin = 'numero'
+      Size = 255
+    end
+    object qryClientedatanasc: TDateField
+      FieldName = 'datanasc'
+      Origin = 'datanasc'
+    end
+  end
+  object dsCliente: TDataSource
+    DataSet = qryCliente
+    Left = 602
+    Top = 72
+  end
+  object qryVendedor: TFDQuery
+    Connection = dm.FDConnection
+    SQL.Strings = (
+      'select * '
+      '  from pessoa p'
+      ' where p.tipopessoa = 2'
+      '   and p.situacao = 0')
+    Left = 373
+    Top = 111
+    object qryVendedorid: TLargeintField
+      FieldName = 'id'
+      Origin = 'id'
+    end
+    object qryVendedorsituacao: TIntegerField
+      FieldName = 'situacao'
+      Origin = 'situacao'
+    end
+    object qryVendedortipopessoa: TIntegerField
+      FieldName = 'tipopessoa'
+      Origin = 'tipopessoa'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qryVendedorfisicojuridico: TIntegerField
+      FieldName = 'fisicojuridico'
+      Origin = 'fisicojuridico'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qryVendedorcnpjcpf: TWideStringField
+      FieldName = 'cnpjcpf'
+      Origin = 'cnpjcpf'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Size = 8190
+    end
+    object qryVendedornomerazao: TWideStringField
+      FieldName = 'nomerazao'
+      Origin = 'nomerazao'
+      Size = 255
+    end
+    object qryVendedorierg: TWideStringField
+      FieldName = 'ierg'
+      Origin = 'ierg'
+      Size = 255
+    end
+    object qryVendedornomefantasia: TWideStringField
+      FieldName = 'nomefantasia'
+      Origin = 'nomefantasia'
+      Size = 255
+    end
+    object qryVendedoremail: TWideStringField
+      FieldName = 'email'
+      Origin = 'email'
+      Size = 255
+    end
+    object qryVendedorcontato: TWideStringField
+      FieldName = 'contato'
+      Origin = 'contato'
+      Size = 255
+    end
+    object qryVendedortelefone: TWideStringField
+      FieldName = 'telefone'
+      Origin = 'telefone'
+      Size = 15
+    end
+    object qryVendedorcep: TWideStringField
+      FieldName = 'cep'
+      Origin = 'cep'
+      Size = 11
+    end
+    object qryVendedorendereco: TWideStringField
+      FieldName = 'endereco'
+      Origin = 'endereco'
+      Size = 255
+    end
+    object qryVendedorbairro: TWideStringField
+      FieldName = 'bairro'
+      Origin = 'bairro'
+      Size = 255
+    end
+    object qryVendedorcomplemento: TWideStringField
+      FieldName = 'complemento'
+      Origin = 'complemento'
+      Size = 255
+    end
+    object qryVendedorcidade: TWideStringField
+      FieldName = 'cidade'
+      Origin = 'cidade'
+      Size = 255
+    end
+    object qryVendedortelefone2: TWideStringField
+      FieldName = 'telefone2'
+      Origin = 'telefone2'
+      Size = 15
+    end
+    object qryVendedoruf: TWideStringField
+      FieldName = 'uf'
+      Origin = 'uf'
+      Size = 2
+    end
+    object qryVendedornumero: TWideStringField
+      FieldName = 'numero'
+      Origin = 'numero'
+      Size = 255
+    end
+    object qryVendedordatanasc: TDateField
+      FieldName = 'datanasc'
+      Origin = 'datanasc'
+    end
+  end
+  object dsVendedor: TDataSource
+    DataSet = qryVendedor
+    Left = 402
+    Top = 112
+  end
+  object qryProduto: TFDQuery
+    Connection = dm.FDConnection
+    SQL.Strings = (
+      'select * '
+      '  from produto p'
+      ' where p.situacao = 0')
+    Left = 181
+    Top = 151
+    object qryProdutoid: TLargeintField
+      FieldName = 'id'
+      Origin = 'id'
+    end
+    object qryProdutonome: TWideStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 255
+    end
+    object qryProdutosituacao: TIntegerField
+      FieldName = 'situacao'
+      Origin = 'situacao'
+    end
+    object qryProdutopresobruto: TBCDField
+      FieldName = 'presobruto'
+      Origin = 'presobruto'
+      Precision = 15
+    end
+    object qryProdutopesoliquedo: TBCDField
+      FieldName = 'pesoliquedo'
+      Origin = 'pesoliquedo'
+      Precision = 15
+    end
+    object qryProdutodescricao: TWideStringField
+      FieldName = 'descricao'
+      Origin = 'descricao'
+      Size = 1000
+    end
+    object qryProdutovalorunitario: TBCDField
+      FieldName = 'valorunitario'
+      Origin = 'valorunitario'
+      Precision = 15
+    end
+    object qryProdutoimagem: TBlobField
+      FieldName = 'imagem'
+      Origin = 'imagem'
+    end
+  end
+  object dsProduto: TDataSource
+    DataSet = qryProduto
+    Left = 210
+    Top = 152
+  end
+  object dsItensVenda: TDataSource
+    DataSet = qryItensVendas
+    Left = 816
+    Top = 157
+  end
+  object qryItensVendas: TFDQuery
+    Connection = dm.FDConnection
+    SQL.Strings = (
+      'select * '
+      '  from itensvenda'
+      ' limit 1')
+    Left = 781
+    Top = 157
+    object qryItensVendasid: TLargeintField
+      FieldName = 'id'
+      Origin = 'id'
+    end
+    object qryItensVendasidvenda: TIntegerField
+      FieldName = 'idvenda'
+      Origin = 'idvenda'
+    end
+    object qryItensVendasproduto: TIntegerField
+      FieldName = 'produto'
+      Origin = 'produto'
+    end
+    object qryItensVendasquantidade: TBCDField
+      FieldName = 'quantidade'
+      Origin = 'quantidade'
+      Precision = 15
+      Size = 2
+    end
+    object qryItensVendasvalorunitario: TBCDField
+      FieldName = 'valorunitario'
+      Origin = 'valorunitario'
+      Precision = 15
+    end
+    object qryItensVendastotalitem: TBCDField
+      FieldName = 'totalitem'
+      Origin = 'totalitem'
+      Precision = 15
+      Size = 2
+    end
+  end
+  object qryNumVendas: TFDQuery
+    Connection = dm.FDConnection
+    SQL.Strings = (
+      'SELECT COALESCE(v.id, 0) + 1 AS id FROM vendas v '
+      ' ORDER BY v.id DESC LIMIT 1')
+    Left = 37
+    Top = 523
+    object qryNumVendasid: TLargeintField
+      AutoGenerateValue = arDefault
+      FieldName = 'id'
+      Origin = 'id'
+      ReadOnly = True
     end
   end
 end

@@ -16,22 +16,26 @@ inherited frmConsultaProduto: TfrmConsultaProduto
         object dbGrdPesquisaDBTableView1Column1: TcxGridDBColumn
           Caption = 'Id'
           DataBinding.FieldName = 'id'
+          DataBinding.IsNullValueType = True
         end
         object dbGrdPesquisaDBTableView1Column2: TcxGridDBColumn
           AlternateCaption = 'Id'
           Caption = 'Nome'
           DataBinding.FieldName = 'nome'
+          DataBinding.IsNullValueType = True
           Width = 484
         end
         object dbGrdPesquisaDBTableView1Column3: TcxGridDBColumn
           Caption = 'Valor Unit'#225'rio'
           DataBinding.FieldName = 'valorunitario'
+          DataBinding.IsNullValueType = True
           Width = 126
         end
         object dbGrdPesquisaDBTableView1Column4: TcxGridDBColumn
           AlternateCaption = 'Situa'#231#227'o'
           Caption = 'Situa'#231#227'o'
           DataBinding.FieldName = 'situacao'
+          DataBinding.IsNullValueType = True
           Width = 137
         end
       end

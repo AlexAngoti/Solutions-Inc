@@ -34,9 +34,12 @@
       end
     end
     inherited cxGrid1: TcxGrid
-      ExplicitLeft = -5
-      ExplicitTop = 94
       inherited cxGrid1DBTableView1: TcxGridDBTableView
+        OptionsData.CancelOnExit = False
+        OptionsData.Deleting = False
+        OptionsData.DeletingConfirmation = False
+        OptionsData.Editing = False
+        OptionsData.Inserting = False
         object cxGrid1DBTableView1Column1: TcxGridDBColumn
           Caption = 'ID'
           DataBinding.FieldName = 'id'
@@ -217,6 +220,8 @@
     Top = 11
   end
   object ppReport: TppReport
+    AutoStop = False
+    DataPipeline = ppDbReport
     PrinterSetup.BinName = 'Default'
     PrinterSetup.DocumentName = 'Report'
     PrinterSetup.PaperName = 'A4'
@@ -300,11 +305,12 @@
     Top = 13
     Version = '22.0'
     mmColumnWidth = 0
+    DataPipelineName = 'ppDbReport'
     object ppHeaderBand1: TppHeaderBand
       Border.mmPadding = 0
       PrintHeight = phDynamic
       mmBottomOffset = 0
-      mmHeight = 15875
+      mmHeight = 15610
       mmPrintPosition = 0
       object ppLabel1: TppLabel
         DesignLayer = ppDesignLayer1
@@ -320,7 +326,7 @@
         FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 5027
-        mmLeft = 75936
+        mmLeft = 72761
         mmTop = 529
         mmWidth = 55298
         BandType = 0

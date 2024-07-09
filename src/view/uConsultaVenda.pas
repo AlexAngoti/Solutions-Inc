@@ -25,7 +25,10 @@ uses
   cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, dxDateRanges,
   dxScrollbarAnnotations, Data.DB, cxDBData, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxGridLevel, cxClasses, cxGridCustomView,
-  cxGrid, Vcl.StdCtrls, Vcl.Buttons, dxGDIPlusClasses, Vcl.ExtCtrls;
+  cxGrid, Vcl.StdCtrls, Vcl.Buttons, dxGDIPlusClasses, Vcl.ExtCtrls,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
 
 type
   TfrmConsultaVenda = class(TfrmConsultaPadrao)
@@ -33,6 +36,19 @@ type
     dbGrdPesquisaDBTableView1Column2: TcxGridDBColumn;
     dbGrdPesquisaDBTableView1Column3: TcxGridDBColumn;
     dbGrdPesquisaDBTableView1Column4: TcxGridDBColumn;
+    qryConsultaVenda: TFDQuery;
+    qryConsultaVendaid: TLargeintField;
+    qryConsultaVendadatavenda: TDateField;
+    qryConsultaVendacliente: TIntegerField;
+    qryConsultaVendaformapgto: TIntegerField;
+    qryConsultaVendavalortotal: TBCDField;
+    qryConsultaVendausuario: TIntegerField;
+    qryConsultaVendaobervacao: TWideStringField;
+    qryConsultaVendasituacao: TIntegerField;
+    qryConsultaVendaabreviação: TWideStringField;
+    qryConsultaVendanomerazao: TWideStringField;
+    procedure FormCreate(Sender: TObject);
+    procedure dbGrdPesquisaDBTableView1DblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -44,6 +60,22 @@ var
 
 implementation
 
+uses
+  uDM;
+
 {$R *.dfm}
+
+procedure TfrmConsultaVenda.dbGrdPesquisaDBTableView1DblClick(Sender: TObject);
+begin
+  inherited;
+  ModalResult := mrOk;
+end;
+
+procedure TfrmConsultaVenda.FormCreate(Sender: TObject);
+begin
+  //inherited;
+  qryConsultaVenda.Close;
+  qryConsultaVenda.Open;
+end;
 
 end.

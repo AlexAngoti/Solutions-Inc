@@ -15,6 +15,7 @@ inherited frmCadastroCliente: TfrmCadastroCliente
     inherited pnlSubTop: TPanel [0]
       Width = 979
       Height = 276
+      TabOrder = 1
       ExplicitWidth = 979
       ExplicitHeight = 276
       inherited lblInvisivel: TLabel
@@ -214,7 +215,7 @@ inherited frmCadastroCliente: TfrmCadastroCliente
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 0
+          TabOrder = 9
           MudarColor = 14087422
         end
         object edtEmail: TSWHDBEdit
@@ -233,7 +234,7 @@ inherited frmCadastroCliente: TfrmCadastroCliente
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 1
+          TabOrder = 11
           MudarColor = 14087422
         end
         object edtContato: TSWHDBEdit
@@ -252,7 +253,7 @@ inherited frmCadastroCliente: TfrmCadastroCliente
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 2
+          TabOrder = 6
           MudarColor = 14087422
         end
         object edtNomeFantasia: TSWHDBEdit
@@ -271,7 +272,7 @@ inherited frmCadastroCliente: TfrmCadastroCliente
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 3
+          TabOrder = 10
           MudarColor = 14087422
         end
         object pnl_pessoa: TPanel
@@ -281,7 +282,7 @@ inherited frmCadastroCliente: TfrmCadastroCliente
           Height = 25
           BevelKind = bkFlat
           BevelOuter = bvNone
-          TabOrder = 4
+          TabOrder = 2
           object rbFisica: TRadioButton
             Left = 21
             Top = 2
@@ -326,7 +327,7 @@ inherited frmCadastroCliente: TfrmCadastroCliente
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 5
+          TabOrder = 0
           Items.Strings = (
             'CLIENTE'
             'FUNCION'#193'RIO'
@@ -344,7 +345,7 @@ inherited frmCadastroCliente: TfrmCadastroCliente
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 6
+          TabOrder = 1
           Text = 'SIM'
           Items.Strings = (
             'ATIVO'
@@ -389,7 +390,7 @@ inherited frmCadastroCliente: TfrmCadastroCliente
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 8
+          TabOrder = 5
           MudarColor = 14087422
         end
         object edtTelefone2: TSWHMaskEdit
@@ -408,7 +409,7 @@ inherited frmCadastroCliente: TfrmCadastroCliente
           Font.Style = []
           MaxLength = 16
           ParentFont = False
-          TabOrder = 9
+          TabOrder = 8
           Text = ''
           TipoMascara = tmCelular
           MudarColor = 14087422
@@ -430,7 +431,7 @@ inherited frmCadastroCliente: TfrmCadastroCliente
           Font.Style = []
           MaxLength = 10
           ParentFont = False
-          TabOrder = 10
+          TabOrder = 3
           Text = ''
           TipoMascara = tmData
           MudarColor = 14087422
@@ -454,7 +455,7 @@ inherited frmCadastroCliente: TfrmCadastroCliente
           Font.Style = []
           ParentBackground = False
           ParentFont = False
-          TabOrder = 11
+          TabOrder = 4
           object SpeedButton1: TSpeedButton
             Left = 125
             Top = 0
@@ -550,14 +551,17 @@ inherited frmCadastroCliente: TfrmCadastroCliente
       end
       inherited pnlConsulta: TPanel
         Left = 868
+        TabOrder = 2
         ExplicitLeft = 868
       end
       inherited pnlExcluir: TPanel
         Left = 708
+        TabOrder = 0
         ExplicitLeft = 708
       end
       inherited pnlInserir: TPanel
         Left = 788
+        TabOrder = 1
         ExplicitLeft = 788
       end
     end
@@ -565,6 +569,7 @@ inherited frmCadastroCliente: TfrmCadastroCliente
       Top = 353
       Width = 979
       Height = 241
+      TabOrder = 2
       ExplicitTop = 353
       ExplicitWidth = 979
       ExplicitHeight = 241
@@ -688,7 +693,7 @@ inherited frmCadastroCliente: TfrmCadastroCliente
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 0
+          TabOrder = 6
           MudarColor = 14087422
         end
         object edtNumero: TSWHDBEdit
@@ -707,7 +712,7 @@ inherited frmCadastroCliente: TfrmCadastroCliente
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 1
+          TabOrder = 3
           MudarColor = 14087422
         end
         object edtComplemento: TSWHDBEdit
@@ -745,7 +750,7 @@ inherited frmCadastroCliente: TfrmCadastroCliente
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 3
+          TabOrder = 1
           MudarColor = 14087422
         end
         object pnl_cep: TPanel
@@ -755,7 +760,7 @@ inherited frmCadastroCliente: TfrmCadastroCliente
           Height = 25
           BevelKind = bkFlat
           BevelOuter = bvNone
-          TabOrder = 4
+          TabOrder = 0
           object spb_pesquisa: TSpeedButton
             Left = 108
             Top = 0
@@ -839,7 +844,7 @@ inherited frmCadastroCliente: TfrmCadastroCliente
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 5
+          TabOrder = 4
           MudarColor = 14087422
         end
         object edtCidade: TSWHDBEdit
@@ -858,7 +863,7 @@ inherited frmCadastroCliente: TfrmCadastroCliente
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 6
+          TabOrder = 5
           MudarColor = 14087422
         end
       end
@@ -870,6 +875,7 @@ inherited frmCadastroCliente: TfrmCadastroCliente
       ExplicitWidth = 979
       inherited pnlCancelar: TPanel
         Left = 716
+        TabOrder = 1
         ExplicitLeft = 716
         inherited btnCancelar: TSpeedButton
           ExplicitLeft = 0
@@ -880,10 +886,12 @@ inherited frmCadastroCliente: TfrmCadastroCliente
       end
       inherited pnlConfirmar: TPanel
         Left = 853
+        TabOrder = 2
         ExplicitLeft = 853
       end
       inherited pnlLinhaBotao: TPanel
         Width = 979
+        TabOrder = 0
         ExplicitWidth = 979
       end
     end
@@ -964,6 +972,11 @@ inherited frmCadastroCliente: TfrmCadastroCliente
     end
     object cdsCadastroPadraodatanasc: TDateField
       FieldName = 'datanasc'
+    end
+    object cdsCadastroPadraotipo_pessoa: TWideMemoField
+      FieldName = 'tipo_pessoa'
+      ReadOnly = True
+      BlobType = ftWideMemo
     end
   end
   inherited dspCadastroPadrao: TDataSetProvider

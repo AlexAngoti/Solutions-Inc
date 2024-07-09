@@ -698,25 +698,6 @@ object frmEntradaEstoque: TfrmEntradaEstoque
         TabOrder = 6
         MudarColor = 14087422
       end
-      object edtValor: TSWHMaskEdit
-        Left = 25
-        Top = 258
-        Width = 152
-        Height = 25
-        BevelKind = bkFlat
-        BorderStyle = bsNone
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 7
-        Text = ''
-        TipoMascara = tmValor
-        MudarColor = 14087422
-        CasasDecimais = Duas
-      end
       object edtUnitario: TSWHMaskEdit
         Left = 213
         Top = 258
@@ -774,6 +755,24 @@ object frmEntradaEstoque: TfrmEntradaEstoque
         TipoMascara = tmValor
         MudarColor = 14087422
         CasasDecimais = Duas
+      end
+      object edtValor: TSWHEdit
+        Left = 25
+        Top = 258
+        Width = 130
+        Height = 25
+        BevelKind = bkFlat
+        BorderStyle = bsNone
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        NumbersOnly = True
+        ParentFont = False
+        TabOrder = 7
+        MudarColor = 14087422
+        CampoObrigatorio = False
       end
     end
   end

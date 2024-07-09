@@ -13,6 +13,7 @@ object frmVendas: TfrmVendas
   Font.Style = []
   OldCreateOrder = False
   OnResize = FormResize
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object pnlCentralFixo: TPanel
@@ -36,7 +37,7 @@ object frmVendas: TfrmVendas
       TabOrder = 0
       object pnlEstatisticas: TPanel
         Left = 0
-        Top = 2
+        Top = 1
         Width = 1022
         Height = 187
         BevelOuter = bvNone
@@ -57,7 +58,7 @@ object frmVendas: TfrmVendas
           BevelOuter = bvNone
           Color = 45277
           ParentBackground = False
-          TabOrder = 0
+          TabOrder = 2
           object Label1: TLabel
             Left = 16
             Top = 21
@@ -165,7 +166,7 @@ object frmVendas: TfrmVendas
           BevelOuter = bvNone
           Color = 16744448
           ParentBackground = False
-          TabOrder = 1
+          TabOrder = 0
           object Label3: TLabel
             Left = 16
             Top = 21
@@ -269,7 +270,7 @@ object frmVendas: TfrmVendas
           BevelOuter = bvNone
           Color = 40192
           ParentBackground = False
-          TabOrder = 2
+          TabOrder = 1
           object Label5: TLabel
             Left = 16
             Top = 21
@@ -371,7 +372,7 @@ object frmVendas: TfrmVendas
           Align = alClient
           BorderStyle = bsNone
           Color = clWhite
-          DataSource = DataSource1
+          DataSource = dsUltimasVendas
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
@@ -396,7 +397,7 @@ object frmVendas: TfrmVendas
             end
             item
               Expanded = False
-              FieldName = 'cliente'
+              FieldName = 'nomerazao'
               Title.Caption = 'Cliente'
               Width = 188
               Visible = True
@@ -404,7 +405,7 @@ object frmVendas: TfrmVendas
             item
               Alignment = taLeftJustify
               Expanded = False
-              FieldName = 'valor'
+              FieldName = 'valortotal'
               Title.Caption = 'Valor'
               Width = 80
               Visible = True
@@ -430,11 +431,16 @@ object frmVendas: TfrmVendas
           object cxGrid1DBChartView1: TcxGridDBChartView
             DataController.DataSource = dsVendas
             DiagramColumn.Active = True
+            object cxGrid1DBChartView1DataGroup1: TcxGridDBChartDataGroup
+              DataBinding.FieldName = 'dia'
+            end
             object cxGrid1DBChartView1Series1: TcxGridDBChartSeries
-              DataBinding.FieldName = 'pagar'
+              DataBinding.FieldName = 'quantidade_vendas'
+              DisplayText = 'Quantidade de Vendas'
             end
             object cxGrid1DBChartView1Series2: TcxGridDBChartSeries
-              DataBinding.FieldName = 'receber'
+              DataBinding.FieldName = 'valor_total_vendas'
+              DisplayText = 'Valor Total das Vendas'
             end
           end
           object cxGrid1Level1: TcxGridLevel
@@ -455,7 +461,7 @@ object frmVendas: TfrmVendas
         BevelOuter = bvNone
         Color = 40192
         ParentBackground = False
-        TabOrder = 3
+        TabOrder = 4
         object Label8: TLabel
           Left = 18
           Top = 84
@@ -551,7 +557,7 @@ object frmVendas: TfrmVendas
         BevelOuter = bvNone
         Color = clRed
         ParentBackground = False
-        TabOrder = 4
+        TabOrder = 3
         OnClick = Panel9Click
         object Label7: TLabel
           Left = 3
@@ -783,30 +789,50 @@ object frmVendas: TfrmVendas
             0000000000000000000000000000000000000000000000000000000000000000
             0000000000000000000000000000000000000000000000000000}
           ParentFont = False
-          ExplicitLeft = 72
-          ExplicitTop = 56
-          ExplicitWidth = 23
-          ExplicitHeight = 22
+          OnClick = SpeedButton2Click
+          ExplicitTop = -2
         end
       end
     end
   end
   object qryVendas: TFDQuery
-    Active = True
     Connection = dm.FDConnection
     SQL.Strings = (
-      'select 20 pagar, 30 receber'
-      'union all'
-      'select 20 pagar, 30 receber')
-    Left = 419
+      'SELECT '
+      '    DATE(datavenda) AS dia,'
+      '    COUNT(*) AS quantidade_vendas,'
+      '    SUM(valortotal) AS valor_total_vendas'
+      'FROM vendas'
+      
+        'WHERE EXTRACT(YEAR FROM datavenda) = EXTRACT(YEAR FROM CURRENT_D' +
+        'ATE)'
+      
+        '  AND EXTRACT(MONTH FROM datavenda) = EXTRACT(MONTH FROM CURRENT' +
+        '_DATE)'
+      '  and situacao = 0'
+      'GROUP BY DATE(datavenda)'
+      'ORDER BY dia'
+      'limit 6')
+    Left = 427
     Top = 215
-    object qryVendaspagar: TIntegerField
-      FieldName = 'pagar'
+    object qryVendasdia: TDateField
+      FieldName = 'dia'
+      Origin = 'dia'
+    end
+    object qryVendasquantidade_vendas: TLargeintField
+      AutoGenerateValue = arDefault
+      FieldName = 'quantidade_vendas'
+      Origin = 'quantidade_vendas'
       ReadOnly = True
     end
-    object qryVendasreceber: TIntegerField
-      FieldName = 'receber'
+    object qryVendasvalor_total_vendas: TFMTBCDField
+      AutoGenerateValue = arDefault
+      FieldName = 'valor_total_vendas'
+      Origin = 'valor_total_vendas'
       ReadOnly = True
+      DisplayFormat = '#,##0.00'
+      Precision = 64
+      Size = 0
     end
   end
   object dsVendas: TDataSource
@@ -814,22 +840,61 @@ object frmVendas: TfrmVendas
     Left = 451
     Top = 215
   end
-  object FDQuery1: TFDQuery
-    Active = True
+  object qryUltimasVendas: TFDQuery
     Connection = dm.FDConnection
     SQL.Strings = (
+      'SELECT v.*, p.nomerazao '
+      'FROM vendas v'
+      'inner join pessoa p on v.cliente = p.id '
       
-        'select 1 as id, CAST('#39'Alex Angoti'#39' as varchar(255)) as Cliente, ' +
-        '21 as Valor'
-      'union all'
+        'WHERE EXTRACT(YEAR FROM v.dataVenda) = EXTRACT(YEAR FROM CURRENT' +
+        '_DATE)'
       
-        'select 2 as id, CAST('#39'Alex Angoti'#39' as varchar(255)) as Cliente, ' +
-        '19 as Valor;')
+        '  AND EXTRACT(MONTH FROM v.dataVenda) = EXTRACT(MONTH FROM CURRE' +
+        'NT_DATE)'
+      '  and v.situacao = 0')
     Left = 203
     Top = 247
+    object qryUltimasVendasid: TLargeintField
+      FieldName = 'id'
+      Origin = 'id'
+    end
+    object qryUltimasVendasdatavenda: TDateField
+      FieldName = 'datavenda'
+      Origin = 'datavenda'
+    end
+    object qryUltimasVendascliente: TIntegerField
+      FieldName = 'cliente'
+      Origin = 'cliente'
+    end
+    object qryUltimasVendasformapgto: TIntegerField
+      FieldName = 'formapgto'
+      Origin = 'formapgto'
+    end
+    object qryUltimasVendasvalortotal: TBCDField
+      FieldName = 'valortotal'
+      Origin = 'valortotal'
+      Precision = 15
+      Size = 2
+    end
+    object qryUltimasVendasusuario: TIntegerField
+      FieldName = 'usuario'
+      Origin = 'usuario'
+    end
+    object qryUltimasVendasobervacao: TWideStringField
+      FieldName = 'obervacao'
+      Origin = 'obervacao'
+      Size = 255
+    end
+    object qryUltimasVendasnomerazao: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nomerazao'
+      Origin = 'nomerazao'
+      Size = 255
+    end
   end
-  object DataSource1: TDataSource
-    DataSet = FDQuery1
+  object dsUltimasVendas: TDataSource
+    DataSet = qryUltimasVendas
     Left = 235
     Top = 247
   end

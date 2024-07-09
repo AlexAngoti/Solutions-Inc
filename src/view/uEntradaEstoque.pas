@@ -9,7 +9,7 @@ uses
   SWHDBEdit, dxGDIPlusClasses, SWHComboBox, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
-  Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+  Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, SWHEdit;
 
 type
   TfrmEntradaEstoque = class(TForm)
@@ -41,7 +41,6 @@ type
     lblProduto: TLabel;
     btnProdutos: TSpeedButton;
     cbxProdutos: TSWHDBLookupComboBox;
-    edtValor: TSWHMaskEdit;
     lblValor: TLabel;
     edtUnitario: TSWHMaskEdit;
     lblUni: TLabel;
@@ -115,6 +114,7 @@ type
     qryProdutodescricao: TWideStringField;
     qryProdutovalorunitario: TBCDField;
     qryProdutoimagem: TBlobField;
+    edtValor: TSWHEdit;
     procedure FormResize(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnNovoLancamentoClick(Sender: TObject);
@@ -231,7 +231,7 @@ end;
 
 procedure TfrmEntradaEstoque.edtUnitarioExit(Sender: TObject);
 begin
-  qryEstoquevalortotal.AsCurrency := qryEstoquequantidade.AsInteger * qryEstoquevalorunitario.AsCurrency;
+  edtTotal.Text := CurrToStr(StrToInt(edtValor.Text) * StrToFloat(edtUnitario.Text));
 end;
 
 procedure TfrmEntradaEstoque.FormResize(Sender: TObject);
@@ -275,7 +275,7 @@ begin
   qryEstoquedatamovimento.AsDateTime := dtpDataVencimento.Date;
   qryEstoquequantidade.AsFloat       := StrToFloat(edtValor.Text);
   qryEstoquevalorunitario.AsFloat    := StrToFloat(edtUnitario.Text);
-  qryEstoquevalortotal.AsFloat       := StrToFloat(edtTotal.Text);
+  qryEstoquevalortotal.AsCurrency    := StrToCurr(edtTotal.Text);
   qryEstoquevalordoc.AsFloat         := StrToFloat(edtValorTotal.Text);
 end;
 

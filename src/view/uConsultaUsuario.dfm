@@ -22,22 +22,14 @@ inherited frmConsultaUsuario: TfrmConsultaUsuario
         object dbGrdPesquisaDBTableView1id: TcxGridDBColumn
           Caption = 'ID'
           DataBinding.FieldName = 'id'
-          Width = 51
+          DataBinding.IsNullValueType = True
+          Width = 88
         end
         object dbGrdPesquisaDBTableView1acesso: TcxGridDBColumn
           Caption = 'Usuario'
           DataBinding.FieldName = 'acesso'
-          Width = 632
-        end
-        object dbGrdPesquisaDBTableView1master: TcxGridDBColumn
-          Caption = 'Master'
-          DataBinding.FieldName = 'master'
-          Width = 108
-        end
-        object dbGrdPesquisaDBTableView1ativo: TcxGridDBColumn
-          Caption = 'Ativo'
-          DataBinding.FieldName = 'ativo'
-          Width = 144
+          DataBinding.IsNullValueType = True
+          Width = 847
         end
       end
     end

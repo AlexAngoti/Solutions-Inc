@@ -83,6 +83,7 @@ type
     btnFechar: TSpeedButton;
     imgLogoTop: TImage;
     lblNomeLogoTop: TLabel;
+    qryGridRecebernumeroorigem: TIntegerField;
     procedure FormResize(Sender: TObject);
     procedure btnFecharClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -323,11 +324,18 @@ begin
   begin
     if cbFaturados.Checked = False then
     begin
-      if MsgConfirmar('Deseja realmente excluir este registro?', 'Esta ação é irreversível e o registro será permanentemente excluído.') = mrOk then
+      if qryGridRecebernumeroorigem.AsInteger = 0 then
       begin
-        qryGridReceber.Delete;
-        Self.OpenDataSet;
-        Self.CalculaPainel;
+        MsgOk('Titulo não pode ser apagado!', 'Esse titulo possui uma venda vinculado a ele');
+      end
+      else
+      begin
+        if MsgConfirmar('Deseja realmente excluir este registro?', 'Esta ação é irreversível e o registro será permanentemente excluído.') = mrOk then
+        begin
+          qryGridReceber.Delete;
+          Self.OpenDataSet;
+          Self.CalculaPainel;
+        end;
       end;
     end;
   end;

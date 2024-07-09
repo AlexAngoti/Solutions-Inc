@@ -31,7 +31,7 @@ uses
   FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
   Datasnap.DBClient, Datasnap.Provider, Vcl.ComCtrls, SWHEdit, SWHComboBox,
   Vcl.DBCtrls, SWHDBComboBox, cxContainer, cxTextEdit, cxMaskEdit,
-  cxDropDownEdit, cxDBEdit, SWHDBLookupComboBox;
+  cxDropDownEdit, cxDBEdit, SWHDBLookupComboBox, cxGridExportLink;
 
 type
   TfrmRelatorioPadrao = class(TForm)

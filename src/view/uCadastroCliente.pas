@@ -97,6 +97,7 @@ type
     RESTResponse2: TRESTResponse;
     RESTResponseDataSetAdapter3: TRESTResponseDataSetAdapter;
     ClientDataSet1: TClientDataSet;
+    cdsCadastroPadraotipo_pessoa: TWideMemoField;
     procedure btnCancelarClick(Sender: TObject);
     procedure btnConfirmarClick(Sender: TObject);
     procedure edtCpfCnpjExit(Sender: TObject);
@@ -370,7 +371,13 @@ begin
   cdsCadastroPadraonomerazao.AsString    := cdsBuscaCNPJ.FieldByName('nome_empresarial').AsString;
   cdsCadastroPadraonomefantasia.AsString := cdsBuscaCNPJ.FieldByName('nome_fantasia').AsString;
   cdsCadastroPadraoierg.AsString         := cdsBuscaCNPJ.FieldByName('inscricao_estadual').AsString;
-  cdsCadastroPadraodatanasc.AsDateTime   := StrToDateDef(StringReplace(cdsBuscaCNPJ.FieldByName('data_situacao_cadastral').AsString, '-', '/', [rfReplaceAll]), 0);
+  edtDtNasc.Text := StringReplace(
+                    StringReplace(
+                        cdsBuscaCNPJ.FieldByName('data_situacao_cadastral').AsString,
+                        '-', '', [rfReplaceAll]
+                    ),
+                    '/', '', [rfReplaceAll]
+                 );
   cdsCadastroPadraouf.AsString           := cdsBuscaCNPJ.FieldByName('uf').AsString;
   cdsCadastroPadraocidade.AsString       := cdsBuscaCNPJ.FieldByName('municipio').AsString;
   cdsCadastroPadraoendereco.AsString     := cdsBuscaCNPJ.FieldByName('logradouro').AsString;
@@ -378,24 +385,23 @@ begin
   edtCep.Text                            := cdsBuscaCNPJ.FieldByName('cep').AsString;
   cdsCadastroPadraonumero.AsString       := cdsBuscaCNPJ.FieldByName('numero').AsString;
   cdsCadastroPadraobairro.AsString       := cdsBuscaCNPJ.FieldByName('bairro').AsString;
-  edtDtNasc.Text                         := cdsBuscaCNPJ.FieldByName('data_inicio_atividade').AsString;
 
-  if cdsBuscaCNPJ.FieldByName('situacao_cnpj').AsString <> 'Ativo' then
+  {if cdsBuscaCNPJ.FieldByName('situacao_cnpj').AsString <> 'Ativo' then
   begin
     uUtils.MsgOk('AVISO ESSE CNPJ ESTÁ COM A SITUAÇÃO CADASTRAL: ' + cdsBuscaCNPJ.FieldByName('situacao_cnpj').AsString,
      'Situação cadastral do CNPJ diferente de ativo');
-  end;
+  end; }
 end;
 
 procedure TfrmCadastroCliente.InseriCPF;
 begin
   cdsCadastroPadraonomerazao.AsString := ClientDataSet1.FieldByName('nome').AsString;
 
-  if ClientDataSet1.FieldByName('situacao_cadastral').AsString <> 'Regular' then
+  {if ClientDataSet1.FieldByName('situacao_cadastral').AsString <> 'Regular' then
   begin
     uUtils.MsgOk('AVISO CPF COM SITUAÇÃO CADASTRAL: ' + ClientDataSet1.FieldByName('situacao_cadastral').AsString,
      'Situação cadastral do CPF diferente de regular');
-  end;
+  end;^}
 end;
 
 function TfrmCadastroCliente.IsCNPJValid(const CNPJ: string): Boolean;
@@ -525,7 +531,7 @@ begin
       edtTelefone.Text    := cdsCadastroPadraotelefone.AsString;
       edtTelefone2.Text   := cdsCadastroPadraotelefone2.AsString;
       edtCep.Text         := cdsCadastroPadraocep.AsString;
-      edtDtNasc.Text      := DateToStr(cdsCadastroPadraodatanasc.AsDateTime);
+      edtDtNasc.Text      := StringReplace(cdsCadastroPadraodatanasc.AsString, '/', '', [rfReplaceAll]);
       rbFisicaClick(Self);
       Self.LiberaCampo;
     end;

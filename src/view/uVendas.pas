@@ -36,10 +36,8 @@ type
   TfrmVendas = class(TForm)
     qryVendas: TFDQuery;
     dsVendas: TDataSource;
-    FDQuery1: TFDQuery;
-    DataSource1: TDataSource;
-    qryVendaspagar: TIntegerField;
-    qryVendasreceber: TIntegerField;
+    qryUltimasVendas: TFDQuery;
+    dsUltimasVendas: TDataSource;
     pnlCentralFixo: TPanel;
     pnlCentral: TPanel;
     pnlEstatisticas: TPanel;
@@ -64,7 +62,6 @@ type
     cxGrid1: TcxGrid;
     cxGrid1DBChartView1: TcxGridDBChartView;
     cxGrid1DBChartView1Series1: TcxGridDBChartSeries;
-    cxGrid1DBChartView1Series2: TcxGridDBChartSeries;
     cxGrid1Level1: TcxGridLevel;
     Panel8: TPanel;
     Label8: TLabel;
@@ -76,12 +73,28 @@ type
     btnVendas: TSpeedButton;
     SpeedButton1: TSpeedButton;
     SpeedButton2: TSpeedButton;
+    qryUltimasVendasid: TLargeintField;
+    qryUltimasVendasdatavenda: TDateField;
+    qryUltimasVendascliente: TIntegerField;
+    qryUltimasVendasformapgto: TIntegerField;
+    qryUltimasVendasvalortotal: TBCDField;
+    qryUltimasVendasusuario: TIntegerField;
+    qryUltimasVendasobervacao: TWideStringField;
+    qryUltimasVendasnomerazao: TWideStringField;
+    qryVendasdia: TDateField;
+    qryVendasquantidade_vendas: TLargeintField;
+    cxGrid1DBChartView1DataGroup1: TcxGridDBChartDataGroup;
+    qryVendasvalor_total_vendas: TFMTBCDField;
+    cxGrid1DBChartView1Series2: TcxGridDBChartSeries;
     procedure btnFecharClick(Sender: TObject);
     procedure Panel9Click(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure btnVendasClick(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
+    procedure AtualizaValores;
     { Private declarations }
   public
     { Public declarations }
@@ -97,24 +110,68 @@ uses
 
 {$R *.dfm}
 
+procedure TfrmVendas.AtualizaValores;
+var
+  vVendasHoje, vVendasMes: Currency;
+  vQuantidade: Integer;
+begin
+  vVendasHoje := 0;
+  vQuantidade := 0;
+  vVendasMes  := 0;
+  qryUltimasVendas.Close;
+  qryUltimasVendas.Open;
+
+  qryVendas.Close;
+  qryVendas.Open;
+
+  qryUltimasVendas.First;
+  while not qryUltimasVendas.Eof do
+  begin
+    if qryUltimasVendasdatavenda.AsDateTime = Date then
+    begin
+      vVendasHoje := vVendasHoje + qryUltimasVendasvalortotal.AsCurrency;
+    end;
+
+    vVendasMes  := vVendasMes + qryUltimasVendasvalortotal.AsCurrency;
+    vQuantidade := vQuantidade + 1;
+    qryUltimasVendas.Next;
+  end;
+
+  Label3.Caption := FormatFloat('#,##0.00', vVendasHoje);
+  Label5.Caption := FormatFloat('#,##0.00', vVendasMes);
+  Label1.Caption := IntToStr(vQuantidade);
+end;
+
 procedure TfrmVendas.btnFecharClick(Sender: TObject);
 begin
   Self.Close;
 end;
 
 procedure TfrmVendas.btnVendasClick(Sender: TObject);
+var
+  Escurecer: TfrmEscurecerFundo;
 begin
+  Escurecer := TfrmEscurecerFundo.Create(Self);
   frmFrenteVendas := TfrmFrenteVendas.Create(Self);
   try
+    Escurecer.Show;
     frmFrenteVendas.ShowModal;
   finally
     frmFrenteVendas.Free;
+    Escurecer.Free;
   end;
+
+  Self.AtualizaValores;
 end;
 
 procedure TfrmVendas.FormResize(Sender: TObject);
 begin
   pnlCentral.Left := Round(pnlCentralFixo.Width / 2 - pnlCentral.Width / 2);
+end;
+
+procedure TfrmVendas.FormShow(Sender: TObject);
+begin
+  Self.AtualizaValores;
 end;
 
 procedure TfrmVendas.Panel9Click(Sender: TObject);
@@ -123,17 +180,25 @@ begin
 end;
 
 procedure TfrmVendas.SpeedButton1Click(Sender: TObject);
+var
+  EscurecerTela: TfrmEscurecerFundo;
 begin
-  frmEscurecerFundo := TfrmEscurecerFundo.Create(Self);
-  frmEscurecerFundo.Show;
-
+  EscurecerTela := TfrmEscurecerFundo.Create(Self);
   frmCancelamentoVenda := TfrmCancelamentoVenda.Create(Self);
   try
+    EscurecerTela.Show;
     frmCancelamentoVenda.ShowModal;
   finally
-    frmEscurecerFundo.Free;
+    EscurecerTela.Free;
     frmCancelamentoVenda.Free;
   end;
+
+  Self.AtualizaValores;
+end;
+
+procedure TfrmVendas.SpeedButton2Click(Sender: TObject);
+begin
+  Self.Close;
 end;
 
 end.

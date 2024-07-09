@@ -32,8 +32,6 @@ type
   TfrmConsultaUsuario = class(TfrmConsultaPadrao)
     dbGrdPesquisaDBTableView1id: TcxGridDBColumn;
     dbGrdPesquisaDBTableView1acesso: TcxGridDBColumn;
-    dbGrdPesquisaDBTableView1master: TcxGridDBColumn;
-    dbGrdPesquisaDBTableView1ativo: TcxGridDBColumn;
     procedure btnPesquisaClick(Sender: TObject);
     procedure dbGrdPesquisaDBTableView1DblClick(Sender: TObject);
   private

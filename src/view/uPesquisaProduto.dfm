@@ -1,6 +1,6 @@
 inherited frmConsultaProdutos: TfrmConsultaProdutos
   Caption = 'frmConsultaProdutos'
-  ExplicitLeft = -175
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnlSubTop: TPanel
@@ -12,7 +12,6 @@ inherited frmConsultaProdutos: TfrmConsultaProdutos
   end
   inherited pnlCentral: TPanel
     inherited dbGrdPesquisa: TcxGrid
-      ExplicitTop = 63
       inherited dbGrdPesquisaDBTableView1: TcxGridDBTableView
         OnDblClick = dbGrdPesquisaDBTableView1DblClick
         object dbGrdPesquisaDBTableView1Column1: TcxGridDBColumn

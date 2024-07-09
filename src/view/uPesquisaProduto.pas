@@ -34,9 +34,11 @@ type
     dbGrdPesquisaDBTableView1Column3: TcxGridDBColumn;
     procedure FormCreate(Sender: TObject);
     procedure dbGrdPesquisaDBTableView1DblClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
+    vOrigem: integer;
     { Public declarations }
   end;
 
@@ -46,7 +48,7 @@ var
 implementation
 
 uses
-  uEntradaEstoque;
+  uEntradaEstoque, uFrenteVendas, uPedidoCompra;
 
 {$R *.dfm}
 
@@ -60,7 +62,19 @@ end;
 procedure TfrmConsultaProdutos.FormCreate(Sender: TObject);
 begin
   //inherited;
+  vOrigem := 0;
+end;
 
+procedure TfrmConsultaProdutos.FormShow(Sender: TObject);
+begin
+  inherited;
+  if vOrigem = 1 then
+  begin
+    dsConsultaPadrao.DataSet := frmFrenteVendas.qryProduto;
+  end;
+
+  if vOrigem = 2 then
+    dsConsultaPadrao.DataSet := frmFrenteVendas.qryProduto;
 end;
 
 end.

@@ -1,10 +1,10 @@
-﻿object frmParcelas: TfrmParcelas
+﻿object frmParcelaCompras: TfrmParcelaCompras
   Left = 0
   Top = 0
   BorderStyle = bsNone
-  Caption = 'frmParcelas'
-  ClientHeight = 508
-  ClientWidth = 312
+  Caption = 'frmParcelaCompras'
+  ClientHeight = 445
+  ClientWidth = 305
   Color = 13750737
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,15 +12,13 @@
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poScreenCenter
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnlSubTop: TPanel
     AlignWithMargins = True
     Left = 5
     Top = 5
-    Width = 302
+    Width = 295
     Height = 49
     Margins.Left = 5
     Margins.Top = 5
@@ -33,7 +31,7 @@
     TabOrder = 0
     object btnFechar: TSpeedButton
       AlignWithMargins = True
-      Left = 242
+      Left = 235
       Top = 5
       Width = 55
       Height = 39
@@ -50,7 +48,6 @@
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnFecharClick
       ExplicitLeft = 904
       ExplicitTop = 0
       ExplicitHeight = 57
@@ -103,7 +100,7 @@
     AlignWithMargins = True
     Left = 5
     Top = 59
-    Width = 302
+    Width = 295
     Height = 94
     Margins.Left = 5
     Margins.Top = 5
@@ -271,13 +268,11 @@
       BevelInner = bvNone
       BevelKind = bkSoft
       DataField = 'formapgto'
-      DataSource = frmFrenteVendas.dsVendas
+      DataSource = frmPedidoCompra.dsCompra
       KeyField = 'id'
       ListField = 'nome'
       ListSource = dsFormaPgto
       TabOrder = 0
-      OnEnter = SWHDBLookupComboBox1Enter
-      OnExit = SWHDBLookupComboBox1Exit
       MudarColor = 14087422
     end
   end
@@ -285,8 +280,8 @@
     AlignWithMargins = True
     Left = 5
     Top = 158
-    Width = 302
-    Height = 296
+    Width = 295
+    Height = 233
     Margins.Left = 5
     Margins.Top = 0
     Margins.Right = 5
@@ -343,8 +338,8 @@
   object Panel2: TPanel
     AlignWithMargins = True
     Left = 5
-    Top = 459
-    Width = 302
+    Top = 396
+    Width = 295
     Height = 44
     Margins.Left = 5
     Margins.Top = 0
@@ -360,7 +355,7 @@
       Left = 3
       Top = 5
       Width = 37
-      Height = 34
+      Height = 28
       Margins.Top = 5
       Margins.Bottom = 5
       Align = alLeft
@@ -372,7 +367,6 @@
       Font.Style = []
       ParentFont = False
       Visible = False
-      ExplicitHeight = 28
     end
     object Panel3: TPanel
       Left = 168
@@ -478,7 +472,6 @@
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000}
         ParentFont = False
-        OnClick = SpeedButton1Click
         ExplicitTop = -4
         ExplicitWidth = 137
       end
@@ -1346,14 +1339,14 @@
     end
   end
   object dsVendas: TDataSource
-    DataSet = frmFrenteVendas.qryVendas
+    DataSet = frmPedidoCompra.qryCompra
     Left = 101
     Top = 5
   end
   object dsFormaPgto: TDataSource
     DataSet = qryFormaPgto
-    Left = 216
-    Top = 256
+    Left = 40
+    Top = 196
   end
   object qryFormaPgto: TFDQuery
     Connection = dm.FDConnection
@@ -1361,8 +1354,8 @@
       'select * '
       '  from formapgto f '
       ' where f.ativo = 0')
-    Left = 184
-    Top = 256
+    Left = 8
+    Top = 196
     object qryFormaPgtoid: TLargeintField
       FieldName = 'id'
       Origin = 'id'
@@ -1398,8 +1391,8 @@
   object cdsParcelas: TClientDataSet
     Aggregates = <>
     Params = <>
-    Left = 64
-    Top = 240
+    Left = 160
+    Top = 236
     object cdsParcelasparcela: TIntegerField
       FieldName = 'parcela'
     end
@@ -1412,8 +1405,8 @@
   end
   object dsParcelas: TDataSource
     DataSet = cdsParcelas
-    Left = 96
-    Top = 240
+    Left = 192
+    Top = 236
   end
   object qryAtuReceber: TFDQuery
     Connection = dm.FDConnection
@@ -1421,8 +1414,8 @@
       'select * '
       '  from contasreceber c '
       ' limit 1')
-    Left = 184
-    Top = 320
+    Left = 176
+    Top = 316
     object qryAtuReceberid: TLargeintField
       FieldName = 'id'
       Origin = 'id'
@@ -1475,16 +1468,16 @@
   end
   object dsAtuReceber: TDataSource
     DataSet = qryAtuReceber
-    Left = 216
-    Top = 320
+    Left = 200
+    Top = 316
   end
   object qryEstoque: TFDQuery
     Connection = dm.FDConnection
     SQL.Strings = (
       'select * from estoque'
       'limit 1')
-    Left = 104
-    Top = 320
+    Left = 56
+    Top = 300
     object qryEstoqueid: TLargeintField
       FieldName = 'id'
     end
@@ -1534,7 +1527,7 @@
   end
   object dsEstoque: TDataSource
     DataSet = qryEstoque
-    Left = 136
-    Top = 320
+    Left = 24
+    Top = 300
   end
 end

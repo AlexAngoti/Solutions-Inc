@@ -31,7 +31,7 @@ object frmContasReceber: TfrmContasReceber
     Align = alClient
     Color = clWhite
     ParentBackground = False
-    TabOrder = 0
+    TabOrder = 1
     object pnlCentTop: TPanel
       Left = 1
       Top = 1
@@ -55,7 +55,7 @@ object frmContasReceber: TfrmContasReceber
         BevelOuter = bvNone
         Color = 16024898
         ParentBackground = False
-        TabOrder = 0
+        TabOrder = 1
         object btnNovoLancamento: TSpeedButton
           Left = 0
           Top = 0
@@ -85,7 +85,7 @@ object frmContasReceber: TfrmContasReceber
         BevelOuter = bvNone
         Color = 13750737
         ParentBackground = False
-        TabOrder = 1
+        TabOrder = 2
       end
       object pnlBaixaLanc: TPanel
         AlignWithMargins = True
@@ -100,7 +100,7 @@ object frmContasReceber: TfrmContasReceber
         BevelOuter = bvNone
         Color = clRed
         ParentBackground = False
-        TabOrder = 2
+        TabOrder = 0
         object btnBaixarLancamento: TSpeedButton
           Left = 0
           Top = 0
@@ -135,7 +135,7 @@ object frmContasReceber: TfrmContasReceber
       BevelOuter = bvNone
       Color = clWhite
       ParentBackground = False
-      TabOrder = 1
+      TabOrder = 2
       object pnlLinha3: TPanel
         Left = 0
         Top = 73
@@ -144,7 +144,7 @@ object frmContasReceber: TfrmContasReceber
         Align = alTop
         Color = 13750737
         ParentBackground = False
-        TabOrder = 0
+        TabOrder = 1
       end
       object dbgRegistros: TDBGrid
         AlignWithMargins = True
@@ -166,7 +166,7 @@ object frmContasReceber: TfrmContasReceber
         Font.Style = []
         Options = [dgTitles, dgIndicator, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgTitleClick, dgTitleHotTrack]
         ParentFont = False
-        TabOrder = 1
+        TabOrder = 2
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = -1
         TitleFont.Height = -13
@@ -241,7 +241,7 @@ object frmContasReceber: TfrmContasReceber
         BevelOuter = bvNone
         Color = clWhite
         ParentBackground = False
-        TabOrder = 2
+        TabOrder = 0
         object Label1: TLabel
           Left = 10
           Top = 0
@@ -274,7 +274,7 @@ object frmContasReceber: TfrmContasReceber
           Width = 633
           Height = 28
           BevelOuter = bvNone
-          TabOrder = 0
+          TabOrder = 4
           object shpPesquisa: TShape
             Left = 27
             Top = 0
@@ -417,7 +417,7 @@ object frmContasReceber: TfrmContasReceber
             'Descri'#231#227'o'
             'Numero Doc.')
           ParentFont = False
-          TabOrder = 1
+          TabOrder = 0
         end
         object dtpDataInicial: TDateTimePicker
           Left = 10
@@ -432,7 +432,7 @@ object frmContasReceber: TfrmContasReceber
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
-          TabOrder = 2
+          TabOrder = 1
         end
         object dtpDataFinal: TDateTimePicker
           Left = 147
@@ -441,7 +441,7 @@ object frmContasReceber: TfrmContasReceber
           Height = 21
           Date = 45452.000000000000000000
           Time = 0.462828981479106000
-          TabOrder = 3
+          TabOrder = 2
         end
         object cbFaturados: TCheckBox
           Left = 507
@@ -455,7 +455,7 @@ object frmContasReceber: TfrmContasReceber
           Font.Name = 'Segoe UI'
           Font.Style = [fsBold]
           ParentFont = False
-          TabOrder = 4
+          TabOrder = 3
         end
       end
     end
@@ -466,7 +466,7 @@ object frmContasReceber: TfrmContasReceber
       Height = 161
       Align = alTop
       BevelOuter = bvNone
-      TabOrder = 2
+      TabOrder = 1
       object pnlQuantidade: TPanel
         Left = 0
         Top = 0
@@ -591,7 +591,7 @@ object frmContasReceber: TfrmContasReceber
         BevelOuter = bvNone
         Color = clWhite
         ParentBackground = False
-        TabOrder = 3
+        TabOrder = 4
         object lblTotalaReceber: TLabel
           Left = 66
           Top = 44
@@ -628,7 +628,7 @@ object frmContasReceber: TfrmContasReceber
         BevelOuter = bvNone
         Color = clWhite
         ParentBackground = False
-        TabOrder = 4
+        TabOrder = 3
         object lblRecebimentosFuturos: TLabel
           Left = 42
           Top = 44
@@ -726,7 +726,7 @@ object frmContasReceber: TfrmContasReceber
     BevelOuter = bvNone
     Color = clWhite
     ParentBackground = False
-    TabOrder = 1
+    TabOrder = 0
     object btnFechar: TSpeedButton
       AlignWithMargins = True
       Left = 1130
@@ -1009,6 +1009,10 @@ object frmContasReceber: TfrmContasReceber
       FieldName = 'observaobaixa'
       Origin = 'observaobaixa'
       Size = 255
+    end
+    object qryGridRecebernumeroorigem: TIntegerField
+      FieldName = 'numeroorigem'
+      Origin = 'numeroorigem'
     end
   end
 end

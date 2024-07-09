@@ -138,7 +138,7 @@ begin
   inherited;
   if SWHDBLookupComboBox1.Text = EmptyStr then
   begin
-    MsgOk('Fornedor não pode ser vazio!', 'Favor escolher um fornecedor.');
+    MsgOk('Cliente não pode ser vazio!', 'Favor escolher um fornecedor.');
     Abort;
   end;
 

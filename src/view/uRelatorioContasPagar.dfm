@@ -57,7 +57,6 @@
       end
     end
     inherited cxGrid1: TcxGrid
-      ExplicitTop = 89
       inherited cxGrid1DBTableView1: TcxGridDBTableView
         OptionsData.CancelOnExit = False
         OptionsData.Deleting = False

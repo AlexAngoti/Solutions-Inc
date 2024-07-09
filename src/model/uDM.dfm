@@ -94,7 +94,13 @@ object dm: Tdm
   object qryPessoa: TFDQuery
     Connection = FDConnection
     SQL.Strings = (
-      'select * from pessoa p ')
+      'SELECT p.*,'
+      '       CASE '
+      '           WHEN p.tipopessoa = 0 THEN '#39'CLIENTE'#39
+      '           WHEN p.tipopessoa = 1 THEN '#39'FORNECEDOR'#39
+      '           WHEN p.tipopessoa = 2 THEN '#39'FUNCION'#193'RIO'#39
+      '       END AS tipo_pessoa'
+      '  FROM pessoa p;')
     Left = 24
     Top = 136
   end

@@ -18,10 +18,20 @@ inherited frmCadastroProduto: TfrmCadastroProduto
         Font.Style = [fsBold]
         ParentFont = False
       end
+      inherited pnlConsulta: TPanel
+        TabOrder = 2
+      end
+      inherited pnlExcluir: TPanel
+        TabOrder = 0
+      end
+      inherited pnlInserir: TPanel
+        TabOrder = 1
+      end
     end
     inherited pnlSubBot: TPanel
       Top = 505
       Height = 134
+      TabOrder = 2
       Visible = False
       ExplicitTop = 505
       ExplicitHeight = 134
@@ -31,6 +41,7 @@ inherited frmCadastroProduto: TfrmCadastroProduto
     end
     inherited pnlSubTop: TPanel
       Height = 428
+      TabOrder = 1
       ExplicitHeight = 428
       inherited lblInvisivel: TLabel
         Visible = False
@@ -294,6 +305,17 @@ inherited frmCadastroProduto: TfrmCadastroProduto
         end
       end
     end
+    inherited pnlBotaoSalvar: TPanel
+      inherited pnlCancelar: TPanel
+        TabOrder = 1
+      end
+      inherited pnlConfirmar: TPanel
+        TabOrder = 2
+      end
+      inherited pnlLinhaBotao: TPanel
+        TabOrder = 0
+      end
+    end
   end
   inherited cdsCadastroPadrao: TClientDataSet
     ProviderName = 'dspCadastroPadrao'
@@ -324,6 +346,7 @@ inherited frmCadastroProduto: TfrmCadastroProduto
     object cdsCadastroPadraovalorunitario: TBCDField
       FieldName = 'valorunitario'
       Origin = 'valorunitario'
+      DisplayFormat = '#,##0.00'
       Precision = 15
     end
     object cdsCadastroPadraoid: TLargeintField

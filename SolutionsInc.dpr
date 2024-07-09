@@ -44,7 +44,8 @@ uses
   uPedidoCompra in 'src\view\uPedidoCompra.pas' {frmPedidoCompra},
   uConsultaVendedor in 'src\view\uConsultaVendedor.pas' {frmConsultaVendedor},
   uRealizandoBusca in 'src\view\uRealizandoBusca.pas' {frmRealizandoBusca},
-  uPesquisaProduto in 'src\view\uPesquisaProduto.pas' {frmConsultaProdutos};
+  uPesquisaProduto in 'src\view\uPesquisaProduto.pas' {frmConsultaProdutos},
+  uParcelasCompra in 'src\view\uParcelasCompra.pas' {frmParcelaCompras};
 
 {$R *.res}
 

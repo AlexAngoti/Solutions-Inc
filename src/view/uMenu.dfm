@@ -1221,8 +1221,7 @@ object frmMenu: TfrmMenu
       Spacing = 10
       OnClick = btnContasPagarClick
       OnMouseActivate = btnCadastrosMouseActivate
-      ExplicitLeft = -3
-      ExplicitTop = 124
+      ExplicitLeft = 2
     end
     object btnEstoque: TSpeedButton
       AlignWithMargins = True
@@ -2719,7 +2718,7 @@ object frmMenu: TfrmMenu
     TabOrder = 2
     Visible = False
     OnMouseEnter = pnlMovimentacaoMouseEnter
-    object SpeedButton3: TSpeedButton
+    object btnCompra: TSpeedButton
       AlignWithMargins = True
       Left = 0
       Top = 41
@@ -2740,11 +2739,11 @@ object frmMenu: TfrmMenu
       Margin = 10
       ParentFont = False
       Spacing = 10
-      OnClick = SpeedButton3Click
+      OnClick = btnCompraClick
       ExplicitLeft = 1
       ExplicitTop = -3
     end
-    object SpeedButton1: TSpeedButton
+    object btnVendas: TSpeedButton
       AlignWithMargins = True
       Left = 0
       Top = 0
@@ -2765,7 +2764,7 @@ object frmMenu: TfrmMenu
       Margin = 10
       ParentFont = False
       Spacing = 10
-      OnClick = SpeedButton1Click
+      OnClick = btnVendasClick
       ExplicitLeft = 5
       ExplicitTop = 8
     end
@@ -2782,14 +2781,14 @@ object frmMenu: TfrmMenu
     TabOrder = 3
     Visible = False
     OnMouseEnter = pnlEstoqueMouseEnter
-    object SpeedButton7: TSpeedButton
+    object btnEntradaEstoque: TSpeedButton
       AlignWithMargins = True
       Left = 0
-      Top = 0
+      Top = 2
       Width = 160
       Height = 41
       Margins.Left = 0
-      Margins.Top = 0
+      Margins.Top = 2
       Margins.Right = 5
       Margins.Bottom = 0
       Align = alTop
@@ -2803,8 +2802,9 @@ object frmMenu: TfrmMenu
       Margin = 10
       ParentFont = False
       Spacing = 10
-      OnClick = SpeedButton7Click
+      OnClick = btnEntradaEstoqueClick
       ExplicitLeft = 1
+      ExplicitTop = 0
     end
   end
   object pnlRelatorio: TPanel
@@ -2818,17 +2818,17 @@ object frmMenu: TfrmMenu
     ParentBackground = False
     TabOrder = 4
     Visible = False
-    OnMouseEnter = pnlEstoqueMouseEnter
-    object SpeedButton5: TSpeedButton
+    OnMouseEnter = pnlRelatorioMouseEnter
+    object btnRelEstoque: TSpeedButton
       AlignWithMargins = True
       Left = 0
-      Top = 164
+      Top = 166
       Width = 160
       Height = 41
       Margins.Left = 0
       Margins.Top = 0
       Margins.Right = 5
-      Margins.Bottom = 0
+      Margins.Bottom = 2
       Align = alTop
       Caption = 'Relat'#243'rio de Estoque'
       Flat = True
@@ -2840,13 +2840,14 @@ object frmMenu: TfrmMenu
       Margin = 10
       ParentFont = False
       Spacing = 10
-      OnClick = SpeedButton5Click
+      OnClick = btnRelEstoqueClick
       ExplicitLeft = -2
+      ExplicitTop = 164
     end
     object btnRelContasPagar: TSpeedButton
       AlignWithMargins = True
       Left = 0
-      Top = 123
+      Top = 125
       Width = 160
       Height = 41
       Margins.Left = 0
@@ -2866,11 +2867,12 @@ object frmMenu: TfrmMenu
       Spacing = 10
       OnClick = btnRelContasPagarClick
       ExplicitLeft = -2
+      ExplicitTop = 123
     end
-    object SpeedButton8: TSpeedButton
+    object btnRelContasReceber: TSpeedButton
       AlignWithMargins = True
       Left = 0
-      Top = 82
+      Top = 84
       Width = 160
       Height = 41
       Margins.Left = 0
@@ -2888,14 +2890,14 @@ object frmMenu: TfrmMenu
       Margin = 10
       ParentFont = False
       Spacing = 10
-      OnClick = SpeedButton8Click
+      OnClick = btnRelContasReceberClick
       ExplicitLeft = 5
       ExplicitTop = 8
     end
     object SpeedButton9: TSpeedButton
       AlignWithMargins = True
       Left = 0
-      Top = 41
+      Top = 43
       Width = 160
       Height = 41
       Margins.Left = 0
@@ -2916,14 +2918,14 @@ object frmMenu: TfrmMenu
       ExplicitLeft = 5
       ExplicitTop = 8
     end
-    object SpeedButton10: TSpeedButton
+    object btnRelVendas: TSpeedButton
       AlignWithMargins = True
       Left = 0
-      Top = 0
+      Top = 2
       Width = 160
       Height = 41
       Margins.Left = 0
-      Margins.Top = 0
+      Margins.Top = 2
       Margins.Right = 5
       Margins.Bottom = 0
       Align = alTop
@@ -2937,7 +2939,7 @@ object frmMenu: TfrmMenu
       Margin = 10
       ParentFont = False
       Spacing = 10
-      OnClick = SpeedButton10Click
+      OnClick = btnRelVendasClick
       ExplicitLeft = 5
       ExplicitTop = 8
     end

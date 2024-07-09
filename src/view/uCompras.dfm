@@ -57,7 +57,7 @@ object frmCompras: TfrmCompras
           BevelOuter = bvNone
           Color = 45277
           ParentBackground = False
-          TabOrder = 0
+          TabOrder = 2
           object Label1: TLabel
             Left = 16
             Top = 21
@@ -165,7 +165,7 @@ object frmCompras: TfrmCompras
           BevelOuter = bvNone
           Color = 16744448
           ParentBackground = False
-          TabOrder = 1
+          TabOrder = 0
           object Label3: TLabel
             Left = 16
             Top = 21
@@ -295,7 +295,7 @@ object frmCompras: TfrmCompras
           BevelOuter = bvNone
           Color = 40192
           ParentBackground = False
-          TabOrder = 2
+          TabOrder = 1
           object Label5: TLabel
             Left = 16
             Top = 21
@@ -448,7 +448,6 @@ object frmCompras: TfrmCompras
           TitleFont.Style = [fsBold]
           Columns = <
             item
-              Alignment = taLeftJustify
               Expanded = False
               FieldName = 'id'
               Title.Caption = 'Id'
@@ -463,7 +462,6 @@ object frmCompras: TfrmCompras
               Visible = True
             end
             item
-              Alignment = taLeftJustify
               Expanded = False
               FieldName = 'valor'
               Title.Caption = 'Valor'
@@ -492,10 +490,13 @@ object frmCompras: TfrmCompras
             DataController.DataSource = dsVendas
             DiagramColumn.Active = True
             object cxGrid1DBChartView1Series1: TcxGridDBChartSeries
-              DataBinding.FieldName = 'pagar'
-            end
-            object cxGrid1DBChartView1Series2: TcxGridDBChartSeries
               DataBinding.FieldName = 'receber'
+              DisplayText = 'Quantidade Total'
+              ValueCaptionFormat = 'Quantidade de Compras'
+            end
+            object ValorTotal: TcxGridDBChartSeries
+              DataBinding.FieldName = 'receber'
+              DisplayText = 'Valor Total'
             end
           end
           object cxGrid1Level1: TcxGridLevel
@@ -505,7 +506,7 @@ object frmCompras: TfrmCompras
       end
       object Panel8: TPanel
         AlignWithMargins = True
-        Left = 178
+        Left = 185
         Top = 367
         Width = 143
         Height = 121
@@ -516,7 +517,8 @@ object frmCompras: TfrmCompras
         BevelOuter = bvNone
         Color = 40192
         ParentBackground = False
-        TabOrder = 3
+        TabOrder = 4
+        OnDblClick = Panel8DblClick
         object Label8: TLabel
           Left = 10
           Top = 84
@@ -649,8 +651,7 @@ object frmCompras: TfrmCompras
         BevelOuter = bvNone
         Color = clRed
         ParentBackground = False
-        TabOrder = 4
-        OnClick = Panel9Click
+        TabOrder = 3
         object Label7: TLabel
           Left = 2
           Top = 85
@@ -867,6 +868,7 @@ object frmCompras: TfrmCompras
             0000000000000000000000000000000000000000000000000000000000000000
             0000000000000000000000000000000000000000000000000000}
           ParentFont = False
+          OnClick = SpeedButton2Click
           ExplicitLeft = 72
           ExplicitTop = 56
           ExplicitWidth = 23
@@ -876,7 +878,6 @@ object frmCompras: TfrmCompras
     end
   end
   object qryVendas: TFDQuery
-    Active = True
     Connection = dm.FDConnection
     SQL.Strings = (
       'select 20 pagar, 30 receber'
@@ -899,7 +900,6 @@ object frmCompras: TfrmCompras
     Top = 215
   end
   object FDQuery1: TFDQuery
-    Active = True
     Connection = dm.FDConnection
     SQL.Strings = (
       'select 1 id, '#39'Alex Angoti'#39' Cliente, 21 Valor'

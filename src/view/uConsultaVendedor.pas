@@ -29,6 +29,11 @@ uses
 
 type
   TfrmConsultaVendedor = class(TfrmConsultaPadrao)
+    dbGrdPesquisaDBTableView1Column1: TcxGridDBColumn;
+    dbGrdPesquisaDBTableView1Column2: TcxGridDBColumn;
+    dbGrdPesquisaDBTableView1Column3: TcxGridDBColumn;
+    procedure dbGrdPesquisaDBTableView1DblClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -40,6 +45,22 @@ var
 
 implementation
 
+uses
+  uFrenteVendas;
+
 {$R *.dfm}
+
+procedure TfrmConsultaVendedor.dbGrdPesquisaDBTableView1DblClick(
+  Sender: TObject);
+begin
+  inherited;
+  ModalResult := mrOk;
+end;
+
+procedure TfrmConsultaVendedor.FormCreate(Sender: TObject);
+begin
+  //inherited;
+
+end;
 
 end.

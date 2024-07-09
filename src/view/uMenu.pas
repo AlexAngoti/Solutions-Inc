@@ -51,18 +51,18 @@ type
     btnContasReceber: TSpeedButton;
     btnContasPagar: TSpeedButton;
     pnlMovimentacao: TPanel;
-    SpeedButton3: TSpeedButton;
-    SpeedButton1: TSpeedButton;
+    btnCompra: TSpeedButton;
+    btnVendas: TSpeedButton;
     btnEstoque: TSpeedButton;
     pnlEstoque: TPanel;
-    SpeedButton7: TSpeedButton;
+    btnEntradaEstoque: TSpeedButton;
     Image1: TImage;
     pnlRelatorio: TPanel;
-    SpeedButton5: TSpeedButton;
+    btnRelEstoque: TSpeedButton;
     btnRelContasPagar: TSpeedButton;
-    SpeedButton8: TSpeedButton;
+    btnRelContasReceber: TSpeedButton;
     SpeedButton9: TSpeedButton;
-    SpeedButton10: TSpeedButton;
+    btnRelVendas: TSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure btnMenuLateralClick(Sender: TObject);
     procedure btnConfiguracaoClick(Sender: TObject);
@@ -89,14 +89,15 @@ type
     procedure btnCadastrosMouseActivate(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y, HitTest: Integer;
       var MouseActivate: TMouseActivate);
-    procedure SpeedButton7Click(Sender: TObject);
-    procedure SpeedButton1Click(Sender: TObject);
-    procedure SpeedButton3Click(Sender: TObject);
+    procedure btnEntradaEstoqueClick(Sender: TObject);
+    procedure btnVendasClick(Sender: TObject);
+    procedure btnCompraClick(Sender: TObject);
     procedure btnCadProdutoClick(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
-    procedure SpeedButton10Click(Sender: TObject);
-    procedure SpeedButton8Click(Sender: TObject);
-    procedure SpeedButton5Click(Sender: TObject);
+    procedure btnRelVendasClick(Sender: TObject);
+    procedure btnRelContasReceberClick(Sender: TObject);
+    procedure btnRelEstoqueClick(Sender: TObject);
+    procedure pnlRelatorioMouseEnter(Sender: TObject);
   private
     procedure EscondeLateral;
     procedure FazLogin;
@@ -172,15 +173,57 @@ begin
   begin
     btnCadClientesClick(Self);
   end;
-
   if 'frmConfiguracao' = cdsPesquisanometela.AsString then
   begin
     btnConfiguracaoClick(Self);
   end;
-
   if 'frmCadastroUsuario' = cdsPesquisanometela.AsString then
   begin
     btnCadUsuarioClick(Self);
+  end;
+  if 'frmRelatorioVendas' = cdsPesquisanometela.AsString then
+  begin
+    btnRelVendasClick(Self);
+  end;
+  if 'frmVendas' = cdsPesquisanometela.AsString then
+  begin
+    btnVendasClick(Self);
+  end;
+  if 'frmCompras' = cdsPesquisanometela.AsString then
+  begin
+    btnCompraClick(Self);
+  end;
+  if 'frmRelatorioEstoque' = cdsPesquisanometela.AsString then
+  begin
+    btnRelEstoqueClick(Self);
+  end;
+  if 'frmRelatorioContasPagar' = cdsPesquisanometela.AsString then
+  begin
+    btnRelContasPagarClick(Self);
+  end;
+  if 'frmEntradaEstoque' = cdsPesquisanometela.AsString then
+  begin
+    btnEntradaEstoqueClick(Self);
+  end;
+  if 'frmRelatorioContasReceber' = cdsPesquisanometela.AsString then
+  begin
+    btnRelContasReceberClick(Self);
+  end;
+  if 'frmCadastroPagamento' = cdsPesquisanometela.AsString then
+  begin
+    btnCadFormaPagClick(Self);
+  end;
+  if 'frmContasPagar' = cdsPesquisanometela.AsString then
+  begin
+    btnContasPagarClick(Self);
+  end;
+  if 'frmContasReceber' = cdsPesquisanometela.AsString then
+  begin
+    btnContasReceberClick(Self);
+  end;
+  if 'frmCadastroProduto' = cdsPesquisanometela.AsString then
+  begin
+    btnCadProdutoClick(Self);
   end;
 end;
 
@@ -317,6 +360,11 @@ begin
   pnlMovimentacao.Visible := False;
 end;
 
+procedure TfrmMenu.pnlRelatorioMouseEnter(Sender: TObject);
+begin
+  pnlRelatorio.Visible := False;
+end;
+
 procedure TfrmMenu.pnlSubCadastroMouseEnter(Sender: TObject);
 begin
   pnlSubCadastro.Visible := False;
@@ -327,8 +375,9 @@ begin
   pnlTela.Visible := False;
 end;
 
-procedure TfrmMenu.SpeedButton10Click(Sender: TObject);
+procedure TfrmMenu.btnRelVendasClick(Sender: TObject);
 begin
+  ValidaAcesso(AUsuario.IdUsuario, 'frmRelatorioVendas');
   frmRelatorioVendas := TfrmRelatorioVendas.Create(Self);
   frmRelatorioVendas.Parent := pnlSubCentral;
   frmRelatorioVendas.Align  := alClient;
@@ -336,8 +385,9 @@ begin
   pnlSubCadastro.Visible := False;
 end;
 
-procedure TfrmMenu.SpeedButton1Click(Sender: TObject);
+procedure TfrmMenu.btnVendasClick(Sender: TObject);
 begin
+  ValidaAcesso(AUsuario.IdUsuario, 'frmVendas');
   frmVendas := TfrmVendas.Create(Self);
   frmVendas.Parent := pnlSubCentral;
   frmVendas.Align  := alClient;
@@ -350,8 +400,9 @@ begin
   pnlRelatorio.Visible := not pnlRelatorio.Visible;
 end;
 
-procedure TfrmMenu.SpeedButton3Click(Sender: TObject);
+procedure TfrmMenu.btnCompraClick(Sender: TObject);
 begin
+  ValidaAcesso(AUsuario.IdUsuario, 'frmCompras');
   frmCompras := TfrmCompras.Create(Self);
   frmCompras.Parent := pnlSubCentral;
   frmCompras.Align  := alClient;
@@ -364,8 +415,9 @@ begin
   Self.EncerraProg;
 end;
 
-procedure TfrmMenu.SpeedButton5Click(Sender: TObject);
+procedure TfrmMenu.btnRelEstoqueClick(Sender: TObject);
 begin
+  ValidaAcesso(AUsuario.IdUsuario, 'frmRelatorioEstoque');
   frmRelatorioEstoque := TfrmRelatorioEstoque.Create(Self);
   frmRelatorioEstoque.Parent := pnlSubCentral;
   frmRelatorioEstoque.Align  := alClient;
@@ -375,6 +427,7 @@ end;
 
 procedure TfrmMenu.btnRelContasPagarClick(Sender: TObject);
 begin
+  ValidaAcesso(AUsuario.IdUsuario, 'frmRelatorioContasPagar');
   frmRelatorioContasPagar := TfrmRelatorioContasPagar.Create(Self);
   frmRelatorioContasPagar.Parent := pnlSubCentral;
   frmRelatorioContasPagar.Align  := alClient;
@@ -382,8 +435,9 @@ begin
   pnlSubCadastro.Visible := False;
 end;
 
-procedure TfrmMenu.SpeedButton7Click(Sender: TObject);
+procedure TfrmMenu.btnEntradaEstoqueClick(Sender: TObject);
 begin
+  ValidaAcesso(AUsuario.IdUsuario, 'frmEntradaEstoque');
   frmEntradaEstoque := TfrmEntradaEstoque.Create(Self);
   frmEntradaEstoque.Parent := pnlSubCentral;
   frmEntradaEstoque.Align  := alClient;
@@ -391,8 +445,9 @@ begin
   pnlSubCadastro.Visible := False;
 end;
 
-procedure TfrmMenu.SpeedButton8Click(Sender: TObject);
+procedure TfrmMenu.btnRelContasReceberClick(Sender: TObject);
 begin
+  ValidaAcesso(AUsuario.IdUsuario, 'frmRelatorioContasReceber');
   frmRelatorioContasReceber := TfrmRelatorioContasReceber.Create(Self);
   frmRelatorioContasReceber.Parent := pnlSubCentral;
   frmRelatorioContasReceber.Align  := alClient;
@@ -425,6 +480,7 @@ end;
 
 procedure TfrmMenu.btnCadFormaPagClick(Sender: TObject);
 begin
+  ValidaAcesso(AUsuario.IdUsuario, 'frmCadastroPagamento');
   frmCadastroPagamento := TfrmCadastroPagamento.Create(Self);
   frmCadastroPagamento.Parent := pnlSubCentral;
   frmCadastroPagamento.Align  := alClient;
@@ -434,6 +490,7 @@ end;
 
 procedure TfrmMenu.btnCadProdutoClick(Sender: TObject);
 begin
+  ValidaAcesso(AUsuario.IdUsuario, 'frmCadastroProduto');
   frmCadastroProduto := TfrmCadastroProduto.Create(Self);
   frmCadastroProduto.Parent := pnlSubCentral;
   frmCadastroProduto.Align  := alClient;
@@ -470,6 +527,7 @@ end;
 
 procedure TfrmMenu.btnContasPagarClick(Sender: TObject);
 begin
+  ValidaAcesso(AUsuario.IdUsuario, 'frmContasPagar');
   frmContasPagar := TfrmContasPagar.Create(Self);
   frmContasPagar.Parent := pnlSubCentral;
   frmContasPagar.Align  := alClient;
@@ -479,6 +537,7 @@ end;
 
 procedure TfrmMenu.btnContasReceberClick(Sender: TObject);
 begin
+  ValidaAcesso(AUsuario.IdUsuario, 'frmContasReceber');
   frmContasReceber := TfrmContasReceber.Create(Self);
   frmContasReceber.Parent := pnlSubCentral;
   frmContasReceber.Align  := alClient;

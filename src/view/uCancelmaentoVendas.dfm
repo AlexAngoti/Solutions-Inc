@@ -12,6 +12,8 @@ object frmCancelamentoVenda: TfrmCancelamentoVenda
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object pnlSubTop: TPanel
@@ -92,6 +94,7 @@ object frmCancelamentoVenda: TfrmCancelamentoVenda
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
+      OnClick = btnFecharClick
       ExplicitLeft = 904
       ExplicitTop = 0
       ExplicitHeight = 57
@@ -303,8 +306,7 @@ object frmCancelamentoVenda: TfrmCancelamentoVenda
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
-      TabOrder = 0
-      Text = 'SWHEdit1'
+      TabOrder = 1
       MudarColor = 14087422
       CampoObrigatorio = False
     end
@@ -315,16 +317,7 @@ object frmCancelamentoVenda: TfrmCancelamentoVenda
       Height = 21
       Date = 45458.000000000000000000
       Time = 0.527445567131508100
-      TabOrder = 1
-    end
-    object DBMemo1: TDBMemo
-      Left = 96
-      Top = 88
-      Width = 393
-      Height = 90
-      BevelKind = bkFlat
-      BorderStyle = bsNone
-      TabOrder = 2
+      TabOrder = 0
     end
     object Panel3: TPanel
       Left = 451
@@ -340,7 +333,7 @@ object frmCancelamentoVenda: TfrmCancelamentoVenda
       Font.Style = []
       ParentBackground = False
       ParentFont = False
-      TabOrder = 3
+      TabOrder = 4
       object SpeedButton1: TSpeedButton
         Left = 0
         Top = 0
@@ -355,6 +348,7 @@ object frmCancelamentoVenda: TfrmCancelamentoVenda
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         ParentFont = False
+        OnClick = SpeedButton1Click
         ExplicitTop = -4
         ExplicitWidth = 137
       end
@@ -371,7 +365,7 @@ object frmCancelamentoVenda: TfrmCancelamentoVenda
       BevelOuter = bvNone
       Color = 13750737
       ParentBackground = False
-      TabOrder = 4
+      TabOrder = 3
       object btnCancelar: TSpeedButton
         Left = 0
         Top = 0
@@ -387,11 +381,72 @@ object frmCancelamentoVenda: TfrmCancelamentoVenda
         Font.Name = 'Segoe UI Semibold'
         Font.Style = [fsBold]
         ParentFont = False
+        OnClick = btnCancelarClick
         ExplicitLeft = 32
         ExplicitTop = 8
         ExplicitWidth = 23
         ExplicitHeight = 22
       end
     end
+    object Memo1: TMemo
+      Left = 96
+      Top = 88
+      Width = 393
+      Height = 89
+      BevelKind = bkFlat
+      BorderStyle = bsNone
+      Lines.Strings = (
+        'Memo1')
+      TabOrder = 2
+    end
+  end
+  object qryVendas: TFDQuery
+    Connection = dm.FDConnection
+    SQL.Strings = (
+      'select * from vendas'
+      'where id = :id'
+      '  and datavenda = :datavenda'
+      '  and situacao = 0 ')
+    Left = 349
+    Top = 13
+    ParamData = <
+      item
+        Name = 'ID'
+        ParamType = ptInput
+      end
+      item
+        Name = 'DATAVENDA'
+        ParamType = ptInput
+      end>
+  end
+  object dsVendas: TDataSource
+    Left = 381
+    Top = 13
+  end
+  object qryContasReceber: TFDQuery
+    Connection = dm.FDConnection
+    SQL.Strings = (
+      'delete from contasreceber '
+      'where numerodoc = :numerodoc')
+    Left = 13
+    Top = 69
+    ParamData = <
+      item
+        Name = 'NUMERODOC'
+        ParamType = ptInput
+      end>
+  end
+  object qryEstoquete: TFDQuery
+    Connection = dm.FDConnection
+    SQL.Strings = (
+      'delete from estoque  '
+      'where numerodocumento = :numerodoc')
+    Left = 13
+    Top = 109
+    ParamData = <
+      item
+        Name = 'NUMERODOC'
+        ParamType = ptInput
+      end>
   end
 end

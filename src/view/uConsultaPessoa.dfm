@@ -16,6 +16,9 @@ inherited frmConsultaPessoa: TfrmConsultaPessoa
       inherited btnPesquisa: TSpeedButton
         OnClick = btnPesquisaClick
       end
+      inherited pnlPesquisa: TPanel
+        TabOrder = 1
+      end
       object rgpTipoPessoa: TRadioGroup
         Left = 500
         Top = 2
@@ -29,7 +32,7 @@ inherited frmConsultaPessoa: TfrmConsultaPessoa
           'Cliente'
           'Fornecedor'
           'Funcionario')
-        TabOrder = 1
+        TabOrder = 0
         Visible = False
         OnClick = rgpTipoPessoaClick
       end
@@ -41,25 +44,21 @@ inherited frmConsultaPessoa: TfrmConsultaPessoa
         object dbGrdPesquisaDBTableView1id: TcxGridDBColumn
           Caption = 'ID'
           DataBinding.FieldName = 'id'
-          DataBinding.IsNullValueType = True
           Width = 66
         end
         object dbGrdPesquisaDBTableView1tipopessoa: TcxGridDBColumn
           Caption = 'Tipo do Cadastro'
-          DataBinding.FieldName = 'tipopessoa'
-          DataBinding.IsNullValueType = True
+          DataBinding.FieldName = 'tipo_pessoa'
           Width = 106
         end
         object dbGrdPesquisaDBTableView1nomerazao: TcxGridDBColumn
           Caption = 'Nome da Pessoa'
           DataBinding.FieldName = 'nomerazao'
-          DataBinding.IsNullValueType = True
           Width = 524
         end
         object dbGrdPesquisaDBTableView1cnpjcpf: TcxGridDBColumn
           Caption = 'CNPJ / CPF'
           DataBinding.FieldName = 'cnpjcpf'
-          DataBinding.IsNullValueType = True
           Width = 239
         end
       end

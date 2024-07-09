@@ -1,4 +1,4 @@
-object frmPedidoCompra: TfrmPedidoCompra
+﻿object frmPedidoCompra: TfrmPedidoCompra
   Left = 0
   Top = 0
   BorderStyle = bsNone
@@ -12,6 +12,8 @@ object frmPedidoCompra: TfrmPedidoCompra
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object pnlSubTop: TPanel
@@ -29,8 +31,6 @@ object frmPedidoCompra: TfrmPedidoCompra
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = -51
-    ExplicitWidth = 935
     object imgLogoTop: TImage
       Left = 0
       Top = 0
@@ -79,6 +79,7 @@ object frmPedidoCompra: TfrmPedidoCompra
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
+      OnClick = btnFecharClick
       ExplicitLeft = 904
       ExplicitTop = 0
       ExplicitHeight = 57
@@ -1041,8 +1042,6 @@ object frmPedidoCompra: TfrmPedidoCompra
     Color = clWhite
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = 0
-    ExplicitHeight = 459
     object Panel2: TPanel
       AlignWithMargins = True
       Left = 5
@@ -1057,7 +1056,7 @@ object frmPedidoCompra: TfrmPedidoCompra
       BevelOuter = bvNone
       Color = clWhite
       ParentBackground = False
-      TabOrder = 0
+      TabOrder = 1
       object Panel3: TPanel
         AlignWithMargins = True
         Left = 5
@@ -1083,89 +1082,6 @@ object frmPedidoCompra: TfrmPedidoCompra
         Color = clWhite
         ParentBackground = False
         TabOrder = 1
-        object spbPesquisa: TSpeedButton
-          Left = 341
-          Top = 26
-          Width = 27
-          Height = 25
-          Cursor = crHandPoint
-          Flat = True
-          Glyph.Data = {
-            36090000424D3609000000000000360000002800000018000000180000000100
-            2000000000000009000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000020202091B1B1B8E0D0D0D45000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000202
-            0209232323BC303030FF1B1B1B8D000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000020202092222
-            22BB303030FF242424C10202020C000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000002020209222222BB3030
-            30FF242424C10202020C00000000000000000000000000000000000000000000
-            00000000000000000000000000000000000000000000090909321B1B1B8D2222
-            22BB242424C61F1F1FA61111115C0101010702020209232323BC303030FF2323
-            23BC020202090000000000000000000000000000000000000000000000000000
-            00000000000000000000000000000202020B1E1E1EA2303030FE303030FF3030
-            30FF303030FF303030FF303030FF282828DB252525C3303030FF232323BC0202
-            0209000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000001010106232323C0303030FF282828D4101010570404
-            0413020202080A0A0A351D1D1DA0303030FE303030FF252525C3020202090000
-            0000000000000000000000000000000000000000000000000000000000000000
-            000000000000000000001818187E303030FF232323B802020209000000000000
-            000000000000000000000000000012121260303030FE282828D3010101030000
-            0000000000000000000000000000000000000000000000000000000000000000
-            000000000000020202082D2D2DEE2D2D2DEF0404041300000000000000000000
-            0000000000000000000000000000000000001E1E1E9F303030FF101010570000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000C0C0C41303030FF1D1D1D990000000000000000000000000000
-            0000000000000000000000000000000000000A0A0A36303030FF1D1D1D9B0000
-            0000000000000000000000000000000000000000000000000000000000000000
-            00000000000012121260303030FF1515156E0000000000000000000000000000
-            00000000000000000000000000000000000002020209303030FF242424BF0000
-            0000000000000000000000000000000000000000000000000000000000000000
-            00000000000011111158303030FF171717780000000000000000000000000000
-            00000000000000000000000000000000000004040414303030FF212121B50000
-            0000000000000000000000000000000000000000000000000000000000000000
-            00000000000008080828303030FF222222BB0000000000000000000000000000
-            00000000000000000000000000000000000010101057303030FF191919840000
-            0000000000000000000000000000000000000000000000000000000000000000
-            00000000000000000000272727CD303030FE0C0C0C4200000000000000000000
-            000000000000000000000000000002020209282828D4303030FE0909092E0000
-            0000000000000000000000000000000000000000000000000000000000000000
-            000000000000000000000C0C0C41303030FD2D2D2DED0C0C0C42000000000000
-            0000000000000000000004040413232323B9303030FF1C1C1C96000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            000000000000000000000000000014141469303030FD303030FE222222BB1717
-            17781515156E1D1D1D992D2D2DEF303030FF222222B70202020B000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000C0C0C40272727CE303030FF3030
-            30FF303030FF303030FF2B2B2BE7171717780101010300000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000080808291010
-            10571111115B0A0A0A3701010107000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000000000000000
-            0000000000000000000000000000000000000000000000000000}
-        end
         object Label9: TLabel
           Left = 58
           Top = 10
@@ -1204,37 +1120,6 @@ object frmPedidoCompra: TfrmPedidoCompra
           Font.Name = 'Segoe UI'
           Font.Style = [fsBold]
           ParentFont = False
-        end
-        object DBComboBox1: TDBComboBox
-          Left = 58
-          Top = 29
-          Width = 278
-          Height = 21
-          TabOrder = 0
-        end
-        object SWHEdit3: TSWHEdit
-          Left = 393
-          Top = 29
-          Width = 90
-          Height = 21
-          BevelKind = bkFlat
-          BorderStyle = bsNone
-          TabOrder = 1
-          Text = 'SWHEdit1'
-          MudarColor = 14087422
-          CampoObrigatorio = False
-        end
-        object SWHEdit4: TSWHEdit
-          Left = 514
-          Top = 29
-          Width = 90
-          Height = 21
-          BevelKind = bkFlat
-          BorderStyle = bsNone
-          TabOrder = 2
-          Text = 'SWHEdit1'
-          MudarColor = 14087422
-          CampoObrigatorio = False
         end
         object pnlAdicionar: TPanel
           Left = 58
@@ -1396,6 +1281,7 @@ object frmPedidoCompra: TfrmPedidoCompra
               0000000000000000000000000000000000000000000000000000000000000000
               0000000000000000000000000000000000000000000000000000}
             ParentFont = False
+            OnClick = SpeedButton5Click
             ExplicitLeft = 112
             ExplicitTop = 8
             ExplicitWidth = 23
@@ -1506,6 +1392,7 @@ object frmPedidoCompra: TfrmPedidoCompra
               0000000000000000000000000000000000000000000000000000000000000000
               0000000000000000000000000000000000000000000000000000}
             ParentFont = False
+            OnClick = SpeedButton4Click
             ExplicitTop = -7
           end
         end
@@ -1521,6 +1408,7 @@ object frmPedidoCompra: TfrmPedidoCompra
           Margins.Bottom = 5
           BorderStyle = bsNone
           Color = clWhite
+          DataSource = dsItens
           FixedColor = clWhite
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -1537,6 +1425,7 @@ object frmPedidoCompra: TfrmPedidoCompra
           Columns = <
             item
               Expanded = False
+              FieldName = 'produto'
               Title.Caption = 'Produto'
               Title.Font.Charset = DEFAULT_CHARSET
               Title.Font.Color = clWindowText
@@ -1548,6 +1437,7 @@ object frmPedidoCompra: TfrmPedidoCompra
             end
             item
               Expanded = False
+              FieldName = 'quantidade'
               Title.Caption = 'Qtde.'
               Title.Font.Charset = DEFAULT_CHARSET
               Title.Font.Color = clWindowText
@@ -1559,6 +1449,7 @@ object frmPedidoCompra: TfrmPedidoCompra
             end
             item
               Expanded = False
+              FieldName = 'valorunitario'
               Title.Caption = 'Valor Uni.'
               Title.Font.Charset = DEFAULT_CHARSET
               Title.Font.Color = clWindowText
@@ -1570,6 +1461,7 @@ object frmPedidoCompra: TfrmPedidoCompra
             end
             item
               Expanded = False
+              FieldName = 'totalitem'
               Title.Caption = 'Valor Total'
               Title.Font.Charset = DEFAULT_CHARSET
               Title.Font.Color = clWindowText
@@ -1579,6 +1471,65 @@ object frmPedidoCompra: TfrmPedidoCompra
               Width = 162
               Visible = True
             end>
+        end
+        object SWHDBLookupComboBox3: TSWHDBLookupComboBox
+          Left = 58
+          Top = 27
+          Width = 277
+          Height = 23
+          BevelInner = bvNone
+          BevelKind = bkSoft
+          DataField = 'produto'
+          DataSource = dsItens
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          KeyField = 'id'
+          ListField = 'nome'
+          ListSource = dsProduto
+          ParentFont = False
+          TabOrder = 0
+          MudarColor = 14087422
+        end
+        object edtQtde: TSWHMaskEdit
+          Left = 393
+          Top = 27
+          Width = 78
+          Height = 23
+          BevelKind = bkFlat
+          BorderStyle = bsNone
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 1
+          Text = ''
+          TipoMascara = tmNone
+          MudarColor = 14087422
+          CasasDecimais = Duas
+        end
+        object edtUnitario: TSWHMaskEdit
+          Left = 514
+          Top = 27
+          Width = 78
+          Height = 23
+          BevelKind = bkFlat
+          BorderStyle = bsNone
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Segoe UI'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 2
+          Text = ''
+          TipoMascara = tmValor
+          MudarColor = 14087422
+          CasasDecimais = Duas
         end
       end
     end
@@ -1590,7 +1541,7 @@ object frmPedidoCompra: TfrmPedidoCompra
       BevelOuter = bvNone
       Color = clWhite
       ParentBackground = False
-      TabOrder = 1
+      TabOrder = 0
       object SpeedButton3: TSpeedButton
         Left = 127
         Top = 24
@@ -1672,6 +1623,7 @@ object frmPedidoCompra: TfrmPedidoCompra
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000}
+        OnClick = SpeedButton3Click
       end
       object Label3: TLabel
         Left = 48
@@ -1752,7 +1704,7 @@ object frmPedidoCompra: TfrmPedidoCompra
         ParentFont = False
       end
       object Label7: TLabel
-        Left = 399
+        Left = 351
         Top = 127
         Width = 75
         Height = 13
@@ -1765,7 +1717,7 @@ object frmPedidoCompra: TfrmPedidoCompra
         ParentFont = False
       end
       object Label8: TLabel
-        Left = 568
+        Left = 520
         Top = 127
         Width = 88
         Height = 13
@@ -1777,91 +1729,8 @@ object frmPedidoCompra: TfrmPedidoCompra
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object SpeedButton7: TSpeedButton
-        Left = 331
-        Top = 143
-        Width = 27
-        Height = 25
-        Cursor = crHandPoint
-        Flat = True
-        Glyph.Data = {
-          36090000424D3609000000000000360000002800000018000000180000000100
-          2000000000000009000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000020202091B1B1B8E0D0D0D45000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000202
-          0209232323BC303030FF1B1B1B8D000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000020202092222
-          22BB303030FF242424C10202020C000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000002020209222222BB3030
-          30FF242424C10202020C00000000000000000000000000000000000000000000
-          00000000000000000000000000000000000000000000090909321B1B1B8D2222
-          22BB242424C61F1F1FA61111115C0101010702020209232323BC303030FF2323
-          23BC020202090000000000000000000000000000000000000000000000000000
-          00000000000000000000000000000202020B1E1E1EA2303030FE303030FF3030
-          30FF303030FF303030FF303030FF282828DB252525C3303030FF232323BC0202
-          0209000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000001010106232323C0303030FF282828D4101010570404
-          0413020202080A0A0A351D1D1DA0303030FE303030FF252525C3020202090000
-          0000000000000000000000000000000000000000000000000000000000000000
-          000000000000000000001818187E303030FF232323B802020209000000000000
-          000000000000000000000000000012121260303030FE282828D3010101030000
-          0000000000000000000000000000000000000000000000000000000000000000
-          000000000000020202082D2D2DEE2D2D2DEF0404041300000000000000000000
-          0000000000000000000000000000000000001E1E1E9F303030FF101010570000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000C0C0C41303030FF1D1D1D990000000000000000000000000000
-          0000000000000000000000000000000000000A0A0A36303030FF1D1D1D9B0000
-          0000000000000000000000000000000000000000000000000000000000000000
-          00000000000012121260303030FF1515156E0000000000000000000000000000
-          00000000000000000000000000000000000002020209303030FF242424BF0000
-          0000000000000000000000000000000000000000000000000000000000000000
-          00000000000011111158303030FF171717780000000000000000000000000000
-          00000000000000000000000000000000000004040414303030FF212121B50000
-          0000000000000000000000000000000000000000000000000000000000000000
-          00000000000008080828303030FF222222BB0000000000000000000000000000
-          00000000000000000000000000000000000010101057303030FF191919840000
-          0000000000000000000000000000000000000000000000000000000000000000
-          00000000000000000000272727CD303030FE0C0C0C4200000000000000000000
-          000000000000000000000000000002020209282828D4303030FE0909092E0000
-          0000000000000000000000000000000000000000000000000000000000000000
-          000000000000000000000C0C0C41303030FD2D2D2DED0C0C0C42000000000000
-          0000000000000000000004040413232323B9303030FF1C1C1C96000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          000000000000000000000000000014141469303030FD303030FE222222BB1717
-          17781515156E1D1D1D992D2D2DEF303030FF222222B70202020B000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000C0C0C40272727CE303030FF3030
-          30FF303030FF303030FF2B2B2BE7171717780101010300000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000080808291010
-          10571111115B0A0A0A3701010107000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000}
-      end
       object SpeedButton8: TSpeedButton
-        Left = 523
+        Left = 524
         Top = 86
         Width = 27
         Height = 25
@@ -1942,6 +1811,7 @@ object frmPedidoCompra: TfrmPedidoCompra
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000}
+        OnClick = SpeedButton8Click
       end
       object Edit1: TEdit
         Left = 48
@@ -1951,7 +1821,6 @@ object frmPedidoCompra: TfrmPedidoCompra
         BevelKind = bkFlat
         BorderStyle = bsNone
         TabOrder = 0
-        Text = 'Edit1'
       end
       object DateTimePicker1: TDateTimePicker
         Left = 173
@@ -1971,14 +1840,6 @@ object frmPedidoCompra: TfrmPedidoCompra
         Time = 0.598457581021648400
         TabOrder = 2
       end
-      object SWHDBComboBox1: TSWHDBComboBox
-        Left = 48
-        Top = 88
-        Width = 470
-        Height = 21
-        TabOrder = 3
-        MudarColor = 14087422
-      end
       object DateTimePicker3: TDateTimePicker
         Left = 560
         Top = 24
@@ -1986,40 +1847,402 @@ object frmPedidoCompra: TfrmPedidoCompra
         Height = 21
         Date = 45458.000000000000000000
         Time = 0.598457581021648400
-        TabOrder = 4
+        TabOrder = 3
       end
-      object SWHDBComboBox2: TSWHDBComboBox
+      object SWHDBLookupComboBox1: TSWHDBLookupComboBox
+        Left = 48
+        Top = 86
+        Width = 470
+        Height = 23
+        BevelInner = bvNone
+        BevelKind = bkSoft
+        DataField = 'fornecedor'
+        DataSource = dsCompra
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        KeyField = 'id'
+        ListField = 'nomerazao'
+        ListSource = dsCliente
+        ParentFont = False
+        TabOrder = 4
+        MudarColor = 14087422
+      end
+      object SWHDBLookupComboBox2: TSWHDBLookupComboBox
         Left = 48
         Top = 146
-        Width = 278
-        Height = 21
+        Width = 277
+        Height = 23
+        BevelInner = bvNone
+        BevelKind = bkSoft
+        DataField = 'formapgto'
+        DataSource = dsCompra
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        KeyField = 'id'
+        ListField = 'nome'
+        ListSource = dsFormaPgto
+        ParentFont = False
         TabOrder = 5
         MudarColor = 14087422
       end
-      object SWHEdit1: TSWHEdit
-        Left = 399
+      object edtFrete: TSWHMaskEdit
+        Left = 351
         Top = 146
         Width = 121
-        Height = 21
+        Height = 23
         BevelKind = bkFlat
         BorderStyle = bsNone
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 6
-        Text = 'SWHEdit1'
+        Text = ''
+        TipoMascara = tmValor
         MudarColor = 14087422
-        CampoObrigatorio = False
+        CasasDecimais = Duas
       end
-      object SWHEdit2: TSWHEdit
-        Left = 568
+      object edtDespesas: TSWHMaskEdit
+        Left = 520
         Top = 146
         Width = 121
-        Height = 21
+        Height = 23
         BevelKind = bkFlat
         BorderStyle = bsNone
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 7
-        Text = 'SWHEdit1'
+        Text = ''
+        TipoMascara = tmValor
         MudarColor = 14087422
-        CampoObrigatorio = False
+        CasasDecimais = Duas
       end
+    end
+  end
+  object qryCompra: TFDQuery
+    Connection = dm.FDConnection
+    SQL.Strings = (
+      'select * from compra'
+      'where id =:id')
+    Left = 93
+    Top = 13
+    ParamData = <
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = 1
+      end>
+    object qryCompraid: TLargeintField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qryCompradatavenda: TDateField
+      FieldName = 'datavenda'
+      Origin = 'datavenda'
+    end
+    object qryComprafornecedor: TIntegerField
+      FieldName = 'fornecedor'
+      Origin = 'fornecedor'
+    end
+    object qryCompraformapgto: TIntegerField
+      FieldName = 'formapgto'
+      Origin = 'formapgto'
+    end
+    object qryCompravalortotal: TBCDField
+      FieldName = 'valortotal'
+      Origin = 'valortotal'
+      Precision = 15
+      Size = 2
+    end
+    object qryComprausuario: TIntegerField
+      FieldName = 'usuario'
+      Origin = 'usuario'
+    end
+    object qryCompraobervacao: TWideStringField
+      FieldName = 'obervacao'
+      Origin = 'obervacao'
+      Size = 255
+    end
+    object qryComprasituacao: TWideStringField
+      FieldName = 'situacao'
+      Origin = 'situacao'
+      Size = 1
+    end
+  end
+  object dsCompra: TDataSource
+    DataSet = qryCompra
+    Left = 125
+    Top = 13
+  end
+  object qryFormaPgto: TFDQuery
+    Connection = dm.FDConnection
+    SQL.Strings = (
+      'select * from formapgto f '
+      'where f.ativo = 0')
+    Left = 581
+    Top = 157
+    object qryFormaPgtoid: TLargeintField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qryFormaPgtonome: TWideStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 255
+    end
+    object qryFormaPgtoabreviação: TWideStringField
+      FieldName = 'abrevia'#231#227'o'
+      Origin = '"abrevia'#231#227'o"'
+      Size = 3
+    end
+    object qryFormaPgtotipopgto: TIntegerField
+      FieldName = 'tipopgto'
+      Origin = 'tipopgto'
+    end
+    object qryFormaPgtoativo: TIntegerField
+      FieldName = 'ativo'
+      Origin = 'ativo'
+    end
+  end
+  object dsFormaPgto: TDataSource
+    DataSet = qryFormaPgto
+    Left = 629
+    Top = 157
+  end
+  object qryCliente: TFDQuery
+    Connection = dm.FDConnection
+    SQL.Strings = (
+      'select * from pessoa p '
+      'where p.situacao = 0'
+      '  and p.tipopessoa = 1'
+      'order by p.nomerazao asc ')
+    Left = 717
+    Top = 133
+    object qryClienteid: TLargeintField
+      FieldName = 'id'
+      Origin = 'id'
+    end
+    object qryClientesituacao: TIntegerField
+      FieldName = 'situacao'
+      Origin = 'situacao'
+    end
+    object qryClientetipopessoa: TIntegerField
+      FieldName = 'tipopessoa'
+      Origin = 'tipopessoa'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qryClientefisicojuridico: TIntegerField
+      FieldName = 'fisicojuridico'
+      Origin = 'fisicojuridico'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qryClientecnpjcpf: TWideStringField
+      FieldName = 'cnpjcpf'
+      Origin = 'cnpjcpf'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Size = 8190
+    end
+    object qryClientenomerazao: TWideStringField
+      FieldName = 'nomerazao'
+      Origin = 'nomerazao'
+      Size = 255
+    end
+    object qryClienteierg: TWideStringField
+      FieldName = 'ierg'
+      Origin = 'ierg'
+      Size = 255
+    end
+    object qryClientenomefantasia: TWideStringField
+      FieldName = 'nomefantasia'
+      Origin = 'nomefantasia'
+      Size = 255
+    end
+    object qryClienteemail: TWideStringField
+      FieldName = 'email'
+      Origin = 'email'
+      Size = 255
+    end
+    object qryClientecontato: TWideStringField
+      FieldName = 'contato'
+      Origin = 'contato'
+      Size = 255
+    end
+    object qryClientetelefone: TWideStringField
+      FieldName = 'telefone'
+      Origin = 'telefone'
+      Size = 15
+    end
+    object qryClientecep: TWideStringField
+      FieldName = 'cep'
+      Origin = 'cep'
+      Size = 11
+    end
+    object qryClienteendereco: TWideStringField
+      FieldName = 'endereco'
+      Origin = 'endereco'
+      Size = 255
+    end
+    object qryClientebairro: TWideStringField
+      FieldName = 'bairro'
+      Origin = 'bairro'
+      Size = 255
+    end
+    object qryClientecomplemento: TWideStringField
+      FieldName = 'complemento'
+      Origin = 'complemento'
+      Size = 255
+    end
+    object qryClientecidade: TWideStringField
+      FieldName = 'cidade'
+      Origin = 'cidade'
+      Size = 255
+    end
+    object qryClientetelefone2: TWideStringField
+      FieldName = 'telefone2'
+      Origin = 'telefone2'
+      Size = 15
+    end
+    object qryClienteuf: TWideStringField
+      FieldName = 'uf'
+      Origin = 'uf'
+      Size = 2
+    end
+    object qryClientenumero: TWideStringField
+      FieldName = 'numero'
+      Origin = 'numero'
+      Size = 255
+    end
+    object qryClientedatanasc: TDateField
+      FieldName = 'datanasc'
+      Origin = 'datanasc'
+    end
+  end
+  object dsCliente: TDataSource
+    DataSet = qryCliente
+    Left = 765
+    Top = 133
+  end
+  object qryProduto: TFDQuery
+    Connection = dm.FDConnection
+    SQL.Strings = (
+      'select * '
+      '  from produto p'
+      ' where p.situacao = 0')
+    Left = 269
+    Top = 255
+    object qryProdutoid: TLargeintField
+      FieldName = 'id'
+      Origin = 'id'
+    end
+    object qryProdutonome: TWideStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 255
+    end
+    object qryProdutosituacao: TIntegerField
+      FieldName = 'situacao'
+      Origin = 'situacao'
+    end
+    object qryProdutopresobruto: TBCDField
+      FieldName = 'presobruto'
+      Origin = 'presobruto'
+      Precision = 15
+    end
+    object qryProdutopesoliquedo: TBCDField
+      FieldName = 'pesoliquedo'
+      Origin = 'pesoliquedo'
+      Precision = 15
+    end
+    object qryProdutodescricao: TWideStringField
+      FieldName = 'descricao'
+      Origin = 'descricao'
+      Size = 1000
+    end
+    object qryProdutovalorunitario: TBCDField
+      FieldName = 'valorunitario'
+      Origin = 'valorunitario'
+      Precision = 15
+    end
+    object qryProdutoimagem: TBlobField
+      FieldName = 'imagem'
+      Origin = 'imagem'
+    end
+  end
+  object dsProduto: TDataSource
+    DataSet = qryProduto
+    Left = 298
+    Top = 256
+  end
+  object qryItens: TFDQuery
+    Connection = dm.FDConnection
+    SQL.Strings = (
+      'select * from itenscompra i '
+      'limit 1')
+    Left = 93
+    Top = 61
+    object qryItensid: TLargeintField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qryItensidcompra: TIntegerField
+      FieldName = 'idcompra'
+      Origin = 'idcompra'
+    end
+    object qryItensproduto: TIntegerField
+      FieldName = 'produto'
+      Origin = 'produto'
+    end
+    object qryItensquantidade: TBCDField
+      FieldName = 'quantidade'
+      Origin = 'quantidade'
+      Precision = 15
+      Size = 2
+    end
+    object qryItensvalorunitario: TBCDField
+      FieldName = 'valorunitario'
+      Origin = 'valorunitario'
+      Precision = 15
+    end
+    object qryItenstotalitem: TBCDField
+      FieldName = 'totalitem'
+      Origin = 'totalitem'
+      Precision = 15
+      Size = 2
+    end
+  end
+  object dsItens: TDataSource
+    DataSet = qryItens
+    Left = 125
+    Top = 61
+  end
+  object qryNumVendas: TFDQuery
+    Connection = dm.FDConnection
+    SQL.Strings = (
+      'SELECT COALESCE(v.id, 0) + 1 AS id FROM compra v '
+      ' ORDER BY v.id DESC LIMIT 1')
+    Left = 741
+    Top = 296
+    object qryNumVendasid: TLargeintField
+      AutoGenerateValue = arDefault
+      FieldName = 'id'
+      Origin = 'id'
+      ReadOnly = True
     end
   end
 end
